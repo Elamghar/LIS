@@ -7,7 +7,7 @@ laboratory information system
                  -Patient.java
                  -Test.java
                  -Sickness.java
-                 - Visit.java
+                 -Visit.java
                  -MedicalFile.java
   - repositories
          - PatientRepository.java
