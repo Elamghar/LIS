@@ -2,8 +2,10 @@
 laboratory information system
 
 ├── main
-   - java   
-       ─ models
+   |- java
+      - ma
+         - ensa
+            - models
                  -Patient.java
                  -Test.java
                  -Sickness.java
