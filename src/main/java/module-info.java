@@ -9,6 +9,7 @@ module ma.ensa.lis {
     requires java.sql;
     requires mysql.connector.j;
     requires static lombok;
+    requires java.desktop;
 
     opens ma.ensa.lis to javafx.fxml;
     exports ma.ensa.lis;
