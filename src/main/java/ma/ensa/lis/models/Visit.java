@@ -1,41 +1,33 @@
 package ma.ensa.lis.models;
 
-import com.mysql.cj.protocol.PacketReceivedTimeHolder;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import ma.ensa.lis.Exceptions.patientException;
 
 import java.util.Date;
+
+@Data
 public class Visit {
+    @Setter
+    @Getter
     private String visitId;
+    @Setter
+    @Getter
     private Date visitDate;
+    private String diagnostic;
     //private List<Test> tests ;
     //ajout d'un staff
-    //diagnostic et traitement
-    //Patient p;
-
-
-    public Visit(){
-    }
+    Patient p;
+    public Visit(){}
     public Visit(String visitId,Date visitDate){
         this.visitId=visitId;
         this.visitDate=visitDate;
         p=new Patient();
     }
-    public String getVisitId() {
-        return visitId;
-    }
 
-    public Date getVisitDate() {
-        return visitDate;
-    }
-
-    public void setVisitId(String visitId) {
-        this.visitId = visitId;
-    }
-
-    public void setVisitDate(Date visitDate) {
-        this.visitDate = visitDate;
-    }
-    void addPatient(Patient p){
-     if(p==null)throw new InvalidePatientInstance("Invalide patient Instance");
+    void addPatient(Patient p) throws patientException {
+     if(p==null)throw new patientException("Instance Patient is null");
      this.p=p;
     }
 

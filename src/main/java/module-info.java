@@ -8,6 +8,7 @@ module ma.ensa.lis {
     requires org.kordamp.bootstrapfx.core;
     requires java.sql;
     requires mysql.connector.j;
+    requires static lombok;
 
     opens ma.ensa.lis to javafx.fxml;
     exports ma.ensa.lis;
