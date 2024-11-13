@@ -1,15 +1,21 @@
 package ma.ensa.lis.models;
 
-import com.mysql.cj.protocol.PacketReceivedTimeHolder;
+import ma.ensa.lis.Exceptions.patientException;
 
 import java.util.Date;
 public class Visit {
     private String visitId;
     private Date visitDate;
+
+    public String getDiagnostic() {
+        return diagnostic;
+    }
+
     //private List<Test> tests ;
     //ajout d'un staff
     //diagnostic et traitement
-    //Patient p;
+    public String diagnostic;
+    Patient p;
 
 
     public Visit(){
@@ -23,8 +29,8 @@ public class Visit {
         return visitId;
     }
 
-    public Date getVisitDate() {
-        return visitDate;
+    public java.sql.Date getVisitDate() {
+        return (java.sql.Date) visitDate;
     }
 
     public void setVisitId(String visitId) {
@@ -34,8 +40,8 @@ public class Visit {
     public void setVisitDate(Date visitDate) {
         this.visitDate = visitDate;
     }
-    void addPatient(Patient p){
-     if(p==null)throw new InvalidePatientInstance("Invalide patient Instance");
+    void addPatient(Patient p) throws patientException {
+     if(p==null)throw new patientException();//"Invalide patient Instance"
      this.p=p;
     }
 

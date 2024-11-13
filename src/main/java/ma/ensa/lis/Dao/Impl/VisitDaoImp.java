@@ -18,8 +18,8 @@ public class VisitDaoImp implements VisitDao {
         String query = "INSERT INTO Visit (visitId,visitDate,diagnostic) VALUES (?, ?,?)";
         try {
             PreparedStatement stmt = conn.prepareStatement(query);
-            stmt.setString(1, v.getId());
-            stmt.setString(2, v.getDate());
+            stmt.setString(1, v.getVisitId());
+            stmt.setDate(2, v.getVisitDate());
             stmt.setString(2, v.getDiagnostic());
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
