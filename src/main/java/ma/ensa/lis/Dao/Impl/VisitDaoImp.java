@@ -19,8 +19,8 @@ public class VisitDaoImp implements VisitDao {
         try {
             PreparedStatement stmt = conn.prepareStatement(query);
             stmt.setString(1, v.getVisitId());
-            stmt.setString(2, v.getVisitDate());
-            stmt.setString(2, v.getVisitDiagno());
+            stmt.setDate(2, v.getVisitDate());
+            //stmt.setString(2, v.getVisitDiagno());
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 // Login Successful if match is found
