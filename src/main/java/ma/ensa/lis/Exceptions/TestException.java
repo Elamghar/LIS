@@ -1,7 +1,11 @@
 package ma.ensa.lis.Exceptions;
 
 public class TestException extends RuntimeException {
-  public TestException(String message) {
-    super(message);
-  }
+
+    public String msg;
+
+    public TestException(String m){
+        super(m);
+        msg=m;
+    }
 }
