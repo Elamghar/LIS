@@ -74,7 +74,6 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.32</version> <!-- Use the latest stable version -->
         </dependency>
-
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
