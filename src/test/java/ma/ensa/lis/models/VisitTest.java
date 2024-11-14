@@ -1,8 +1,7 @@
-package ma.ensa.lis.models;
+package ma.ensa.lis.models.models;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
 class VisitTest {
 
     @Test
