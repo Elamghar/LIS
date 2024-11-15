@@ -1,41 +1,43 @@
 package ma.ensa.lis.controllers;
 
 import javafx.event.ActionEvent;
+import ma.ensa.lis.Dao.Impl.TestDaoImp;
 import ma.ensa.lis.models.Test;
-import ma.ensa.lis.repositories.TestRepository;
+import ma.ensa.lis.utils.DbConnection;
 
 import java.util.Date;
 import java.util.List;
 
 public class TestController {
 
-    private TestRepository testRepository;
+    private final TestDaoImp testDao;
 
-    public TestController(TestRepository testRepository) {
-        this.testRepository = testRepository;
+    public TestController(DbConnection dbConnection) {
+        this.testDao = new TestDaoImp(dbConnection);
     }
 
     public void createTest(String id, String name, String category, float price) {
         Test test = new Test(id, name, new Date(), price, category, new Date());
-        testRepository.save(test);
+        testDao.save(test);
     }
 
     public List<Test> getAllTests() {
-        return testRepository.findAll();
+        return testDao.findAll();
     }
 
     public Test getTestById(String id) {
-        return testRepository.findById(id);
+        return testDao.findById(id);
     }
 
     public void updateTest(Test test) {
-        testRepository.update(test);
+        testDao.update(test);
     }
 
     public void deleteTest(String id) {
-        testRepository.delete(id);
+        testDao.delete(id);
     }
 
     public void logout(ActionEvent actionEvent) {
+        // Ajouter la logique de déconnexion si nécessaire.
     }
 }
