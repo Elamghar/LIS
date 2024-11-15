@@ -1,4 +1,4 @@
-package ma.ensa.lis.models.models;
+package ma.ensa.lis.models;
 
 import org.junit.jupiter.api.Test;
 
