@@ -41,6 +41,7 @@ public class VisitDaoImp implements VisitDao {
         Connection conn=db.getConn();
         PreparedStatement stmt=conn.prepareStatement(query);
         stmt.setString(1,v.getVisitId());
+        stmt.executeUpdate();
         }catch (SQLException e) {
              e.printStackTrace();
         }
