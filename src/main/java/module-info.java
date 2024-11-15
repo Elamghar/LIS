@@ -13,6 +13,7 @@ module ma.ensa.lis {
     requires com.google.gson;
     requires com.fasterxml.jackson.annotation;
     requires com.fasterxml.jackson.databind;
+    requires java.management;
 
     opens ma.ensa.lis to javafx.fxml;
     exports ma.ensa.lis;
