@@ -1,4 +1,4 @@
-package ma.ensa.lis.models.dao;
+package ma.ensa.lis.dao;
 
 public class TestDAOTest {
 }

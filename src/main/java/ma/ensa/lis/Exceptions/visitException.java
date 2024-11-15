@@ -1,6 +1,6 @@
 package ma.ensa.lis.Exceptions;
 
-public class visitException extends  Exception {
+public class  visitException extends  Exception {
     public String msg;
 
     public visitException(String m){
