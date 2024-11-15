@@ -42,12 +42,10 @@
         <PointLight color="CHARTREUSE" layoutX="569.0" layoutY="39.0" lightOn="true" />
         <TableView fx:id="table" layoutY="114.0" prefHeight="234.0" prefWidth="747.0">
             <columns>
-                <TableColumn fx:id="id" prefWidth="97.60000914335251" text="id" />
-                <TableColumn fx:id="name" prefWidth="115.99996948242188" text="fullname" />
-                <TableColumn fx:id="loginn" prefWidth="118.40000915527344" text="login" />
-                <TableColumn fx:id="pass" prefWidth="126.39996337890625" text="pass" />
-                <TableColumn fx:id="country" prefWidth="143.20001220703125" text="country" />
-                <TableColumn fx:id="date_ns" prefWidth="147.199951171875" text="date_ns" />
+                <TableColumn fx:id="id" prefWidth="155.20001524686813" text="id" />
+                <TableColumn fx:id="name" prefWidth="207.99998474121094" text="nom" />
+                <TableColumn fx:id="prenom" prefWidth="220.79998779296875" text="prenom" />
+            <TableColumn     fx:id="gender" prefWidth="164.800048828125" text="gender" />
             </columns>
         </TableView>
         <Text layoutX="14.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient details" wrappingWidth="204.813232421875">

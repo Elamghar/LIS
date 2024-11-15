@@ -14,7 +14,8 @@ module ma.ensa.lis {
     requires com.fasterxml.jackson.annotation;
     requires com.fasterxml.jackson.databind;
     requires java.management;
-
+    opens ma.ensa.lis.controllers to javafx.fxml;
     opens ma.ensa.lis to javafx.fxml;
+    opens ma.ensa.lis.models to javafx.base;
     exports ma.ensa.lis;
 }

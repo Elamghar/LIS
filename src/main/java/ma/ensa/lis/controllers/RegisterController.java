@@ -20,7 +20,7 @@ import java.util.Objects;
 
 public class RegisterController {
     @FXML
-    private TextField fullness;
+    private TextField nom;
 
     @FXML
     private PasswordField password;
@@ -29,11 +29,12 @@ public class RegisterController {
     private TextField login;
 
     @FXML
-    private TextField country;
+    private TextField gender;
 
     @FXML
     private DatePicker age;
-
+    @FXML
+    private TextField prenom;
     public void login(MouseEvent actionEvent) throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/login-view.fxml"));
@@ -46,7 +47,7 @@ public class RegisterController {
         stage.show();
     }
     public void register(javafx.event.ActionEvent actionEvent) throws IOException {
-        if (login == null || fullness == null || password == null || country == null || age == null) {
+        if (login == null || nom == null || password == null || gender == null || age == null) {
             System.out.println("One or more fields are not initialized,enterrrrr alll of themm");
             JOptionPane.showMessageDialog(null,"you're so missed up ");
             return;
@@ -65,7 +66,7 @@ public class RegisterController {
 //            System.out.println(login.getText());
 //            System.out.println(country.getText());
 //            System.out.println(age.getValue());
-            String sql="insert into reg values('"+fullness.getText()+"','"+login.getText()+"','"+password.getText()+"','"+age.getValue()+"','"+country.getText()+"',null)";
+            String sql="insert into reg values('"+nom.getText()+"','"+login.getText()+"','"+password.getText()+"','"+age.getValue()+"','"+gender.getText()+"',null,'"+prenom.getText()+"')";
             stmt.executeUpdate(sql);
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/login-view.fxml"));
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
