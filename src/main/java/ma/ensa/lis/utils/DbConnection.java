@@ -1,5 +1,7 @@
 package ma.ensa.lis.utils;
 
+import lombok.Getter;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -9,6 +11,7 @@ public class DbConnection {
     String user = "root";
     String password = "root";
 
+    @Getter
     private Connection conn ;
 
     public DbConnection() {
@@ -18,8 +21,5 @@ public class DbConnection {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
-    public Connection getConn(){
-        return  conn;
     }
 }

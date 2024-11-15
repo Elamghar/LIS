@@ -69,14 +69,14 @@ public class AdminController {
         ResultSet rs=stmt.executeQuery(sql2);
         ObservableList<Patient> ob= FXCollections.observableArrayList();
         while (rs.next()) {
-            int id = rs.getInt("id");
+            String id = rs.getString("id");
             String namee = rs.getString("fullname");
             String login = rs.getString("login");
 
             String passe = rs.getString("password");
             Date date_ns = rs.getDate("date_ns");
             String country = rs.getString("country");
-            Patient pa = new Patient(id, namee, login, passe, date_ns, country);
+            Patient pa = new Patient(id,namee,namee);
             ob.add(pa);
             table.setItems(ob);
         }
