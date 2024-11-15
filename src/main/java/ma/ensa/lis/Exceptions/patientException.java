@@ -1,6 +1,6 @@
 package ma.ensa.lis.Exceptions;
 
-public class patientException extends Exception {
+public class  patientException extends Exception {
     public String msg;
 
 
