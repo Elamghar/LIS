@@ -1,52 +1,43 @@
 package ma.ensa.lis.models;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import ma.ensa.lis.Exceptions.TestException;
 import ma.ensa.lis.Exceptions.patientException;
 
 import java.util.Date;
+import java.util.List;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Visit {
     private String visitId;
     private Date visitDate;
-
-    public String getDiagnostic() {
-        return diagnostic;
-    }
-
-    //private List<Test> tests ;
-    //ajout d'un staff
-    //diagnostic et traitement
-    public String diagnostic;
+    private String diagnostic;
+    private List<Test> tests ;
     Patient p;
 
 
-    public Visit(){
-    }
+
     public Visit(String visitId,Date visitDate){
         this.visitId=visitId;
         this.visitDate=visitDate;
-        p=new Patient();
+        //p=new Patient();
     }
-    public String getVisitId() {
-        return visitId;
-    }
-
-    public java.sql.Date getVisitDate() {
-        return (java.sql.Date) visitDate;
-    }
-
-    public void setVisitId(String visitId) {
-        this.visitId = visitId;
-    }
-
-    public void setVisitDate(Date visitDate) {
-        this.visitDate = visitDate;
+    void addTest(Test test) throws  TestException {
+        if(test==null)throw new TestException("Instance null in Visit.addTest");
     }
     void addPatient(Patient p) throws patientException {
-     if(p==null)throw new patientException();//"Invalide patient Instance"
+     if(p==null)throw new patientException("Instance Patient is null");
      this.p=p;
     }
-
     public  String toJson(){
         //implementation to facilate Xml manip
         return null;
     }
+
 }
