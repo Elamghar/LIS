@@ -74,7 +74,7 @@ public class loginController {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/patient-view.fxml"));
                     Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
 
-                    Scene scene = new Scene(fxmlLoader.load(), 754, 622);
+                    Scene scene = new Scene(fxmlLoader.load(), 754, 753);
                     String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/STYLE.css")).toExternalForm();
                     scene.getStylesheets().add(css);
                     stage.setTitle("Hello!");

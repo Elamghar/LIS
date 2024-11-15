@@ -15,17 +15,21 @@ public class VisitDaoImp implements VisitDao {
     public void save(Visit v) {
         DbConnection db = new DbConnection();
         Connection conn = db.getConn();
-        String query = "INSERT INTO Visit (visitId,visitDate,diagnostic) VALUES (?,?,?)";
+        String query = "INSERT INTO Visit (visitId,visitDate,diagnostic) VALUES (?,?,?)";//add patientid
+        boolean success = false;
         try {
             PreparedStatement  stmt = conn.prepareStatement(query);
             stmt.setString(1, v.getVisitId());
-            stmt.setDate(2, (java.sql.Date) v.getVisitDate());
-            stmt.setString(2, v.getDiagnostic());
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                // Login Successful if match is found
-                boolean success = true;
-            }
+            stmt.setDate(2, new java.sql.Date( v.getVisitDate().getTime()));
+            stmt.setString(3, v.getDiagnostic());
+             stmt.executeUpdate();//for insrt o delete o update we use executeUpdate() and makattreturnich Resultset
+//            if (rs.next()) {
+//                // Login Successful if match is found
+//                System.out.print("ajouter avec succes");
+//                 success = true;
+//            }else{
+//                System.out.print("erreur d'ajout");
+//            }
         } catch (SQLException e) {
             e.printStackTrace();
             //rs.close();
