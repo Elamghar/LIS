@@ -3,7 +3,7 @@ package ma.ensa.lis.Dao.Impl;
 import ma.ensa.lis.Dao.TestDao;
 import ma.ensa.lis.models.Test;
 import ma.ensa.lis.models.TestStatus;
-import ma.ensa.lis.utils.DatabaseConnection;
+import ma.ensa.lis.utils.DbConnection;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -11,12 +11,16 @@ import java.util.List;
 
 public class TestDaoImp implements TestDao {
 
+    private final DbConnection dbConnection;
+
+    public TestDaoImp(DbConnection dbConnection) {
+        this.dbConnection = dbConnection;
+    }
+
     @Override
     public Test findById(String id) {
         String query = "SELECT * FROM Test WHERE id = ?";
-        try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(query)) {
-
+        try (PreparedStatement stmt = dbConnection.getConn().prepareStatement(query)) {
             stmt.setString(1, id);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
@@ -32,8 +36,7 @@ public class TestDaoImp implements TestDao {
     public List<Test> findAll() {
         List<Test> tests = new ArrayList<>();
         String query = "SELECT * FROM Test";
-        try (Connection conn = DatabaseConnection.getConnection();
-             Statement stmt = conn.createStatement();
+        try (Statement stmt = dbConnection.getConn().createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
 
             while (rs.next()) {
@@ -48,9 +51,7 @@ public class TestDaoImp implements TestDao {
     @Override
     public void save(Test test) {
         String query = "INSERT INTO Test (id, name, category, testDate, expectedCompletionDate, status, result, price) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-        try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(query)) {
-
+        try (PreparedStatement stmt = dbConnection.getConn().prepareStatement(query)) {
             stmt.setString(1, test.getId());
             stmt.setString(2, test.getName());
             stmt.setString(3, test.getCategory());
@@ -66,13 +67,10 @@ public class TestDaoImp implements TestDao {
         }
     }
 
-
     @Override
     public void update(Test test) {
         String query = "UPDATE Test SET name = ?, category = ?, testDate = ?, expectedCompletionDate = ?, status = ?, result = ?, price = ? WHERE id = ?";
-        try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(query)) {
-
+        try (PreparedStatement stmt = dbConnection.getConn().prepareStatement(query)) {
             stmt.setString(1, test.getName());
             stmt.setString(2, test.getCategory());
             stmt.setDate(3, new java.sql.Date(test.getTestDate().getTime()));
@@ -91,9 +89,7 @@ public class TestDaoImp implements TestDao {
     @Override
     public void delete(String id) {
         String query = "DELETE FROM Test WHERE id = ?";
-        try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(query)) {
-
+        try (PreparedStatement stmt = dbConnection.getConn().prepareStatement(query)) {
             stmt.setString(1, id);
             stmt.executeUpdate();
         } catch (SQLException e) {
@@ -114,4 +110,3 @@ public class TestDaoImp implements TestDao {
         return test;
     }
 }
-
