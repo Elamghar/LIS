@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 
-public interface VisitDao {
+public interface  VisitDao {
     public void save(Visit v);
     public void delete(Visit v);
     public Visit findById(String id);

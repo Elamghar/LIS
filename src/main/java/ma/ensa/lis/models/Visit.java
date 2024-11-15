@@ -28,6 +28,12 @@ public class Visit {
         this.visitDate=visitDate;
         //p=new Patient();
     }
+    public Visit(String visitId,Date visitDate,String diagnostic){
+        this.visitId=visitId;
+        this.visitDate=visitDate;
+        this.diagnostic=diagnostic;
+        //p=new Patient();
+    }
     void addTest(Test test) throws  TestException {
         if(test==null)throw new TestException("Instance null in Visit.addTest");
     }
