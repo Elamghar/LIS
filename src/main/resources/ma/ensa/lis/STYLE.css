@@ -22,7 +22,8 @@ TextField, PasswordField {
     -fx-background-radius: 8;
     -fx-background-color: #f7f9fc;
     -fx-font-family: "Segoe UI", sans-serif;
-    -fx-font-size: 14px;
+    -fx-pref-width: 670;
+    -fx-pref-height: 26;
     -fx-text-fill: #333;
     -fx-prompt-text-fill: #a9a9a9;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 5, 0, 0, 1);
@@ -35,7 +36,8 @@ DatePicker{
     -fx-background-radius: 8;
     -fx-background-color: #f7f9fc;
     -fx-font-family: "Segoe UI", sans-serif;
-    -fx-font-size: 14px;
+    -fx-pref-width: 670;
+    -fx-pref-height: 26;
     -fx-text-fill: #333;
     -fx-prompt-text-fill: #a9a9a9;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 5, 0, 0, 1);
@@ -55,9 +57,9 @@ Button {
     -fx-background-color: #4CAF50; /* Green background */
     -fx-text-fill: white;
     -fx-font-family: "Segoe UI", sans-serif;
-    -fx-font-size: 14px;
+    -fx-pref-width: 200px;
     -fx-font-weight: bold;
-    -fx-pref-width: 130px;
+
     -fx-border-radius: 10;
     -fx-background-radius: 10;
     -fx-padding: 8 20;

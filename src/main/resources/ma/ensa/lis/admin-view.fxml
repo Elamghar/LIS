@@ -45,7 +45,7 @@
                 <TableColumn fx:id="id" prefWidth="155.20001524686813" text="id" />
                 <TableColumn fx:id="name" prefWidth="207.99998474121094" text="nom" />
                 <TableColumn fx:id="prenom" prefWidth="220.79998779296875" text="prenom" />
-            <TableColumn     fx:id="gender" prefWidth="164.800048828125" text="gender" />
+            <TableColumn fx:id="gender" prefWidth="164.800048828125" text="gender" />
             </columns>
         </TableView>
         <Text layoutX="14.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient details" wrappingWidth="204.813232421875">
