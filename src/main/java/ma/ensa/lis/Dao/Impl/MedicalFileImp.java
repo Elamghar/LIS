@@ -138,7 +138,7 @@ public class MedicalFileImp implements MedicalFileDao {
         String Query="SELECT * FROM visit WHERE patientId=? ";//patient id colomn in visit table ..khassna jointure
         try{
             PreparedStatement stmt=conn.prepareStatement(Query);
-            stmt.setString(1,String.valueOf(pa.getPatientId()));
+            stmt.setString(1,String.valueOf(pa.getId()));
             ResultSet rs=stmt.executeQuery();
             while(rs.next()){
                 Visit visit=new Visit(rs.getString("id"),rs.getDate("date"),rs.getString("diagnostic"));

@@ -31,11 +31,14 @@ public class AdminController {
     @FXML
     private TableColumn<Patient, Date> date_ns;
     @FXML
+    private TableColumn<Patient, String> prenom;
+
+    @FXML
     private TableColumn<Patient,String> name;
     @FXML
     private TableColumn<Patient,Integer> id;
     @FXML
-    private TableColumn<Patient,String> country;//liaison m3a table f view
+    private TableColumn<Patient,String> gender;//liaison m3a table f view
 
 
 
@@ -43,11 +46,10 @@ public class AdminController {
     @FXML
     public void initialize () {//liaison m3a Patient  ,kola column mn tableau khass t3ref ina attribut f Patient takhod
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
-        name.setCellValueFactory(new PropertyValueFactory<>("fullname"));
-        loginn.setCellValueFactory(new PropertyValueFactory<>("login"));
-        date_ns.setCellValueFactory(new PropertyValueFactory<>("date_ns"));
-        pass.setCellValueFactory(new PropertyValueFactory<>("pass"));
-        country.setCellValueFactory(new PropertyValueFactory<>("country"));
+        name.setCellValueFactory(new PropertyValueFactory<>("nom"));
+        prenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
+
+        gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
     }
 
 
@@ -69,14 +71,14 @@ public class AdminController {
         ResultSet rs=stmt.executeQuery(sql2);
         ObservableList<Patient> ob= FXCollections.observableArrayList();
         while (rs.next()) {
-            String id = rs.getString("id");
-            String namee = rs.getString("fullname");
+            int id = rs.getInt("id");
+            String first_name = rs.getString("name");
             String login = rs.getString("login");
-
+            String prenomm=rs.getString("last_name");
             String passe = rs.getString("password");
             Date date_ns = rs.getDate("date_ns");
-            String country = rs.getString("country");
-            Patient pa = new Patient(id,namee,namee);
+            String gender = rs.getString("gender");
+            Patient pa = new Patient(id,first_name,prenomm,gender);
             ob.add(pa);
             table.setItems(ob);
         }
