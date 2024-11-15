@@ -8,11 +8,14 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Patient {
-    private String patientId,nom,prenom;
+    private String patientId,nom,prenom,gender;
     List<Visit> visits;
-    public Patient(String patientId,String nom,String prenom){
+    private int age;
+    public Patient(String patientId,String nom,String prenom,int age,String gender){
         this.patientId=patientId;
         this.nom=nom;
         this.prenom=prenom;
+        this.age=age;
+        this.gender=gender;
     }
 }

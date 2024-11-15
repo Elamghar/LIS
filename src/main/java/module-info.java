@@ -10,6 +10,9 @@ module ma.ensa.lis {
     requires mysql.connector.j;
     requires static lombok;
     requires java.desktop;
+    requires com.google.gson;
+    requires com.fasterxml.jackson.annotation;
+    requires com.fasterxml.jackson.databind;
 
     opens ma.ensa.lis to javafx.fxml;
     exports ma.ensa.lis;

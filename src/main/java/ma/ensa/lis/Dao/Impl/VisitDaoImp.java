@@ -17,7 +17,7 @@ public class VisitDaoImp implements VisitDao {
         Connection conn = db.getConn();
         String query = "INSERT INTO Visit (visitId,visitDate,diagnostic) VALUES (?,?,?)";
         try {
-            PreparedStatement stmt = conn.prepareStatement(query);
+            PreparedStatement  stmt = conn.prepareStatement(query);
             stmt.setString(1, v.getVisitId());
             stmt.setDate(2, (java.sql.Date) v.getVisitDate());
             stmt.setString(2, v.getDiagnostic());
