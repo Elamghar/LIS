@@ -5,13 +5,29 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import ma.ensa.lis.utils.DbConnection;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.util.Objects;
+
+import static ma.ensa.lis.utils.useFullFunction.executeSqlScript;
 
 public class App extends  Application {
     @Override
     public void start(Stage stage) throws IOException {
+
+        String schemaFilePath = "src/main/resources/schema.sql";
+        // Execute the schema file
+        try{
+            DbConnection db=new DbConnection();
+            Connection conn=db.getConn();
+            executeSqlScript(conn, schemaFilePath);
+            System.out.println("Database schema initialized successfully.");
+        } catch (Exception e) {
+            System.out.println("An error occurred while connecting to the database or initializing the schema.");
+            e.printStackTrace();
+        }
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("login-view.fxml"));
 
         Scene scene = new Scene((Parent) fxmlLoader.load(), 754, 622);
