@@ -1,20 +1,19 @@
 package ma.ensa.lis.controllers;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import ma.ensa.lis.utils.DbConnection;
 
 import javax.swing.*;
 import java.io.IOException;
 import java.sql.*;
-import java.util.Date;
 import java.util.Objects;
 public class loginController {
     @FXML
@@ -34,17 +33,14 @@ public class loginController {
 
 
     public void enter(javafx.event.ActionEvent actionEvent) throws IOException {
-        String url="jdbc:mysql://localhost:3306/data1?useSSL=false&serverTimezone=UTC";
-        String name="root";
-        String pass="root";
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connect= DriverManager.getConnection(url, name, pass);
-            Statement stmt=connect.createStatement();
+            DbConnection db=new DbConnection();
+            Connection conn=db.getConn();
+            Statement stmt=conn.createStatement();
             System.out.println("Connected to database");
             String lo=login.getText();
             String p=ps.getText();
-            String sql = "SELECT * FROM reg WHERE login='" + lo + "' AND password='" + p + "'";
+            String sql = "SELECT * FROM Patient WHERE login='" + lo + "' AND password='" + p + "'";
 
             ResultSet rs=stmt.executeQuery(sql);
 //            if(rs.next()){
@@ -89,7 +85,7 @@ public class loginController {
             }
 
         }
-        catch (SQLException | ClassNotFoundException e) {
+        catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
