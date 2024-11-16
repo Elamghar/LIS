@@ -52,7 +52,7 @@ public class RegisterController {
             JOptionPane.showMessageDialog(null,"you're so missed up ");
             return;
         }
-        String url="jdbc:mysql://localhost:3306/data1?useSSL=false&serverTimezone=UTC";
+        String url="jdbc:mysql://localhost:3306/LisDB?useSSL=false&serverTimezone=UTC";
         String name="root";
         String pass="root";
 
@@ -66,7 +66,7 @@ public class RegisterController {
 //            System.out.println(login.getText());
 //            System.out.println(country.getText());
 //            System.out.println(age.getValue());
-            String sql="insert into reg values('"+nom.getText()+"','"+login.getText()+"','"+password.getText()+"','"+age.getValue()+"','"+gender.getText()+"',null,'"+prenom.getText()+"')";
+            String sql="insert into Patient values('"+nom.getText()+"','"+login.getText()+"','"+password.getText()+"','"+age.getValue()+"','"+gender.getText()+"',null,'"+prenom.getText()+"')";
             stmt.executeUpdate(sql);
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/login-view.fxml"));
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
