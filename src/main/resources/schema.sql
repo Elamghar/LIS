@@ -1,16 +1,13 @@
--- ========================================
--- Schema: Medical System
--- ========================================
 
--- Drop tables if they already exist to avoid duplication
+
+-- Drop tables if they already exist Ola Ms7o hadchi odik sa3a ayb9aw tables
 DROP TABLE IF EXISTS Test;
 DROP TABLE IF EXISTS Visit;
 DROP TABLE IF EXISTS MedicalFile;
 DROP TABLE IF EXISTS Patient;
 
--- ========================================
 -- Table: Patient
--- ========================================
+
 CREATE TABLE Patient (
                          patientId INT AUTO_INCREMENT PRIMARY KEY,
                          name VARCHAR(100) NOT NULL,
@@ -19,9 +16,8 @@ CREATE TABLE Patient (
                          gender ENUM('Male', 'Female') NOT NULL
 );
 
--- ========================================
+
 -- Table: MedicalFile
--- ========================================
 CREATE TABLE MedicalFile (
                              id INT AUTO_INCREMENT PRIMARY KEY,
                              dateCreation DATE NOT NULL,
@@ -30,9 +26,7 @@ CREATE TABLE MedicalFile (
                              FOREIGN KEY (patientId) REFERENCES Patient(patientId) ON DELETE CASCADE
 );
 
--- ========================================
 -- Table: Appointment (Visit)
--- ========================================
 CREATE TABLE Visit (
                              visitId INT AUTO_INCREMENT PRIMARY KEY,
                              visitDate DATE NOT NULL,
@@ -42,9 +36,8 @@ CREATE TABLE Visit (
                              FOREIGN KEY (patientId) REFERENCES Patient(patientId) ON DELETE CASCADE
 );
 
--- ========================================
+
 -- Table: Test
--- ========================================
 CREATE TABLE Test (
                       testId INT AUTO_INCREMENT PRIMARY KEY,
                       testName VARCHAR(100) NOT NULL,
@@ -55,7 +48,3 @@ CREATE TABLE Test (
                       appointmentId INT NOT NULL,
                       FOREIGN KEY (appointmentId) REFERENCES Visit(visitId) ON DELETE CASCADE
 );
-
--- ========================================
--- End of Schema
--- ========================================
