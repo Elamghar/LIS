@@ -1,7 +1,7 @@
 package ma.ensa.lis.controllers;
 
 import ma.ensa.lis.Dao.IllnessDAOInterface;
-import ma.ensa.lis.Dao.Impl.IllnessDAO;
+import ma.ensa.lis.Dao.IllnessDao;
 import ma.ensa.lis.models.Illness;
 
 import java.util.List;
@@ -9,8 +9,8 @@ import java.util.List;
 public class IllnessController {
     private final IllnessDAOInterface illnessDAOInterface;
 
-    public IllnessController(IllnessDAO illnessDAO) {
-        this.illnessDAOInterface= new IllnessDAO();
+    public IllnessController(IllnessDao illnessDAO) {
+        this.illnessDAOInterface= new IllnessDao();
     }
 
     // Ajouter une nouvelle maladie

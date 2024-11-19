@@ -18,7 +18,7 @@ public class Visit {
     private String visitId;
     private Date visitDate;
     private String diagnostic;
-    private List<Test> tests ;
+    private List<TestLab> tests ;
     Patient p;
 
 
@@ -34,7 +34,7 @@ public class Visit {
         this.diagnostic=diagnostic;
         //p=new Patient();
     }
-    void addTest(Test test) throws  TestException {
+    void addTest(TestLab test) throws  TestException {
         if(test==null)throw new TestException("Instance null in Visit.addTest");
     }
     void addPatient(Patient p) throws patientException {

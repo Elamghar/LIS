@@ -1,7 +1,5 @@
-package ma.ensa.lis.Dao.Impl;
+package ma.ensa.lis.Dao;
 
-import ma.ensa.lis.Dao.IllnessDAOInterface;
-import ma.ensa.lis.Dao.IllnessDao;
 import ma.ensa.lis.models.Illness;
 import ma.ensa.lis.utils.DbConnection;
 
@@ -9,7 +7,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class IllnessDAO implements IllnessDAOInterface {
+public class IllnessDao implements IllnessDAOInterface {
     @Override
     public void addIllness(Illness illness) {
         String sql = "INSERT INTO Illness (Id,nom,description) VALUES (?,?,?)";

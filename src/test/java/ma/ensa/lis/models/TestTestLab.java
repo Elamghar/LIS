@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Date;
 
-public class TestTest {
+public class TestTestLab {
 
     @Test
     public void testTestConstructor() {
@@ -25,7 +25,7 @@ public class TestTest {
         assertEquals(TestStatus.PENDING, test.getStatus());  // Vérifier le statut par défaut
     }
 
-    @Test
+    Test
     public void testSettersAndGetters() {
         // Création d'un objet Test
         Test test = new Test("T123", "Test Glucose", new Date(), 15.5f, "Blood", new Date());

@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Date;
 
-public class TestStatusTest {
+public class TestStatusTestLab {
 
     @Test
     public void testStartTest() {

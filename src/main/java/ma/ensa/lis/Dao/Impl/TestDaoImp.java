@@ -1,7 +1,7 @@
 package ma.ensa.lis.Dao.Impl;
 
 import ma.ensa.lis.Dao.TestDao;
-import ma.ensa.lis.models.Test;
+import ma.ensa.lis.models.TestLab;
 import ma.ensa.lis.models.TestStatus;
 import ma.ensa.lis.utils.DbConnection;
 
@@ -18,7 +18,7 @@ public class TestDaoImp implements TestDao {
     }
 
     @Override
-    public Test findById(String id) {
+    public TestLab findById(String id) {
         String query = "SELECT * FROM Test WHERE id = ?";
         try (PreparedStatement stmt = dbConnection.getConn().prepareStatement(query)) {
             stmt.setString(1, id);
@@ -33,8 +33,8 @@ public class TestDaoImp implements TestDao {
     }
 
     @Override
-    public List<Test> findAll() {
-        List<Test> tests = new ArrayList<>();
+    public List<TestLab> findAll() {
+        List<TestLab> tests = new ArrayList<>();
         String query = "SELECT * FROM Test";
         try (Statement stmt = dbConnection.getConn().createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
@@ -49,7 +49,7 @@ public class TestDaoImp implements TestDao {
     }
 
     @Override
-    public void save(Test test) {
+    public void save(TestLab test) {
         String query = "INSERT INTO Test (id, name, category, testDate, expectedCompletionDate, status, result, price) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement stmt = dbConnection.getConn().prepareStatement(query)) {
             stmt.setString(1, test.getId());
@@ -68,7 +68,7 @@ public class TestDaoImp implements TestDao {
     }
 
     @Override
-    public void update(Test test) {
+    public void update(TestLab test) {
         String query = "UPDATE Test SET name = ?, category = ?, testDate = ?, expectedCompletionDate = ?, status = ?, result = ?, price = ? WHERE id = ?";
         try (PreparedStatement stmt = dbConnection.getConn().prepareStatement(query)) {
             stmt.setString(1, test.getName());
@@ -97,8 +97,8 @@ public class TestDaoImp implements TestDao {
         }
     }
 
-    private Test mapRowToTest(ResultSet rs) throws SQLException {
-        Test test = new Test();
+    private TestLab mapRowToTest(ResultSet rs) throws SQLException {
+        TestLab test = new TestLab();
         test.setId(rs.getString("id"));
         test.setName(rs.getString("name"));
         test.setCategory(rs.getString("category"));
