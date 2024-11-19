@@ -12,7 +12,7 @@ public class TestStatusTestLab {
     @Test
     public void testStartTest() {
         // Création d'un test avec statut PENDING
-        Test test = new Test("T123", "Test Glucose", new Date(), 15.5f, "Blood", new Date());
+        TestLab test = new TestLab("T123", "Test Glucose", new Date(), 15.5f, "Blood", new Date());
 
         // Vérification que le statut initial est PENDING
         assertEquals(TestStatus.PENDING, test.getStatus());
@@ -27,7 +27,7 @@ public class TestStatusTestLab {
     @Test
     public void testCompleteTest() {
         // Création d'un test avec statut IN_PROGRESS
-        Test test = new Test("T123", "Test Glucose", new Date(), 15.5f, "Blood", new Date());
+        TestLab test = new TestLab("T123", "Test Glucose", new Date(), 15.5f, "Blood", new Date());
         test.startTest();  // Passer à IN_PROGRESS
 
         // Vérification que le statut est IN_PROGRESS
@@ -47,7 +47,7 @@ public class TestStatusTestLab {
         Date expectedCompletionDate = new Date(testDate.getTime() + 100000000);  // 100 000 000 ms plus tard
 
         // Créer un test
-        Test test = new Test("T123", "Test Glucose", testDate, 15.5f, "Blood", expectedCompletionDate);
+        TestLab test = new TestLab("T123", "Test Glucose", testDate, 15.5f, "Blood", expectedCompletionDate);
 
         // Vérifier les jours restants jusqu'à la date de complétion
         long daysRemaining = test.daysUntilCompletion();

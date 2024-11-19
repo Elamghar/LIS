@@ -4,13 +4,16 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Date;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class TestComparisonTestLab {
 
     @Test
     public void testCompareTest() {
         // Création de deux tests identiques
-        Test test1 = new Test("T123", "Test Glucose", new Date(), 15.5f, "Blood", new Date());
-        Test test2 = new Test("T123", "Test Glucose", new Date(), 15.5f, "Blood", new Date());
+        TestLab test1 = new TestLab("T123", "Test Glucose", new Date(), 15.5f, "Blood", new Date());
+        TestLab test2 = new TestLab("T123", "Test Glucose", new Date(), 15.5f, "Blood", new Date());
 
         // Vérification qu'ils sont considérés comme égaux
         assertTrue(test1.compareTest(test2));
