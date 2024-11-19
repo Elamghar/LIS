@@ -14,7 +14,7 @@ public class TestTestLab {
         Date expectedCompletionDate = new Date(testDate.getTime() + 1000000);  // Ajouter 1 000 000 ms
 
         // Création de l'objet Test
-        Test test = new Test("T123", "Test Glucose", testDate, 15.5f, "Blood", expectedCompletionDate);
+        TestLab test = new TestLab("T123", "Test Glucose", testDate, 15.5f, "Blood", expectedCompletionDate);
 
         // Vérifier les valeurs des attributs
         assertEquals("T123", test.getId());
@@ -25,10 +25,10 @@ public class TestTestLab {
         assertEquals(TestStatus.PENDING, test.getStatus());  // Vérifier le statut par défaut
     }
 
-    Test
+    @Test
     public void testSettersAndGetters() {
         // Création d'un objet Test
-        Test test = new Test("T123", "Test Glucose", new Date(), 15.5f, "Blood", new Date());
+        TestLab test = new TestLab("T123", "Test Glucose", new Date(), 15.5f, "Blood", new Date());
 
         // Modification des attributs via les setters
         test.setName("Test Cholesterol");

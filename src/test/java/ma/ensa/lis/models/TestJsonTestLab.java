@@ -13,7 +13,7 @@ public class TestJsonTestLab {
         // Création d'un test
         Date testDate = new Date();
         Date expectedCompletionDate = new Date(testDate.getTime() + 1000000); // 1 million ms plus tard
-        Test test = new Test("T123", "Test Glucose", testDate, 15.5f, "Blood", expectedCompletionDate);
+        TestLab test = new TestLab("T123", "Test Glucose", testDate, 15.5f, "Blood", expectedCompletionDate);
 
         // Conversion de l'objet en JSON
         String json = test.toJson();
