@@ -6,7 +6,7 @@ import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class TestJsonTest {
+public class TestJsonTestLab {
 
     @Test
     public void testToJson() {

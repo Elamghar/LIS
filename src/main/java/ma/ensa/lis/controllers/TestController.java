@@ -2,7 +2,7 @@ package ma.ensa.lis.controllers;
 
 import javafx.event.ActionEvent;
 import ma.ensa.lis.Dao.Impl.TestDaoImp;
-import ma.ensa.lis.models.Test;
+import ma.ensa.lis.models.TestLab;
 import ma.ensa.lis.utils.DbConnection;
 
 import java.util.Date;
@@ -17,19 +17,19 @@ public class TestController {
     }
 
     public void createTest(String id, String name, String category, float price) {
-        Test test = new Test(id, name, new Date(), price, category, new Date());
+        TestLab test = new TestLab(id, name, new Date(), price, category, new Date());
         testDao.save(test);
     }
 
-    public List<Test> getAllTests() {
+    public List<TestLab> getAllTests() {
         return testDao.findAll();
     }
 
-    public Test getTestById(String id) {
+    public TestLab getTestById(String id) {
         return testDao.findById(id);
     }
 
-    public void updateTest(Test test) {
+    public void updateTest(TestLab test) {
         testDao.update(test);
     }
 

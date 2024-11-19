@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Date;
 
-public class TestComparisonTest {
+public class TestComparisonTestLab {
 
     @Test
     public void testCompareTest() {

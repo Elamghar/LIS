@@ -8,7 +8,7 @@ public class Illness {
     private String Id;
     private String nom;
     private String description;
-    private List<Test> commonTests;
+    private List<TestLab> commonTests;
     private List<String> symptoms;
 
     public String getId() {
@@ -23,7 +23,7 @@ public class Illness {
         return description;
     }
 
-    public List<Test> getCommonTests() {
+    public List<TestLab> getCommonTests() {
         return commonTests;
     }
 
@@ -45,7 +45,7 @@ public class Illness {
         }
     }
 
-    public void addCommonTest(Test test){
+    public void addCommonTest(TestLab test){
         if(!commonTests.contains(test)){
             commonTests.add(test);
         }
