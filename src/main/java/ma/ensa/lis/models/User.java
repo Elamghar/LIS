@@ -20,4 +20,8 @@ public class User {
     private String address;
     private String role;
     private String phoneNumber;
+
+    public User(String id, String firstName, String prenomm, String gender) {
+
+    }
 }

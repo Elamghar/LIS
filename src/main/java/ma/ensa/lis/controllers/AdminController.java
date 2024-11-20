@@ -12,6 +12,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import ma.ensa.lis.models.Patient;
+import ma.ensa.lis.models.User;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -23,22 +24,22 @@ public class AdminController {
 
 
     @FXML
-    private TableView<Patient> table;
+    private TableView<User> table;
     @FXML
-    private TableColumn<Patient,String> loginn;
+    private TableColumn<User,String> loginn;
     @FXML
-    private TableColumn<Patient,String> pass;
+    private TableColumn<User,String> pass;
     @FXML
-    private TableColumn<Patient, Date> date_ns;
+    private TableColumn<User, Date> date_ns;
     @FXML
-    private TableColumn<Patient, String> prenom;
+    private TableColumn<User, String> prenom;
 
     @FXML
-    private TableColumn<Patient,String> name;
+    private TableColumn<User,String> name;
     @FXML
-    private TableColumn<Patient,Integer> id;
+    private TableColumn<User,Integer> id;
     @FXML
-    private TableColumn<Patient,String> gender;//liaison m3a table f view
+    private TableColumn<User,String> gender;//liaison m3a table f view
 
 
 
@@ -67,18 +68,18 @@ public class AdminController {
         Connection connection = DriverManager.getConnection(url, n, p);
         Statement stmt = connection.createStatement();
 
-        String sql2 = "SELECT * FROM reg";
+        String sql2 = "SELECT * FROM Patient";
         ResultSet rs=stmt.executeQuery(sql2);
-        ObservableList<Patient> ob= FXCollections.observableArrayList();
+        ObservableList<User> ob= FXCollections.observableArrayList();
         while (rs.next()) {
-            int id = rs.getInt("id");
+            String id = rs.getString("id");
             String first_name = rs.getString("name");
             String login = rs.getString("login");
             String prenomm=rs.getString("last_name");
             String passe = rs.getString("password");
             Date date_ns = rs.getDate("date_ns");
             String gender = rs.getString("gender");
-            Patient pa = new Patient(id,first_name,prenomm,gender);
+            User pa = new User(id,first_name,prenomm,gender);
             ob.add(pa);
             table.setItems(ob);
         }

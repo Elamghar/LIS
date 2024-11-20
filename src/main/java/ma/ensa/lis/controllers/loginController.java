@@ -40,7 +40,7 @@ public class loginController {
             System.out.println("Connected to database");
             String lo=login.getText();
             String p=ps.getText();
-            String sql = "SELECT * FROM Patient WHERE login='" + lo + "' AND password='" + p + "'";
+            String sql = "SELECT * FROM Patient WHERE login='" + lo + "' AND passwd='" + p + "'";
 
             ResultSet rs=stmt.executeQuery(sql);
 //            if(rs.next()){

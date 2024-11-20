@@ -12,8 +12,10 @@ CREATE TABLE Patient (
                          patientId INT AUTO_INCREMENT PRIMARY KEY,
                          name VARCHAR(100) NOT NULL,
                          prenom VARCHAR(100),
-                         age INT NOT NULL,
-                         gender ENUM('Male', 'Female') NOT NULL
+                         date_ns DATE NOT NULL,
+                         gender ENUM('Male', 'Female') NOT NULL,
+                         login VARCHAR(50) NOT NULL UNIQUE ,
+                         passwd VARCHAR(50) NOT NULL
 );
 
 
