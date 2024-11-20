@@ -2,20 +2,28 @@ package ma.ensa.lis.models;
 
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+@ToString(callSuper = true)
 public class Patient extends User {
-    private String patientId;
-    private String firstName;
-    private String lastName;
-    private int age;
-    private String gender;
+
     private List<Visit> listOfVisits;
-    private String address;
-    private String contactNumber;
+
+    public Patient(String Id, String firstName, String lastName, int age, String gender, String email,
+                   String password, String address, String role, String phoneNumber) {
+        super(Id, firstName, lastName, age, gender, email, password, address, role, phoneNumber);
+        this.listOfVisits = new ArrayList<>();
+    }
+
+    public void addVisit(Visit visit) {
+        if (this.listOfVisits == null) {
+            this.listOfVisits = new ArrayList<>();
+        }
+        this.listOfVisits.add(visit);
+    }
 }
