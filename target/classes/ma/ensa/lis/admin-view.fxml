@@ -38,7 +38,7 @@
             </menus>
         </MenuBar>
         <Label layoutX="46.0" layoutY="258.0" prefHeight="18.0" prefWidth="446.0" />
-        <Button layoutX="55.0" layoutY="425.0" mnemonicParsing="false" onAction="#gh" prefHeight="26.0" prefWidth="139.0" text="see details" />
+        <Button layoutX="181.0" layoutY="425.0" mnemonicParsing="false" onAction="#gh" prefHeight="26.0" prefWidth="139.0" text="ghyerha" />
         <PointLight color="CHARTREUSE" layoutX="569.0" layoutY="39.0" lightOn="true" />
         <TableView fx:id="table" layoutY="114.0" prefHeight="234.0" prefWidth="747.0">
             <columns>
@@ -53,8 +53,6 @@
                 <Font name="Haettenschweiler" size="33.0" />
             </font>
         </Text>
-      <Button layoutX="234.0" layoutY="425.0" mnemonicParsing="false" onAction="#logout" prefHeight="26.0" prefWidth="139.0" text="logout" />
-      <Button layoutX="430.0" layoutY="426.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="99.0" text="ajout patient" />
-      <Button layoutX="590.0" layoutY="426.0" mnemonicParsing="false" text="delete patient" />
+      <Button layoutX="410.0" layoutY="425.0" mnemonicParsing="false" onAction="#logout" prefHeight="26.0" prefWidth="139.0" text="logout" />
     </children>
 </AnchorPane>
