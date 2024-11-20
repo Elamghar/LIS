@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Date;
 
-public class TestTest {
+public class TestTestLab {
 
     @Test
     public void testTestConstructor() {
@@ -14,7 +14,7 @@ public class TestTest {
         Date expectedCompletionDate = new Date(testDate.getTime() + 1000000);  // Ajouter 1 000 000 ms
 
         // Création de l'objet Test
-        Test test = new Test("T123", "Test Glucose", testDate, 15.5f, "Blood", expectedCompletionDate);
+        TestLab test = new TestLab("T123", "Test Glucose", testDate, 15.5f, "Blood", expectedCompletionDate);
 
         // Vérifier les valeurs des attributs
         assertEquals("T123", test.getId());
@@ -28,7 +28,7 @@ public class TestTest {
     @Test
     public void testSettersAndGetters() {
         // Création d'un objet Test
-        Test test = new Test("T123", "Test Glucose", new Date(), 15.5f, "Blood", new Date());
+        TestLab test = new TestLab("T123", "Test Glucose", new Date(), 15.5f, "Blood", new Date());
 
         // Modification des attributs via les setters
         test.setName("Test Cholesterol");

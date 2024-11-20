@@ -4,10 +4,11 @@ import ma.ensa.lis.models.Illness;
 
 import java.util.List;
 
-public interface IllnessDAOInterface {
+public interface IllnessDAO {
     void addIllness(Illness sickness);
     Illness getIllnessById(String id);
     List<Illness> getAllIllness();
     void updateIllness(Illness illness);
     void deleteIllness(String id);
 }
+
