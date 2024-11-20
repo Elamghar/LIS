@@ -2,7 +2,6 @@ package ma.ensa.lis.models;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.google.gson.annotations.Expose;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,8 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
-import java.util.List;
-import java.util.ArrayList;
 import java.util.Objects;
 
 @AllArgsConstructor
@@ -19,7 +16,7 @@ import java.util.Objects;
 @Getter
 @Setter
 
-public class Test {
+public class TestLab {
 
     @Expose
     private String id;
@@ -41,7 +38,7 @@ public class Test {
     private Float price;
     Visit visit;
     // Constructor
-    public Test(String id, String name, Date testDate, Float price, String category, Date expectedCompletionDate) {
+    public TestLab(String id, String name, Date testDate, Float price, String category, Date expectedCompletionDate) {
         this.id = id;
         this.name = name;
         this.testDate = testDate;
@@ -55,7 +52,7 @@ public class Test {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Test test = (Test) o;
+        TestLab test = (TestLab) o;
         return Objects.equals(getName(), test.getName()) && Objects.equals(getCategory(), test.getCategory());
     }
 
@@ -135,7 +132,7 @@ public class Test {
      * Compares this test with another test to check if they are similar
      * based on certain criteria (e.g., same testName and category).
      */
-    public boolean compareTest(Test otherTest) {
+    public boolean compareTest(TestLab otherTest) {
         return this.equals(otherTest);
     }
 

@@ -1,7 +1,7 @@
 package ma.ensa.lis.Dao.Impl;
 
 import ma.ensa.lis.Dao.TestDao;
-import ma.ensa.lis.models.Test;
+import ma.ensa.lis.models.TestLab;
 import ma.ensa.lis.models.TestStatus;
 import ma.ensa.lis.utils.DbConnection;
 
@@ -18,40 +18,46 @@ public class TestDaoImp implements TestDao {
     }
 
     @Override
-    public Test findById(String id) {
+    public TestLab findById(String id) {
+
         String query = "SELECT * FROM Test WHERE id = ?";
-        try (PreparedStatement stmt = dbConnection.getConn().prepareStatement(query)) {
+
+        try(PreparedStatement stmt = dbConnection.getConn().prepareStatement(query)) {
             stmt.setString(1, id);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 return mapRowToTest(rs);
             }
-        } catch (SQLException e) {
+        }
+        catch(SQLException e) {
             e.printStackTrace();
         }
         return null;
     }
 
     @Override
-    public List<Test> findAll() {
-        List<Test> tests = new ArrayList<>();
-        String query = "SELECT * FROM Test";
-        try (Statement stmt = dbConnection.getConn().createStatement();
-             ResultSet rs = stmt.executeQuery(query)) {
+    public List<TestLab> findAll() {
 
-            while (rs.next()) {
+        List<TestLab> tests = new ArrayList<>();
+        String query = "SELECT * FROM Test";
+
+        try(Statement stmt = dbConnection.getConn().createStatement();
+            ResultSet rs = stmt.executeQuery(query)) {
+            while(rs.next()) {
                 tests.add(mapRowToTest(rs));
             }
-        } catch (SQLException e) {
+        }
+        catch(SQLException e) {
             e.printStackTrace();
         }
         return tests;
     }
 
     @Override
-    public void save(Test test) {
+    public void save(TestLab test) {
+
         String query = "INSERT INTO Test (id, name, category, testDate, expectedCompletionDate, status, result, price) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-        try (PreparedStatement stmt = dbConnection.getConn().prepareStatement(query)) {
+        try(PreparedStatement stmt = dbConnection.getConn().prepareStatement(query)) {
             stmt.setString(1, test.getId());
             stmt.setString(2, test.getName());
             stmt.setString(3, test.getCategory());
@@ -62,15 +68,16 @@ public class TestDaoImp implements TestDao {
             stmt.setFloat(8, test.getPrice());
 
             stmt.executeUpdate();
-        } catch (SQLException e) {
+        }
+        catch(SQLException e) {
             e.printStackTrace();
         }
     }
 
     @Override
-    public void update(Test test) {
+    public void update(TestLab test) {
         String query = "UPDATE Test SET name = ?, category = ?, testDate = ?, expectedCompletionDate = ?, status = ?, result = ?, price = ? WHERE id = ?";
-        try (PreparedStatement stmt = dbConnection.getConn().prepareStatement(query)) {
+        try(PreparedStatement stmt = dbConnection.getConn().prepareStatement(query)) {
             stmt.setString(1, test.getName());
             stmt.setString(2, test.getCategory());
             stmt.setDate(3, new java.sql.Date(test.getTestDate().getTime()));
@@ -79,26 +86,30 @@ public class TestDaoImp implements TestDao {
             stmt.setString(6, test.getResult());
             stmt.setFloat(7, test.getPrice());
             stmt.setString(8, test.getId());
-
             stmt.executeUpdate();
-        } catch (SQLException e) {
+        }
+        catch(SQLException e) {
             e.printStackTrace();
         }
     }
 
     @Override
     public void delete(String id) {
+
         String query = "DELETE FROM Test WHERE id = ?";
-        try (PreparedStatement stmt = dbConnection.getConn().prepareStatement(query)) {
+
+        try(PreparedStatement stmt = dbConnection.getConn().prepareStatement(query)) {
             stmt.setString(1, id);
             stmt.executeUpdate();
-        } catch (SQLException e) {
+        }
+        catch(SQLException e) {
             e.printStackTrace();
         }
     }
 
-    private Test mapRowToTest(ResultSet rs) throws SQLException {
-        Test test = new Test();
+    private TestLab mapRowToTest(ResultSet rs) throws SQLException {
+
+        TestLab test = new TestLab();
         test.setId(rs.getString("id"));
         test.setName(rs.getString("name"));
         test.setCategory(rs.getString("category"));
@@ -107,6 +118,8 @@ public class TestDaoImp implements TestDao {
         test.setStatus(TestStatus.valueOf(rs.getString("status")));
         test.setResult(rs.getString("result"));
         test.setPrice(rs.getFloat("price"));
+
         return test;
+
     }
 }
