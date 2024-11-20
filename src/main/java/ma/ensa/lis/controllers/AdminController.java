@@ -7,15 +7,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import ma.ensa.lis.models.Patient;
 import ma.ensa.lis.models.User;
 import ma.ensa.lis.utils.DbConnection;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.sql.*;
 import java.util.Date;

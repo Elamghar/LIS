@@ -1,9 +1,6 @@
 package ma.ensa.lis.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import ma.ensa.lis.Exceptions.TestException;
 import ma.ensa.lis.Exceptions.patientException;
 
@@ -15,6 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Visit {
+    @NonNull
     private String visitId;
     private Date visitDate;
     private String diagnostic;
