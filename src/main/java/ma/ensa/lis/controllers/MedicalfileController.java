@@ -21,4 +21,5 @@ public class MedicalfileController {
         stage.setScene(scene);
         stage.show();
     }
+
 }

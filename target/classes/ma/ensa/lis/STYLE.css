@@ -57,9 +57,8 @@ Button {
     -fx-background-color: #4CAF50; /* Green background */
     -fx-text-fill: white;
     -fx-font-family: "Segoe UI", sans-serif;
-    -fx-pref-width: 200px;
+    -fx-pref-width: 150px;
     -fx-font-weight: bold;
-
     -fx-border-radius: 10;
     -fx-background-radius: 10;
     -fx-padding: 8 20;
