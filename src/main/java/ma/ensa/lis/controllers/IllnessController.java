@@ -1,16 +1,16 @@
 package ma.ensa.lis.controllers;
 
-import ma.ensa.lis.Dao.IllnessDAOInterface;
 import ma.ensa.lis.Dao.IllnessDao;
+import ma.ensa.lis.Dao.Impl.IllnessDaoImp;
 import ma.ensa.lis.models.Illness;
 
 import java.util.List;
 
 public class IllnessController {
-    private final IllnessDAOInterface illnessDAOInterface;
+    private final IllnessDao illnessDao;
 
     public IllnessController(IllnessDao illnessDAO) {
-        this.illnessDAOInterface= new IllnessDao();
+        this.illnessDao = new IllnessDaoImp();
     }
 
     // Ajouter une nouvelle maladie
@@ -19,7 +19,7 @@ public class IllnessController {
             throw new IllegalArgumentException("Les champs illnessID, name et description sont obligatoires.");
         }
         Illness illnness = new Illness(illnessID, name, description);
-        illnessDAOInterface.addIllness(illnness);
+        illnessDao.addIllness(illnness);
     }
 
     // Récupérer une maladie par ID
@@ -27,12 +27,12 @@ public class IllnessController {
         if (illnessID == null || illnessID.isEmpty()) {
             throw new IllegalArgumentException("L'ID de la maladie ne peut pas être vide.");
         }
-        return illnessDAOInterface.getIllnessById(illnessID);
+        return illnessDao.getIllnessById(illnessID);
     }
 
     //Recuperer tous les maladies
     public List<Illness> getAllIllnesses(){
-        return illnessDAOInterface.getAllIllness();
+        return illnessDao.getAllIllness();
     }
 
     // Mettre à jour une maladie
@@ -41,7 +41,7 @@ public class IllnessController {
             throw new IllegalArgumentException("Les champs sicknessID, name et description sont obligatoires.");
         }
         Illness illness = new Illness(illnessID, name, description);
-        illnessDAOInterface.updateIllness(illness);
+        illnessDao.updateIllness(illness);
     }
 
     // Supprimer une maladie par ID
@@ -49,7 +49,7 @@ public class IllnessController {
         if (illnessID == null || illnessID.isEmpty()) {
             throw new IllegalArgumentException("L'ID de la maladie ne peut pas être vide.");
         }
-        illnessDAOInterface.deleteIllness(illnessID);
+        illnessDao.deleteIllness(illnessID);
     }
 
 }

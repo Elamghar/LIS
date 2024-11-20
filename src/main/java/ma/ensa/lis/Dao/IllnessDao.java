@@ -4,7 +4,7 @@ import ma.ensa.lis.models.Illness;
 
 import java.util.List;
 
-public interface IllnessDAOInterface {
+public interface IllnessDao {
     void addIllness(Illness sickness);
     Illness getIllnessById(String id);
     List<Illness> getAllIllness();
