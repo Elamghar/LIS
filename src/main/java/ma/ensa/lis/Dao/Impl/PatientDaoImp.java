@@ -19,7 +19,7 @@ public class PatientDaoImp implements PatientDao {
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement stmt = conn.prepareStatement(query);
-            stmt.setString(1, patient.getPatientId());
+            stmt.setString(1, patient.getId());
             stmt.setString(2, patient.getFirstName());
             stmt.setString(3, patient.getLastName());
             stmt.setInt(4, patient.getAge());
@@ -42,7 +42,7 @@ public class PatientDaoImp implements PatientDao {
         String query = "DELETE FROM Patient WHERE patientId = ?";
         try {
             PreparedStatement stmt = conn.prepareStatement(query);
-            stmt.setString(1, patient.getPatientId());
+            stmt.setString(1, patient.getId());
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -205,14 +205,13 @@ public class PatientDaoImp implements PatientDao {
         String query = "SELECT * FROM Visit WHERE patientId = ?";
         try {
             PreparedStatement stmt = conn.prepareStatement(query);
-            stmt.setString(1, patient.getPatientId());
+            stmt.setString(1, patient.getId());
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 visits.add(new Visit(
-                        rs.getInt("visitId"),
+                        rs.getString("visitId"),
                         rs.getDate("visitDate"),
-                        rs.getString("description"),
-                        patient
+                        rs.getString("description")
                 ));
             }
         } catch (SQLException e) {
