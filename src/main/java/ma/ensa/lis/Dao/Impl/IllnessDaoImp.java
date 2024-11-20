@@ -1,13 +1,13 @@
 package ma.ensa.lis.Dao.Impl;
 
-import ma.ensa.lis.Dao.IllnessDAOInterface;
+import ma.ensa.lis.Dao.IllnessDao;
 import ma.ensa.lis.models.Illness;
 import ma.ensa.lis.utils.DbConnection;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class IllnessImp implements IllnessDAOInterface {
+public class IllnessDaoImp implements IllnessDao {
 
     @Override
     public void addIllness(Illness illness) {

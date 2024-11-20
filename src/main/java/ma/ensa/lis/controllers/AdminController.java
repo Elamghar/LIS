@@ -78,7 +78,7 @@ public class AdminController {
             String passe = rs.getString("password");
             Date date_ns = rs.getDate("date_ns");
             String gender = rs.getString("gender");
-            Patient pa = new Patient(id,first_name,prenomm,gender);
+            Patient pa = new Patient(id,first_name,prenomm,20,"hhhhh","1234567gender","male");
             ob.add(pa);
             table.setItems(ob);
         }
