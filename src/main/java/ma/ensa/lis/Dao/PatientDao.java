@@ -8,7 +8,7 @@ import java.util.List;
 public interface PatientDao {
     void save(Patient patient);
     void delete(Patient patient);
-    Patient searchById(String patientId);
+    Patient searchById(String Id);
     List<Patient> searchByFirstName(String firstName);
     List<Patient> searchByLastName(String lastName);
     List<Patient> searchByAge(int age);
