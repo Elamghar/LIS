@@ -23,8 +23,7 @@ public class TestController {
         testDao.save(testLab);
 
         //Générer le code QR
-        String qrData = String.format("TestLab ID: %s\nName: %s\nCategory: %s\nPrice: %.2f\nDate: %s",
-                id, name, category, price, new Date());
+        String qrData = String.format("TestLab ID: %s\nName: %s\nCategory: %s\nPrice: %.2f\nDate: %s", id, name, category, price, new Date());
         String filePath = "qrcodes/" + id + "_qrcode.png";
         QRCodeGenerator.generateQRCode(qrData, filePath, 300, 300);
 
@@ -43,8 +42,8 @@ public class TestController {
         testDao.update(test);
 
         //Générer un nouveau QR code pour les mises à jour!
-        String qrData = String.format("TestLab ID: %s\nName: %s\nCategory: %s\nPrice: %.2f\nDate: %s",
-                test.getId(), test.getName(), test.getCategory(), test.getPrice(), test.getTestDate());
+        String qrData = String.format("TestLab ID: %s\nName: %s\nCategory: %s\nPrice: %.2f\nDate: %s", 
+                                      test.getId(), test.getName(), test.getCategory(), test.getPrice(), test.getTestDate());
         String filePath = "qrcodes/" + test.getId() + "_qrcode.png";
         QRCodeGenerator.generateQRCode(qrData, filePath, 300, 300);
 
