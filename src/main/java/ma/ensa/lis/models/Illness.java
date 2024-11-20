@@ -1,9 +1,18 @@
 package ma.ensa.lis.models;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.management.ConstructorParameters;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Illness {
     private String Id;
     private String nom;
@@ -11,25 +20,6 @@ public class Illness {
     private List<TestLab> commonTests;
     private List<String> symptoms;
 
-    public String getId() {
-        return Id;
-    }
-
-    public String getNom() {
-        return nom;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public List<TestLab> getCommonTests() {
-        return commonTests;
-    }
-
-    public List<String> getSymptoms() {
-        return symptoms;
-    }
 
     public Illness(String Id, String nom, String description){
         this.Id= Id;
