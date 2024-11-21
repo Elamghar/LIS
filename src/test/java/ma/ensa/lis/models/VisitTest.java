@@ -1,24 +1,24 @@
-<<<<<<< HEAD
 package ma.ensa.lis.models;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Date;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 class VisitTest {
-
-    @Test
-    void getVisitId() {
+    public  Visit v;
+    TestLab t;
+    @BeforeEach
+    void setUp(){
+        v=new Visit("g1234",new Date(2000-11-11),"testClass");
+        t=new TestLab();
+        v.addTest(t);
     }
-
     @Test
-    void getVisitDate() {
-    }
-
-    @Test
-    void setVisitId() {
-    }
-
-    @Test
-    void setVisitDate() {
+    void addTest() {
+        assertEquals(1,v.getTests().size());
     }
 
     @Test
@@ -28,9 +28,12 @@ class VisitTest {
     @Test
     void toJson() {
     }
-=======
-import static org.junit.jupiter.api.Assertions.*;
-class VisitTest {
-  
->>>>>>> e32ba6a (Add target directory to .gitignore)
+
+    @Test
+    void setTests() {
+    }
+
+    @Test
+    void setP() {
+    }
 }
