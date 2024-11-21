@@ -23,14 +23,12 @@ public class App extends  Application {
             DbConnection db=new DbConnection();
             Connection conn=db.getConn();
             executeSqlScript(conn, schemaFilePath);
-            System.out.println("Database schema initialized successfully");
+            System.out.println("Database schema initialized successfully.");
         } catch (Exception e) {
-            System.out.println("An error occurred while connecting to the database");
+            System.out.println("An error occurred while connecting to the database or initializing the schema.");
             e.printStackTrace();
         }
-
-
-        FXMLLoader fxmlLoader=new FXMLLoader(App.class.getResource("login-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("login-view.fxml"));
 
         Scene scene = new Scene((Parent) fxmlLoader.load(), 754, 622);
         String css = Objects.requireNonNull(this.getClass().getResource("STYLE.css")).toExternalForm();
