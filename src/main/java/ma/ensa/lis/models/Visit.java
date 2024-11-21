@@ -4,6 +4,7 @@ import lombok.*;
 import ma.ensa.lis.Exceptions.TestException;
 import ma.ensa.lis.Exceptions.patientException;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -18,9 +19,6 @@ public class Visit {
     private String diagnostic;
     private List<TestLab> tests ;
     Patient p;
-
-
-
     public Visit(String visitId,Date visitDate){
         this.visitId=visitId;
         this.visitDate=visitDate;
@@ -30,10 +28,12 @@ public class Visit {
         this.visitId=visitId;
         this.visitDate=visitDate;
         this.diagnostic=diagnostic;
+        tests=new ArrayList<>();
         //p=new Patient();
     }
     void addTest(TestLab test) throws  TestException {
         if(test==null)throw new TestException("Instance null in Visit.addTest");
+        tests.add(test);
     }
     void addPatient(Patient p) throws patientException {
      if(p==null)throw new patientException("Instance Patient is null");
