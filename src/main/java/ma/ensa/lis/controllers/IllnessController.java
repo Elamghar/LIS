@@ -1,7 +1,5 @@
 package ma.ensa.lis.controllers;
 
-import ma.ensa.lis.Dao.IllnessDAO;
-import ma.ensa.lis.Dao.Impl.IllnessImp;
 import ma.ensa.lis.models.Illness;
 
 import java.util.List;
