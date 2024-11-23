@@ -40,7 +40,7 @@ public class loginController {
             System.out.println("Connected to database");
             String lo=login.getText();
             String p=ps.getText();
-            String sql = "SELECT * FROM Patient WHERE login='" + lo + "' AND passwd='" + p + "'";
+            String sql = "SELECT * FROM Admin WHERE login='" + lo + "' AND passwd='" + p + "'";
 
             ResultSet rs=stmt.executeQuery(sql);
 //            if(rs.next()){
@@ -91,7 +91,7 @@ public class loginController {
 
     }
     public void register(MouseEvent actionEvent) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/registration.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/Registration.fxml"));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
 
         Scene scene = new Scene(fxmlLoader.load(), 754, 622);

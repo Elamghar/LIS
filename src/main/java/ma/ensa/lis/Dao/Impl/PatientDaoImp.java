@@ -15,21 +15,23 @@ public class PatientDaoImp implements PatientDao {
     public void save(Patient patient) {
         DbConnection db = new DbConnection();
         Connection conn = db.getConn();
-        String query = "INSERT INTO Patient (patientId, firstName, lastName, age, gender, email, password, address, role, phoneNumber) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO Patient (patientId, firstName, lastName, age, gender, email, address, role, phoneNumber) " +
+                "VALUES (?,?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement stmt = conn.prepareStatement(query);
             stmt.setString(1, patient.getId());
+            System.out.println(patient.getFirstName());
             stmt.setString(2, patient.getFirstName());
             stmt.setString(3, patient.getLastName());
             stmt.setInt(4, patient.getAge());
             stmt.setString(5, patient.getGender());
             stmt.setString(6, patient.getEmail());
-            stmt.setString(7, patient.getPassword());
-            stmt.setString(8, patient.getAddress());
-            stmt.setString(9, patient.getRole());
-            stmt.setString(10, patient.getPhoneNumber());
+//            stmt.setString(7, patient.getPassword());
+            stmt.setString(7, patient.getAddress());
+            stmt.setString(8, patient.getRole());
+            stmt.setString(9, patient.getPhoneNumber());
             stmt.executeUpdate();
+            System.out.println("patient added successfully");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -66,7 +68,7 @@ public class PatientDaoImp implements PatientDao {
                         rs.getInt("age"),
                         rs.getString("gender"),
                         rs.getString("email"),
-                        rs.getString("password"),
+
                         rs.getString("address"),
                         rs.getString("role"),
                         rs.getString("phoneNumber")
@@ -96,7 +98,7 @@ public class PatientDaoImp implements PatientDao {
                         rs.getInt("age"),
                         rs.getString("gender"),
                         rs.getString("email"),
-                        rs.getString("password"),
+
                         rs.getString("address"),
                         rs.getString("role"),
                         rs.getString("phoneNumber")
@@ -126,7 +128,7 @@ public class PatientDaoImp implements PatientDao {
                         rs.getInt("age"),
                         rs.getString("gender"),
                         rs.getString("email"),
-                        rs.getString("password"),
+
                         rs.getString("address"),
                         rs.getString("role"),
                         rs.getString("phoneNumber")
@@ -156,7 +158,7 @@ public class PatientDaoImp implements PatientDao {
                         rs.getInt("age"),
                         rs.getString("gender"),
                         rs.getString("email"),
-                        rs.getString("password"),
+
                         rs.getString("address"),
                         rs.getString("role"),
                         rs.getString("phoneNumber")
@@ -185,7 +187,7 @@ public class PatientDaoImp implements PatientDao {
                         rs.getInt("age"),
                         rs.getString("gender"),
                         rs.getString("email"),
-                        rs.getString("password"),
+
                         rs.getString("address"),
                         rs.getString("role"),
                         rs.getString("phoneNumber")

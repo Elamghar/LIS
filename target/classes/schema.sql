@@ -1,14 +1,15 @@
-
 #
-# -- Drop tables if they already exist Ola Ms7o hadchi odik sa3a ayb9aw tables
+# #
+# # -- Drop tables if they already exist Ola Ms7o hadchi odik sa3a ayb9aw tables
 # DROP TABLE IF EXISTS Test;
 # DROP TABLE IF EXISTS Visit;
 # DROP TABLE IF EXISTS MedicalFile;
 # DROP TABLE IF EXISTS Patient;
+# DROP TABLE IF EXISTS Admin;
+# #
+# # -- Table: Patient
 #
-# -- Table: Patient
-#
-# CREATE TABLE Patient (
+# CREATE TABLE Admin (
 #                          patientId INT AUTO_INCREMENT PRIMARY KEY,
 #                          name VARCHAR(100) NOT NULL,
 #                          prenom VARCHAR(100),
@@ -18,28 +19,38 @@
 #                          passwd VARCHAR(50) NOT NULL
 # );
 #
-#
-# -- Table: MedicalFile
+# CREATE TABLE Patient (
+#                          patientId VARCHAR(50)  PRIMARY KEY,   -- Auto-incrementing primary key for patientId
+#                          firstName VARCHAR(100) NOT NULL,             -- First name of the patient
+#                          lastName VARCHAR(100) NOT NULL,              -- Last name of the patient
+#                          age INT NOT NULL,                            -- Age of the patient
+#                          gender ENUM('Male', 'Female') NOT NULL,      -- Gender of the patient (Male or Female)
+#                          email VARCHAR(255) NOT NULL,                 -- Email of the patient
+#                          address VARCHAR(255) NOT NULL,               -- Address of the patient
+#                          role VARCHAR(50) NOT NULL,                   -- Role of the patient (e.g., Doctor, Nurse, etc.)
+#                          phoneNumber VARCHAR(20) NOT NULL             -- Phone number of the patient
+# );
+# # -- Table: MedicalFile
 # CREATE TABLE MedicalFile (
 #                              id INT AUTO_INCREMENT PRIMARY KEY,
 #                              dateCreation DATE NOT NULL,
 #                              dateModif DATE,
-#                              patientId INT NOT NULL,
+#                              patientId VARCHAR(50) NOT NULL,
 #                              FOREIGN KEY (patientId) REFERENCES Patient(patientId) ON DELETE CASCADE
 # );
 #
-# -- Table: Appointment (Visit)
+# # -- Table: Appointment (Visit)
 # CREATE TABLE Visit (
 #                              visitId INT AUTO_INCREMENT PRIMARY KEY,
 #                              visitDate DATE NOT NULL,
 #                              diagnostic TEXT,
 #                              traitement TEXT,
-#                              patientId INT NOT NULL,
+#                              patientId VARCHAR(50) NOT NULL,
 #                              FOREIGN KEY (patientId) REFERENCES Patient(patientId) ON DELETE CASCADE
 # );
 #
 #
-# -- Table: Test
+# # -- Table: Test
 # CREATE TABLE Test (
 #                       testId INT AUTO_INCREMENT PRIMARY KEY,
 #                       testName VARCHAR(100) NOT NULL,
