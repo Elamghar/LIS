@@ -16,6 +16,7 @@ import ma.ensa.lis.models.User;
 import ma.ensa.lis.utils.DbConnection;
 
 import javax.swing.*;
+
 import java.io.IOException;
 import java.sql.*;
 import java.util.Date;
@@ -64,11 +65,11 @@ public class AdminController {
         ObservableList<User> ob= FXCollections.observableArrayList();
         while (rs.next()) {
             String id = rs.getString("patientId");
-            String first_name = rs.getString("name");
+            String first_name = rs.getString("firstName");
 
-            String prenomm=rs.getString("prenom");
+            String prenomm=rs.getString("lastName");
 
-            Date date_ns = rs.getDate("date_ns");
+            int age = rs.getInt("age");
             String gender = rs.getString("gender");
             User pa = new User(id,first_name,prenomm,gender);
             ob.add(pa);
@@ -82,6 +83,17 @@ public class AdminController {
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 754, 622);
         String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/STYLE.css")).toExternalForm();
+        scene.getStylesheets().add(css);
+        stage.setTitle("Hello!");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void create(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/AjoutPatient-view.fxml"));
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        Scene scene = new Scene(fxmlLoader.load(), 754, 622);
+        String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/ajoutpa_style.css")).toExternalForm();
         scene.getStylesheets().add(css);
         stage.setTitle("Hello!");
         stage.setScene(scene);
