@@ -15,7 +15,7 @@ Label {
 
 /* Styles for the input fields */
 TextField, PasswordField {
-    -fx-pref-width: 340px;
+
     -fx-padding: 10;
     -fx-border-color: #bdc3c7; /* Light border color */
     -fx-border-radius: 8;
