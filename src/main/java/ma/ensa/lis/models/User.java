@@ -21,7 +21,10 @@ public class User {
     private String role;
     private String phoneNumber;
 
-    public User(String id, String firstName, String prenomm, String gender) {
-
+    public User(String id, String firstName, String prenom, String gender) {
+        this.Id=id;
+        this.firstName=firstName;
+        this.lastName=prenom;
+        this.gender=gender;
     }
 }
