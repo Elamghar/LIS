@@ -7,11 +7,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import ma.ensa.lis.models.Patient;
 import ma.ensa.lis.models.User;
+import ma.ensa.lis.utils.DbConnection;
+
+import javax.swing.*;
 
 import java.io.IOException;
 import java.sql.*;
@@ -44,38 +48,28 @@ public class AdminController {
 
     @FXML
     public void initialize () {//liaison m3a Patient  ,kola column mn tableau khass t3ref ina attribut f Patient takhod
-        id.setCellValueFactory(new PropertyValueFactory<>("id"));
-        name.setCellValueFactory(new PropertyValueFactory<>("nom"));
-        prenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
-
+        id.setCellValueFactory(new PropertyValueFactory<>("Id"));
+        name.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        prenom.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
     }
 
-
-    String namee="root";
-    String passs="root";
-
-
-
-    String n = "root";
-    String p = "root";
-    String url = "jdbc:mysql://localhost:3306/data1?useSSL=false&serverTimezone=UTC";
-
     public void gh(javafx.event.ActionEvent actionEvent) throws SQLException {
         System.out.println("saf ghyerha");
-        Connection connection = DriverManager.getConnection(url, n, p);
+        DbConnection db=new DbConnection();
+        Connection connection = db.getConn();
         Statement stmt = connection.createStatement();
 
-        String sql2 = "SELECT * FROM Patient";
+        String sql2 = "SELECT * FROM patient";
         ResultSet rs=stmt.executeQuery(sql2);
         ObservableList<User> ob= FXCollections.observableArrayList();
         while (rs.next()) {
-            String id = rs.getString("id");
-            String first_name = rs.getString("name");
-            String login = rs.getString("login");
-            String prenomm=rs.getString("last_name");
-            String passe = rs.getString("password");
-            Date date_ns = rs.getDate("date_ns");
+            String id = rs.getString("patientId");
+            String first_name = rs.getString("firstName");
+
+            String prenomm=rs.getString("lastName");
+
+            int age = rs.getInt("age");
             String gender = rs.getString("gender");
             User pa = new User(id,first_name,prenomm,gender);
             ob.add(pa);
@@ -89,6 +83,17 @@ public class AdminController {
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 754, 622);
         String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/STYLE.css")).toExternalForm();
+        scene.getStylesheets().add(css);
+        stage.setTitle("Hello!");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void create(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/AjoutPatient-view.fxml"));
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        Scene scene = new Scene(fxmlLoader.load(), 754, 622);
+        String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/ajoutpa_style.css")).toExternalForm();
         scene.getStylesheets().add(css);
         stage.setTitle("Hello!");
         stage.setScene(scene);
