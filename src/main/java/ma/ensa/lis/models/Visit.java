@@ -1,12 +1,9 @@
 package ma.ensa.lis.models;
-
 import lombok.*;
 import ma.ensa.lis.Exceptions.TestException;
 import ma.ensa.lis.Exceptions.patientException;
-
 import java.util.Date;
 import java.util.List;
-
 @Getter
 @Setter
 @AllArgsConstructor
