@@ -1,10 +1,8 @@
 package ma.ensa.lis.models;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import javax.management.ConstructorParameters;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +17,6 @@ public class Illness {
     private String description;
     private List<TestLab> commonTests;
     private List<String> symptoms;
-
 
     public Illness(String Id, String nom, String description){
         this.Id= Id;
