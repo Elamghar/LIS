@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
@@ -43,3 +44,53 @@
       <Button layoutX="515.0" layoutY="555.0" mnemonicParsing="false" onAction="#returne" text="return" />
    </children>
 </AnchorPane>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="622.0" prefWidth="754.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ma.ensa.lis.controllers.MedicalfileController">
+   <children>
+      <Text layoutX="258.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MEDICALE FILE" wrappingWidth="234.60040283203125">
+         <font>
+            <Font name="Cooper Black" size="26.0" />
+         </font>
+      </Text>
+      <TableView layoutX="62.0" layoutY="85.0" prefHeight="200.0" prefWidth="600.0">
+        <columns>
+          <TableColumn prefWidth="301.6000785827637" text="Visit Date" />
+          <TableColumn prefWidth="299.199951171875" text="diagnostic" />
+        </columns>
+      </TableView>
+      <Text layoutX="35.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VISITS" wrappingWidth="53.010528564453125">
+         <font>
+            <Font name="Castellar" size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="35.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TESTS" wrappingWidth="53.010528564453125">
+         <font>
+            <Font name="Castellar" size="15.0" />
+         </font>
+      </Text>
+      <TableView layoutX="62.0" layoutY="320.0" prefHeight="190.0" prefWidth="600.0">
+         <columns>
+            <TableColumn prefWidth="138.3999900817871" text="name" />
+            <TableColumn prefWidth="160.00001525878906" text="diagnostic" />
+            <TableColumn prefWidth="161.60003662109375" text="test date" />
+            <TableColumn prefWidth="140.0" text="test results" />
+         </columns>
+      </TableView>
+      <Button layoutX="100.0" layoutY="556.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="106.0" text="send pdf" />
+      <Button layoutX="313.0" layoutY="556.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="97.0" text="generate file" />
+      <Button layoutX="662.0" layoutY="28.0" mnemonicParsing="false" onAction="#returne" text="return" />
+      <Button layoutX="542.0" layoutY="554.0" mnemonicParsing="false" onAction="#see" prefHeight="30.0" prefWidth="98.0" text="see details" />
+
+   </children>
+</AnchorPane>
+>>>>>>> origin/main

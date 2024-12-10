@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package ma.ensa.lis.controllers;
 
 import ma.ensa.lis.Dao.IllnessDAO;
@@ -10,3 +11,11 @@ public class IllnessController {
     //recuperer des donnees de l interface liees a illness
 
 }
+=======
+package ma.ensa.lis.controllers;
+
+public class IllnessController {
+    //recuperer des donnees de l interface liees a illness
+
+}
+>>>>>>> origin/main

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Styles for the VBox container */
 
 
@@ -77,3 +78,83 @@ Button:pressed {
     -fx-background-color: #388e3c; /* Even darker green on press */
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 4, 0, 0, 1);
 }
+=======
+/* Styles for the VBox container */
+
+
+/* Styles for the BorderPane */
+
+
+/* Styles for the Registration Form Label */
+Label {
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50; /* Dark blue-grey text */
+    -fx-padding: 5 0 15 0;
+}
+
+/* Styles for the input fields */
+TextField, PasswordField {
+
+    -fx-padding: 10;
+    -fx-border-color: #bdc3c7; /* Light border color */
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-background-color: #f7f9fc;
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-pref-width: 670;
+    -fx-pref-height: 26;
+    -fx-text-fill: #333;
+    -fx-prompt-text-fill: #a9a9a9;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 5, 0, 0, 1);
+}
+DatePicker{
+    -fx-pref-width: 340px;
+    -fx-padding: 10;
+    -fx-border-color: #bdc3c7; /* Light border color */
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-background-color: #f7f9fc;
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-pref-width: 670;
+    -fx-pref-height: 26;
+    -fx-text-fill: #333;
+    -fx-prompt-text-fill: #a9a9a9;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 5, 0, 0, 1);
+}
+DatePicker:focused{
+    -fx-border-color: #4CAF50; /* Green border on focus */
+    -fx-effect: dropshadow(gaussian, rgba(76, 175, 80, 0.2), 8, 0, 0, 2);
+}
+
+TextField:focused, PasswordField:focused {
+    -fx-border-color: #4CAF50; /* Green border on focus */
+    -fx-effect: dropshadow(gaussian, rgba(76, 175, 80, 0.2), 8, 0, 0, 2);
+}
+
+/* Button styling */
+Button {
+    -fx-background-color: #4CAF50; /* Green background */
+    -fx-text-fill: white;
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-pref-width: 150px;
+    -fx-font-weight: bold;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 8 20;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 6, 0, 0, 2);
+    -fx-cursor: hand;
+}
+/*.root {*/
+/*    -fx-background-image: url("R.jpg");*/
+/*}*/
+Button:hover {
+    -fx-background-color: #45a049; /* Darker green on hover */
+}
+
+Button:pressed {
+    -fx-background-color: #388e3c; /* Even darker green on press */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 4, 0, 0, 1);
+}
+>>>>>>> origin/main
