@@ -89,3 +89,4 @@
     <Button layoutX="251.0" layoutY="500.0" mnemonicParsing="false" onAction="#logout" prefHeight="26.0"
             prefWidth="266.0" text="Logout"/>
 </AnchorPane>
+

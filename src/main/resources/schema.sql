@@ -61,3 +61,4 @@
 #                       appointmentId INT NOT NULL,
 #                       FOREIGN KEY (appointmentId) REFERENCES Visit(visitId) ON DELETE CASCADE
 # );
+>>>>>>> origin/main
