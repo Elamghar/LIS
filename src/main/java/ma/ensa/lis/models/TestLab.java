@@ -15,7 +15,6 @@ import java.util.Objects;
 @NoArgsConstructor
 @Getter
 @Setter
-
 public class TestLab {
 
     @Expose
@@ -47,7 +46,6 @@ public class TestLab {
         this.status = TestStatus.PENDING;  // Default status
         this.expectedCompletionDate = expectedCompletionDate;
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

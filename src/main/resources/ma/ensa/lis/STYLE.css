@@ -76,3 +76,4 @@ Button:pressed {
     -fx-background-color: #388e3c; /* Even darker green on press */
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 4, 0, 0, 1);
 }
+

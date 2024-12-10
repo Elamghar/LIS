@@ -46,3 +46,4 @@ public class Patient  {
         this.listOfVisits.add(visit);
     }
 }
+

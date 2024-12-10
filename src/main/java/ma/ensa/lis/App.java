@@ -31,8 +31,8 @@ public class App extends  Application {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("login-view.fxml"));
 
         Scene scene = new Scene((Parent) fxmlLoader.load(), 800, 700);
-        //String css = Objects.requireNonNull(this.getClass().getResource("STYLE.css")).toExternalForm();
-        // scene.getStylesheets().add(css);
+        String css = Objects.requireNonNull(this.getClass().getResource("STYLE.css")).toExternalForm();
+        : scene.getStylesheets().add(css);
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
