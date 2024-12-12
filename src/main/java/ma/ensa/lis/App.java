@@ -32,7 +32,7 @@ public class App extends  Application {
 
         Scene scene = new Scene((Parent) fxmlLoader.load(), 800, 700);
         String css = Objects.requireNonNull(this.getClass().getResource("STYLE.css")).toExternalForm();
-        : scene.getStylesheets().add(css);
+        scene.getStylesheets().add(css);
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
