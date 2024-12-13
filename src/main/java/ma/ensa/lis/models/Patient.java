@@ -36,7 +36,12 @@ public class Patient  {
         this.phoneNumber = phoneNumber;
     }
 
-
+    public Patient(String id, String firstName, String prenomm, String gender) {
+        this.Id=id;
+        this.firstName=firstName;
+        this.lastName=prenomm;
+        this.gender=gender;
+    }
 
 
     public void addVisit(Visit visit) {
