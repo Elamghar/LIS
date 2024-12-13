@@ -1,0 +1,62 @@
+/* General styles */
+body, .root {
+    margin: 0;
+    padding: 0;
+    -fx-background-color: #f5f5f5; /* Light background */
+    -fx-font-family: "Arial", sans-serif; /* Default font */
+}
+
+/* Menu bar */
+.menu-bar {
+    -fx-background-color: #333; /* Darker background for menu */
+    -fx-text-fill: white; /* White text for menu items */
+    -fx-font-weight: bold; /* Bold menu text */
+}
+.menu-bar .menu:hover {
+    -fx-background-color: #444; /* Slight hover effect for menus */
+}
+
+/* Table */
+.table {
+    -fx-border-color: #ddd; /* Light border for table */
+    -fx-border-width: 1px; /* 1px border thickness */
+    -fx-cell-size: 20px; /* Adjust cell size as needed */
+}
+.table .table-column:even { /* Even columns (alternate background) */
+    -fx-background-color: #eee;
+}
+.table .table-column > .text { /* Text within table cells */
+    -fx-padding: 5px; /* Padding for cell content */
+}
+
+/* Buttons */
+.button {
+    -fx-background-color: #4CAF50; /* Green button color */
+    -fx-text-fill: white; /* White button text */
+    -fx-font-weight: bold; /* Bold button text */
+    -fx-cursor: hand; /* Hand cursor on hover */
+    -fx-effect: dropshadow(three-pass box, #666, 5, 0.0, 0); /* Subtle drop shadow */
+}
+.button:hover {
+    -fx-background-color: #3e8e41; /* Darker green on hover */
+}
+
+/* Text heading */
+.heading {
+    -fx-fill: #333; /* Darker text for heading */
+    -fx-font-size: 30px; /* Adjust heading size as needed */
+}
+
+/* Additional styles (optional) */
+.image-view {
+    -fx-border-radius: 5px; /* Rounded corners for image */
+}
+
+.label {
+    -fx-text-fill: #666; /* Gray text for label */
+}
+
+/* Specific ID targeting (if needed) */
+#logout {
+    -fx-background-color: #c0392b; /* Red button for logout */
+}
