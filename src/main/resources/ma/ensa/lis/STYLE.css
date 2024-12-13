@@ -75,6 +75,7 @@ Label {
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 0, 3);
 }
 
+<<<<<<< HEAD
 .button:pressed {
     -fx-background-color: linear-gradient(to bottom, derive(var(--primary-color), -10%), derive(var(--primary-color), -20%));
     -fx-effect: dropshadow(gaussian, var(--shadow-color), 4, 0, 0, 1);
@@ -95,3 +96,5 @@ Label {
 * {
     -fx-transition: all 0.2s ease;
 }
+=======
+>>>>>>> 19ddaf391c7eaf4cd98be386662e7d37b29a9875
