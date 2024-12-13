@@ -12,7 +12,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import ma.ensa.lis.models.Patient;
-import ma.ensa.lis.models.User;
+
 import ma.ensa.lis.utils.DbConnection;
 
 import javax.swing.*;
@@ -26,22 +26,22 @@ public class AdminController {
 
 
     @FXML
-    private TableView<User> table;
+    private TableView<Patient> table;
     @FXML
-    private TableColumn<User,String> loginn;
+    private TableColumn<Patient,String> loginn;
     @FXML
-    private TableColumn<User,String> pass;
+    private TableColumn<Patient,String> pass;
     @FXML
-    private TableColumn<User, Date> date_ns;
+    private TableColumn<Patient, Date> date_ns;
     @FXML
-    private TableColumn<User, String> prenom;
+    private TableColumn<Patient, String> prenom;
 
     @FXML
-    private TableColumn<User,String> name;
+    private TableColumn<Patient,String> name;
     @FXML
-    private TableColumn<User,Integer> id;
+    private TableColumn<Patient,Integer> id;
     @FXML
-    private TableColumn<User,String> gender;//liaison m3a table f view
+    private TableColumn<Patient,String> gender;//liaison m3a table f view
 
 
 
@@ -62,7 +62,7 @@ public class AdminController {
 
         String sql2 = "SELECT * FROM patient";
         ResultSet rs=stmt.executeQuery(sql2);
-        ObservableList<User> ob= FXCollections.observableArrayList();
+        ObservableList<Patient> ob= FXCollections.observableArrayList();
         while (rs.next()) {
             String id = rs.getString("patientId");
             String first_name = rs.getString("firstName");
@@ -71,7 +71,7 @@ public class AdminController {
 
             int age = rs.getInt("age");
             String gender = rs.getString("gender");
-            User pa = new User(id,first_name,prenomm,gender);
+            Patient pa = new Patient(id,first_name,prenomm,gender);
             ob.add(pa);
             table.setItems(ob);
         }
