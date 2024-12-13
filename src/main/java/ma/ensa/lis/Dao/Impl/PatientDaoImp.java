@@ -2,7 +2,6 @@ package ma.ensa.lis.Dao.Impl;
 
 import ma.ensa.lis.Dao.PatientDao;
 import ma.ensa.lis.models.Patient;
-import ma.ensa.lis.models.Visit;
 import ma.ensa.lis.utils.DbConnection;
 
 import java.sql.*;
@@ -28,8 +27,6 @@ public class PatientDaoImp implements PatientDao {
             stmt.setString(6, patient.getEmail());
 //            stmt.setString(7, patient.getPassword());
             stmt.setString(7, patient.getAddress());
-            stmt.setString(8, patient.getRole());
-            stmt.setString(9, patient.getPhoneNumber());
             stmt.executeUpdate();
             System.out.println("patient added successfully");
         } catch (SQLException e) {
@@ -68,10 +65,7 @@ public class PatientDaoImp implements PatientDao {
                         rs.getInt("age"),
                         rs.getString("gender"),
                         rs.getString("email"),
-
-                        rs.getString("address"),
-                        rs.getString("role"),
-                        rs.getString("phoneNumber")
+                        rs.getString("address")
                 );
             }
         } catch (SQLException e) {
@@ -91,17 +85,13 @@ public class PatientDaoImp implements PatientDao {
             stmt.setString(1, "%" + firstName + "%");
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-                patients.add(new Patient(
-                        rs.getString("patientId"),
+                patients.add(new Patient(rs.getString("patientId"),
                         rs.getString("firstName"),
                         rs.getString("lastName"),
                         rs.getInt("age"),
                         rs.getString("gender"),
                         rs.getString("email"),
-
-                        rs.getString("address"),
-                        rs.getString("role"),
-                        rs.getString("phoneNumber")
+                        rs.getString("address")
                 ));
             }
         } catch (SQLException e) {
@@ -128,10 +118,7 @@ public class PatientDaoImp implements PatientDao {
                         rs.getInt("age"),
                         rs.getString("gender"),
                         rs.getString("email"),
-
-                        rs.getString("address"),
-                        rs.getString("role"),
-                        rs.getString("phoneNumber")
+                        rs.getString("address")
                 ));
             }
         } catch (SQLException e) {
@@ -159,9 +146,7 @@ public class PatientDaoImp implements PatientDao {
                         rs.getString("gender"),
                         rs.getString("email"),
 
-                        rs.getString("address"),
-                        rs.getString("role"),
-                        rs.getString("phoneNumber")
+                        rs.getString("address")
                 ));
             }
         } catch (SQLException e) {
@@ -188,37 +173,12 @@ public class PatientDaoImp implements PatientDao {
                         rs.getString("gender"),
                         rs.getString("email"),
 
-                        rs.getString("address"),
-                        rs.getString("role"),
-                        rs.getString("phoneNumber")
+                        rs.getString("address")
                 ));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return patients;
-    }
-
-    @Override
-    public List<Visit> getVisits(Patient patient) {
-        DbConnection db = new DbConnection();
-        Connection conn = db.getConn();
-        List<Visit> visits = new ArrayList<>();
-        String query = "SELECT * FROM Visit WHERE patientId = ?";
-        try {
-            PreparedStatement stmt = conn.prepareStatement(query);
-            stmt.setString(1, patient.getId());
-            ResultSet rs = stmt.executeQuery();
-            while (rs.next()) {
-                visits.add(new Visit(
-                        rs.getString("visitId"),
-                        rs.getDate("visitDate"),
-                        rs.getString("description")
-                ));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return visits;
     }
 }
