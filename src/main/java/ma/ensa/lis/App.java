@@ -31,8 +31,13 @@ public class App extends  Application {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("GenererLireBarcode.fxml"));
 
         Scene scene = new Scene((Parent) fxmlLoader.load(), 800, 700);
+<<<<<<< HEAD
 //        String css = Objects.requireNonNull(this.getClass().getResource("STYLE.css")).toExternalForm();
 //         scene.getStylesheets().add(css);
+=======
+        String css = Objects.requireNonNull(this.getClass().getResource("STYLE.css")).toExternalForm();
+        scene.getStylesheets().add(css);
+>>>>>>> 83ba1a64b1ee4978b07528df0a75c45370b1fb7d
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();

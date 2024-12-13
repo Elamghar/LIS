@@ -2,9 +2,6 @@ package ma.ensa.lis.models;
 
 import lombok.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Getter
 @Setter
 @AllArgsConstructor
@@ -19,9 +16,8 @@ public class Patient  {
     private String gender;
     private String email;
     private String address;
-    private String role;
-    private String phoneNumber;
 
+<<<<<<< HEAD
     private List<Visit> listOfVisits;
 
     public Patient(String patientId, String firstName, String lastName, int age, String gender, String email, String address, String role, String phoneNumber) {
@@ -49,6 +45,9 @@ public class Patient  {
             this.listOfVisits = new ArrayList<>();
         }
         this.listOfVisits.add(visit);
+=======
+    public Patient(String patientId, String firstName, String lastName, int age, String gender, String email, String address, Object o) {
+>>>>>>> 83ba1a64b1ee4978b07528df0a75c45370b1fb7d
     }
 }
 
