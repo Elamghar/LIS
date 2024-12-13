@@ -100,6 +100,7 @@ public class loginController {
         stage.show();
     }
 
+<<<<<<< HEAD
     /**
      * Displays an alert dialog with the given title and message
      * @param title The title of the alert
@@ -120,4 +121,6 @@ public class loginController {
     protected void onHelloButtonClick() {
         welcomeText.setText("Welcome to JavaFX Application!");
     }
+=======
+>>>>>>> 19ddaf391c7eaf4cd98be386662e7d37b29a9875
 }

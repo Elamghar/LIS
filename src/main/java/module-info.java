@@ -1,6 +1,11 @@
 module ma.ensa.lis {
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.graphics;
+    requires javafx.swing;
+    requires com.google.zxing;
+
+
 
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
@@ -14,8 +19,9 @@ module ma.ensa.lis {
     requires com.fasterxml.jackson.annotation;
     requires com.fasterxml.jackson.databind;
     requires java.management;
-    requires com.google.zxing;
     requires com.google.zxing.javase;
+    requires kernel;
+    requires layout;
     opens ma.ensa.lis.controllers to javafx.fxml;
     opens ma.ensa.lis to javafx.fxml;
     opens ma.ensa.lis.models to javafx.base;
@@ -23,4 +29,5 @@ module ma.ensa.lis {
 
     exports ma.ensa.lis;
     exports ma.ensa.lis.controllers;
+
 }

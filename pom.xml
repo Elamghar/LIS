@@ -15,7 +15,21 @@
     </properties>
 
     <dependencies>
-        
+
+            <!-- iText Core Kernel -->
+            <dependency>
+                <groupId>com.itextpdf</groupId>
+                <artifactId>kernel</artifactId>
+                <version>7.2.5</version> <!-- Check for the latest version -->
+            </dependency>
+
+            <!-- iText Layout for creating PDF content -->
+            <dependency>
+                <groupId>com.itextpdf</groupId>
+                <artifactId>layout</artifactId>
+                <version>7.2.5</version> <!-- Check for the latest version -->
+            </dependency>
+
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
@@ -27,7 +41,11 @@
             <artifactId>javafx-fxml</artifactId>
             <version>21</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-swing</artifactId>
+            <version>20</version>
+        </dependency>
         <dependency>
             <groupId>org.controlsfx</groupId>
             <artifactId>controlsfx</artifactId>
@@ -181,3 +199,4 @@
         </plugins>
     </build>
 </project>
+

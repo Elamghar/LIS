@@ -47,3 +47,4 @@ Après que le QR code ait été généré et enregistré avec succès, un messag
 --> System.out.println("QR Code généré et enregistré à : " + filePath);
 Cela permet de fournir un retour sur l'emplacement du fichier où le QR code a été enregistré.
 
+>>>>>>> origin/main
