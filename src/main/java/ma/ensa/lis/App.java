@@ -28,11 +28,11 @@ public class App extends  Application {
           System.out.println("An error occurred while connecting to the database or initializing the schema.");
           e.printStackTrace();
         }
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("login-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("GenererLireBarcode.fxml"));
 
         Scene scene = new Scene((Parent) fxmlLoader.load(), 800, 700);
-        String css = Objects.requireNonNull(this.getClass().getResource("STYLE.css")).toExternalForm();
-        : scene.getStylesheets().add(css);
+//        String css = Objects.requireNonNull(this.getClass().getResource("STYLE.css")).toExternalForm();
+//         scene.getStylesheets().add(css);
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
