@@ -7,18 +7,18 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import ma.ensa.lis.models.Patient;
-
 import ma.ensa.lis.utils.DbConnection;
 
-import javax.swing.*;
-
 import java.io.IOException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Date;
 import java.util.Objects;
 
@@ -66,12 +66,12 @@ public class AdminController {
         while (rs.next()) {
             String id = rs.getString("patientId");
             String first_name = rs.getString("firstName");
-
             String prenomm=rs.getString("lastName");
-
             int age = rs.getInt("age");
             String gender = rs.getString("gender");
-            Patient pa = new Patient(id,first_name,prenomm,gender);
+            String email=rs.getString("email");
+            String address=rs.getString("address");
+            Patient pa = new Patient(id,first_name,prenomm,age,gender,email,address);
             ob.add(pa);
             table.setItems(ob);
         }
@@ -93,11 +93,10 @@ public class AdminController {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/AjoutPatient-view.fxml"));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 754, 622);
-        String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/ajoutpa_style.css")).toExternalForm();
+        String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/admin.css")).toExternalForm();
         scene.getStylesheets().add(css);
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
     }
 }
-

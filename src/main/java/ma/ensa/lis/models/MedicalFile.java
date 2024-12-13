@@ -1,12 +1,12 @@
 package ma.ensa.lis.models;
+
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -17,7 +17,6 @@ public class MedicalFile {
     private Date dateCrea;
     private Date dateModif;
     Patient patient;
-    Set<Visit> visit;
     List<String> Allergies;
     List<String> Notes;
 
