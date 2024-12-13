@@ -1,6 +1,5 @@
 package ma.ensa.lis.Dao.Impl;
 
-import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.exc.StreamReadException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -9,15 +8,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import ma.ensa.lis.Dao.MedicalFileDao;
 import ma.ensa.lis.models.MedicalFile;
 import ma.ensa.lis.models.Patient;
-import ma.ensa.lis.models.Visit;
 import ma.ensa.lis.utils.DbConnection;
 
-import javax.swing.plaf.nimbus.State;
 import java.io.File;
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 public class MedicalFileImp implements MedicalFileDao {
@@ -129,27 +125,6 @@ public class MedicalFileImp implements MedicalFileDao {
     public void addNotes() {
 
     }
-
-    @Override
-    public List<Visit> getVistits(Patient pa) {
-        List<Visit> visits=new ArrayList<>();
-        DbConnection db=new DbConnection();
-        Connection conn=db.getConn();
-        String Query="SELECT * FROM visit WHERE patientId=? ";//patient id colomn in visit table ..khassna jointure
-        try{
-            PreparedStatement stmt=conn.prepareStatement(Query);
-            stmt.setString(1,String.valueOf(pa.getId()));
-            ResultSet rs=stmt.executeQuery();
-            while(rs.next()){
-                Visit visit=new Visit(rs.getString("id"),rs.getDate("date"),rs.getString("diagnostic"));
-                visits.add(visit);
-            }
-        }catch(SQLException e){
-            e.printStackTrace();
-        }
-        return visits;
-    }
-
     @Override
     public void archive() {
 

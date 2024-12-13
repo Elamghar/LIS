@@ -1,7 +1,6 @@
 package ma.ensa.lis.Dao;
 
 import ma.ensa.lis.models.Patient;
-import ma.ensa.lis.models.Visit;
 
 import java.util.List;
 
@@ -13,5 +12,4 @@ public interface PatientDao {
     List<Patient> searchByLastName(String lastName);
     List<Patient> searchByAge(int age);
     List<Patient> getAllPatients();
-    List<Visit> getVisits(Patient patient);
 }
