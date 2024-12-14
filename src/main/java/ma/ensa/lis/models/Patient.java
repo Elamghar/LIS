@@ -1,5 +1,6 @@
 package ma.ensa.lis.models;
 
+import javafx.scene.control.TextField;
 import lombok.*;
 
 import java.util.ArrayList;
@@ -49,6 +50,11 @@ public class Patient  {
             this.listOfVisits = new ArrayList<>();
         }
         this.listOfVisits.add(visit);
+    }
+
+    public Patient(String  email) {
+
+        this.email=email;
     }
 }
 
