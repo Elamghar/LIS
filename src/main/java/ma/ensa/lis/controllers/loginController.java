@@ -14,8 +14,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Objects;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class loginController {
 
@@ -31,7 +29,7 @@ public class loginController {
         String username = login.getText().trim();
         String password = ps.getText();
         if (username.isEmpty() || password.isEmpty()) {
-//            showAlert("Login Error", "Please enter both username and password.");
+            showAlert("Login Error", "Please enter both username and password.");
             return;
         }
 
@@ -39,7 +37,7 @@ public class loginController {
             if (authenticateUser(username, password)) {
                 navigateToAdminView(actionEvent);
             } else {
-//                showAlert("Login Failed", "Invalid username or password.");
+               showAlert("Login Failed", "Invalid username or password.");
             }
         } catch (Exception e) {
 
@@ -50,6 +48,13 @@ public class loginController {
 
     private boolean authenticateUser(String username, String password) {
         return (Objects.equals(username, "admin") && Objects.equals(password, "admin"));
+    }
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
     private void navigateToAdminView(ActionEvent actionEvent) throws IOException {

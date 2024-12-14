@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="685.0" prefWidth="791.0" style="-fx-background-color: bleu;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ma.ensa.lis.controllers.GnenererLireBarcode">
+    <ImageView fitHeight="700.0" fitWidth="800.0" preserveRatio="false" pickOnBounds="true">
+        <image>
+            <javafx.scene.image.Image url="@/img.png" />
+        </image>
+    </ImageView>
     <children>
+        <!-- Header Sections -->
         <AnchorPane layoutX="36.0" layoutY="25.0" prefHeight="76.0" prefWidth="354.0" style="-fx-background-color: #1ba1bf;">
             <children>
                 <Label layoutX="43.0" layoutY="14.0" prefHeight="48.0" prefWidth="319.0" style="-fx-background-color: #1ba1bf;" text="Generer un Code Bar" textFill="WHITE" wrapText="true">
@@ -27,13 +32,25 @@
                 </Label>
             </children>
         </AnchorPane>
-        <TextField fx:id="idtest" layoutX="53.0" layoutY="171.0" prefHeight="26.0" prefWidth="310.0" promptText="test" />
-        <Button fx:id="idgenerer" layoutX="109.0" layoutY="262.0" mnemonicParsing="false" onAction="#onGenerateBarcodeClick" prefHeight="26.0" prefWidth="198.0" style="-fx-background-color: #1353ea;" text="Generer Barcode" textFill="WHITE" />
-        <Button fx:id="idchoisirimage" layoutX="486.0" layoutY="129.0" mnemonicParsing="false" onAction="#onChooseImageClick" prefHeight="26.0" prefWidth="206.0" style="-fx-background-color: #1353ea;" text="choisir image Barcode" textFill="WHITE" />
-        <ImageView fx:id="idimagegenerer" fitHeight="308.0" fitWidth="310.0" layoutX="53.0" layoutY="347.0" pickOnBounds="true" preserveRatio="true" />
-        <Label fx:id="idresultat" layoutX="419.0" layoutY="449.0" prefHeight="198.0" prefWidth="340.0" style="-fx-background-color: #9cc9e7;" textFill="WHITE" wrapText="true" />
-        <ImageView fx:id="idimagechoisir" fitHeight="207.0" fitWidth="340.0" layoutX="421.0" layoutY="171.0" pickOnBounds="true" preserveRatio="true" />
-        <Button fx:id="idlireimage" layoutX="486.0" layoutY="397.0" mnemonicParsing="false" onAction="#onlireimageClick" prefHeight="26.0" prefWidth="206.0" style="-fx-background-color: #1353ea;" text="lire l'image codebar" textFill="WHITE" />
-      <Button layoutX="27.0" layoutY="635.0" mnemonicParsing="false" onAction="#returnn" text="return" />
+
+        <!-- ComboBox for selecting a test -->
+        <ComboBox fx:id="testComboBox" layoutX="53.0" layoutY="171.0" prefHeight="26.0" prefWidth="310.0">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Test 1"/>
+                    <String fx:value="Test 2"/>
+                    <String fx:value="Test 3"/>
+                    <String fx:value="Test 4"/>
+                </FXCollections>
+            </items>
+        </ComboBox>
+
+        <!-- Button to add the selected test to the list -->
+        <Button fx:id="addTestButton" layoutX="109.0" layoutY="210.0" mnemonicParsing="false" onAction="#onAddTestClick" prefHeight="26.0" prefWidth="198.0" style="-fx-background-color: #1353ea;" text="Add Test" textFill="WHITE" />
+
+        <!-- ListView to display added tests -->
+        <ListView fx:id="testListView" layoutX="53.0" layoutY="250.0" prefHeight="150.0" prefWidth="310.0"/>
+
+        <!-- Other components from the original layout... -->
     </children>
 </AnchorPane>

@@ -9,6 +9,11 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="685.0" prefWidth="791.0" style="-fx-background-color: bleu;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ma.ensa.lis.controllers.GnenererLireBarcode">
     <children>
+        <ImageView fitHeight="700.0" fitWidth="800.0" preserveRatio="false" pickOnBounds="true">
+            <image>
+                <javafx.scene.image.Image url="@/img.png" />
+            </image>
+        </ImageView>
         <AnchorPane layoutX="36.0" layoutY="25.0" prefHeight="76.0" prefWidth="354.0" style="-fx-background-color: #1ba1bf;">
             <children>
                 <Label layoutX="43.0" layoutY="14.0" prefHeight="48.0" prefWidth="319.0" style="-fx-background-color: #1ba1bf;" text="Generer un Code Bar" textFill="WHITE" wrapText="true">
@@ -34,7 +39,7 @@
         <Label fx:id="idresultat" layoutX="419.0" layoutY="449.0" prefHeight="198.0" prefWidth="340.0" style="-fx-background-color: #9cc9e7;" textFill="WHITE" wrapText="true" />
         <ImageView fx:id="idimagechoisir" fitHeight="207.0" fitWidth="340.0" layoutX="421.0" layoutY="171.0" pickOnBounds="true" preserveRatio="true" />
         <Button fx:id="idlireimage" layoutX="486.0" layoutY="397.0" mnemonicParsing="false" onAction="#onlireimageClick" prefHeight="26.0" prefWidth="206.0" style="-fx-background-color: #1353ea;" text="lire l'image codebar" textFill="WHITE" />
-      <Button layoutX="27.0" layoutY="635.0" mnemonicParsing="false" onAction="#returnn" text="return" />
-      <Button layoutX="121.0" layoutY="635.0" mnemonicParsing="false" onAction="#logout" text="logout" />
+        <Button layoutX="27.0" layoutY="635.0" mnemonicParsing="false" onAction="#returnn" text="return" />
+        <Button layoutX="121.0" layoutY="635.0" mnemonicParsing="false" onAction="#logout" text="logout" />
     </children>
 </AnchorPane>
