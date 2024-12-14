@@ -3,9 +3,6 @@ package ma.ensa.lis.models;
 import javafx.scene.control.TextField;
 import lombok.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Getter
 @Setter
 @AllArgsConstructor
@@ -13,6 +10,8 @@ import java.util.List;
 
 @ToString(callSuper = true)
 public class Patient  {
+    private  String role;
+    private  String phoneNumber;
     private String Id;
     private String firstName;
     private String lastName;
@@ -20,10 +19,8 @@ public class Patient  {
     private String gender;
     private String email;
     private String address;
-    private String role;
-    private String phoneNumber;
 
-    private List<Visit> listOfVisits;
+
 
     public Patient(String patientId, String firstName, String lastName, int age, String gender, String email, String address, String role, String phoneNumber) {
         this.Id = patientId;
@@ -44,12 +41,13 @@ public class Patient  {
         this.gender=gender;
     }
 
+    public Patient(String id, String firstName, String prenomm, int age, String gender, String email, String address) {
+    }
 
-    public void addVisit(Visit visit) {
-        if (this.listOfVisits == null) {
-            this.listOfVisits = new ArrayList<>();
-        }
-        this.listOfVisits.add(visit);
+
+
+    public Patient(String patientId, String firstName, String lastName, int age, String gender, String email, String address, Object o) {
+
     }
 
     public Patient(String  email) {

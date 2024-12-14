@@ -7,7 +7,6 @@ import java.sql.Connection;
 import java.sql.Statement;
 
 public class useFullFunction {
-
     public static void executeSqlScript(Connection conn, String filePath) throws IOException {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath));
              Statement stmt = conn.createStatement()) {
