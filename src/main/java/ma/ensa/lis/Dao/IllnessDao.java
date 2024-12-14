@@ -1,7 +1,5 @@
 package ma.ensa.lis.Dao;
 
-import ma.ensa.lis.models.Illness;
-
 import java.util.List;
 
 public interface IllnessDao {
