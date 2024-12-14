@@ -28,7 +28,7 @@ public class App extends  Application {
           System.out.println("An error occurred while connecting to the database or initializing the schema.");
           e.printStackTrace();
         }
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("GenererLireBarcode.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("login-view.fxml"));
 
         Scene scene = new Scene((Parent) fxmlLoader.load(), 800, 700);
 

@@ -27,6 +27,8 @@ public class PatientDaoImp implements PatientDao {
             stmt.setString(6, patient.getEmail());
 //            stmt.setString(7, patient.getPassword());
             stmt.setString(7, patient.getAddress());
+            stmt.setString(8,patient.getRole());
+            stmt.setString(9,patient.getPhoneNumber());
             stmt.executeUpdate();
             System.out.println("patient added successfully");
         } catch (SQLException e) {
