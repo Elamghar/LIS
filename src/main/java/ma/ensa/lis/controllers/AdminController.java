@@ -2,7 +2,6 @@ package ma.ensa.lis.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -11,9 +10,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import ma.ensa.lis.Dao.Impl.PatientDaoImp;
 import ma.ensa.lis.models.Patient;
 import ma.ensa.lis.utils.DbConnection;
 
+import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -69,9 +70,12 @@ public class AdminController {
             String prenomm=rs.getString("lastName");
             int age = rs.getInt("age");
             String gender = rs.getString("gender");
-            String email=rs.getString("email");
-            String address=rs.getString("address");
-            Patient pa = new Patient(id,first_name,prenomm,age,gender,email,address);
+
+            Patient pa = new Patient(id,first_name,prenomm,gender);
+//            String email=rs.getString("email");
+//            String address=rs.getString("address");
+//            Patient pa = new Patient(id,first_name,prenomm,age,gender,email,address);
+
             ob.add(pa);
             table.setItems(ob);
         }
@@ -89,8 +93,31 @@ public class AdminController {
         stage.show();
     }
 
-    public void create(ActionEvent actionEvent) throws IOException {
+
+    public void logout(javafx.event.ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/login-view.fxml"));
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        Scene scene = new Scene(fxmlLoader.load(), 754, 622);
+        String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/admin.css")).toExternalForm();
+        scene.getStylesheets().add(css);
+        stage.setTitle("Hello!");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void create(javafx.event.ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/AjoutPatient-view.fxml"));
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        Scene scene = new Scene(fxmlLoader.load(), 754, 622);
+        String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/admin.css")).toExternalForm();
+        scene.getStylesheets().add(css);
+        stage.setTitle("Hello!");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void deletepatient(javafx.event.ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/deletePatient-view.fxml"));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 754, 622);
         String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/admin.css")).toExternalForm();
