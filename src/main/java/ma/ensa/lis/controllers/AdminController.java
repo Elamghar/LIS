@@ -2,7 +2,6 @@ package ma.ensa.lis.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -12,12 +11,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import ma.ensa.lis.models.Patient;
-<<<<<<< HEAD
-
-=======
->>>>>>> 83ba1a64b1ee4978b07528df0a75c45370b1fb7d
 import ma.ensa.lis.utils.DbConnection;
 
+import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -73,13 +69,12 @@ public class AdminController {
             String prenomm=rs.getString("lastName");
             int age = rs.getInt("age");
             String gender = rs.getString("gender");
-<<<<<<< HEAD
+
             Patient pa = new Patient(id,first_name,prenomm,gender);
-=======
-            String email=rs.getString("email");
-            String address=rs.getString("address");
-            Patient pa = new Patient(id,first_name,prenomm,age,gender,email,address);
->>>>>>> 83ba1a64b1ee4978b07528df0a75c45370b1fb7d
+//            String email=rs.getString("email");
+//            String address=rs.getString("address");
+//            Patient pa = new Patient(id,first_name,prenomm,age,gender,email,address);
+
             ob.add(pa);
             table.setItems(ob);
         }

@@ -100,12 +100,7 @@ public class loginController {
         stage.show();
     }
 
-<<<<<<< HEAD
-    /**
-     * Displays an alert dialog with the given title and message
-     * @param title The title of the alert
-     * @param message The message to display
-     */
+
     private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);
@@ -114,13 +109,5 @@ public class loginController {
         alert.showAndWait();
     }
 
-    /**
-     * Optional method for welcome text (can be removed if not needed)
-     */
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
-=======
->>>>>>> 19ddaf391c7eaf4cd98be386662e7d37b29a9875
+
 }
