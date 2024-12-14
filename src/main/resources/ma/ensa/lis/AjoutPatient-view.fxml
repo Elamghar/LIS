@@ -31,7 +31,7 @@
       <Label layoutX="14.0" layoutY="330.0" text="role" />
       <Label layoutX="14.0" layoutY="400.0" text="adresse" />
       <Button layoutX="106.0" layoutY="487.0" onAction="#ajouter" mnemonicParsing="false" prefHeight="26.0" prefWidth="116.0" text="ajouter" />
-      <Button layoutX="9.0" layoutY="12.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="78.0" text="return" />
+      <Button layoutX="9.0" layoutY="12.0" mnemonicParsing="false" prefHeight="26.0" onAction="#retur" prefWidth="78.0" text="return" />
       <Button layoutX="364.0" layoutY="487.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="103.0" text="ajouter visit" />
    </children>
 </AnchorPane>
