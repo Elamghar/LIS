@@ -25,9 +25,9 @@ import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class GnenererLireBarcode {
@@ -75,12 +75,33 @@ public class GnenererLireBarcode {
             idimagechoisir.setImage(image);
         }
     }
-
+    String[] Lirelistinfo() throws IOException {//lire info stocker sur foichier et supprimer ces info de fichier
+        BufferedReader br = new BufferedReader(new FileReader("infosurpatient.txt"));
+        String line;
+        String[] valeurs = new String[0];
+        while ((line = br.readLine()) != null) {
+            valeurs = line.split(",");
+            return valeurs;
+        }
+        return null;
+    }
+    public void ClearFile() {
+            try (FileWriter fileWriter = new FileWriter("infosurpatient.txt")) {
+                System.out.println("File contents cleared successfully.");
+            } catch (IOException e) {
+                System.err.println("An error occurred while clearing the file: " + e.getMessage());
+            }
+    }
     @FXML
-    void onGenerateBarcodeClick(ActionEvent event) {
-        String nom = idnom.getText().trim();
-        String prenom = idprenom.getText().trim();
-        String age = idage.getText().trim();
+    void onGenerateBarcodeClick(ActionEvent event) throws IOException {
+        String[] val=Lirelistinfo();
+        ClearFile();
+        String nom = val[0];
+        String prenom = val[1];
+        String age = val[2];
+        System.out.println(nom+"nomm de patient");
+        System.out.println(prenom);
+        System.out.println(age);
         String test = idtest.getText().trim();
 
         if (nom.isEmpty() || prenom.isEmpty() || age.isEmpty() || test.isEmpty()) {
