@@ -79,7 +79,9 @@ public class AjoutPatientController {
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/GenererLireBarcode.fxml."));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 754, 622);
+        Scene scene = new Scene(fxmlLoader.load(), 1000, 700);
+        String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/admin.css")).toExternalForm();
+        scene.getStylesheets().add(css);
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();

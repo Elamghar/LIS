@@ -45,6 +45,14 @@ public class TestLab {
         this.status = TestStatus.PENDING;  // Default status
         this.expectedCompletionDate = expectedCompletionDate;
     }
+
+    public TestLab(String namee, String diagg, Date datee, String resu) {
+        this.name=namee;
+        this.category=diagg;
+        this.testDate=datee;
+        this.result=resu;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -17,7 +17,7 @@
     <TextField fx:id="login" layoutX="36.0" layoutY="187.0" prefHeight="26.0" prefWidth="728.0" />
     <PasswordField fx:id="ps" layoutX="36.0" layoutY="299.0" prefHeight="26.0" prefWidth="728.0" />
     <Button layoutX="262.0" layoutY="400.0" mnemonicParsing="false" onAction="#enter" prefHeight="26.0" prefWidth="248.0" text="enter" />
-    <Label layoutX="304.0" layoutY="486.0" onMouseClicked="#register" text="i don't have account" textAlignment="RIGHT">
+    <Label layoutX="304.0" layoutY="486.0"  text="i don't have account" textAlignment="RIGHT">
         <textFill>
             <LinearGradient endX="1.0" endY="1.0">
                 <stops>
