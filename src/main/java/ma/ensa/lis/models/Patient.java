@@ -1,5 +1,6 @@
 package ma.ensa.lis.models;
 
+import javafx.scene.control.TextField;
 import lombok.*;
 
 @Getter
@@ -47,6 +48,11 @@ public class Patient  {
 
     public Patient(String patientId, String firstName, String lastName, int age, String gender, String email, String address, Object o) {
 
+    }
+
+    public Patient(String  email) {
+
+        this.email=email;
     }
 }
 

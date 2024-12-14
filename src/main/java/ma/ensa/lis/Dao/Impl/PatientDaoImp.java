@@ -40,10 +40,10 @@ public class PatientDaoImp implements PatientDao {
     public void delete(Patient patient) {
         DbConnection db = new DbConnection();
         Connection conn = db.getConn();
-        String query = "DELETE FROM Patient WHERE patientId = ?";
+        String query = "DELETE FROM Patient WHERE email = ?";
         try {
             PreparedStatement stmt = conn.prepareStatement(query);
-            stmt.setString(1, patient.getId());
+            stmt.setString(1, patient.getEmail());
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
