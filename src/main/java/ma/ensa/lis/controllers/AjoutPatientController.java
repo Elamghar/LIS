@@ -10,6 +10,8 @@ import javafx.stage.Stage;
 import ma.ensa.lis.Dao.Impl.PatientDaoImp;
 import ma.ensa.lis.models.Patient;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Objects;
 import java.util.UUID;
@@ -32,8 +34,30 @@ public class AjoutPatientController {
     private TextField role;
     @FXML
     private TextField adresse;
+    void writeinfile() throws IOException {
+        FileWriter f=new FileWriter("infosurpatient.txt");
+        String s=nom.getText()+","+prenom.getText()+","+age.getText();
+        f.write(s);
+        f.close();
+    }
+    void createfile(){
+        try {
+            File myObj = new File("infosurpatient.txt");
+            if (myObj.createNewFile()) {
+                System.out.println("File created: " + myObj.getName());
+            } else {
+                System.out.println("File already exists.");
+            }
 
-    public void ajouter(ActionEvent actionEvent) {
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+
+    }
+    public void ajouter(ActionEvent actionEvent) throws IOException {
+        createfile();
+        writeinfile();
         PatientDaoImp patientdao =new PatientDaoImp();
         String uniqueId = UUID.randomUUID().toString();
         System.out.println(nom.getText()+"hhh");
@@ -50,6 +74,16 @@ public class AjoutPatientController {
         stage.setScene(scene);
         stage.show();
     }
+
+    public void barcode(ActionEvent actionEvent) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/GenererLireBarcode.fxml."));
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        Scene scene = new Scene(fxmlLoader.load(), 754, 622);
+        stage.setTitle("Hello!");
+        stage.setScene(scene);
+        stage.show();
     }
+}
 
 
