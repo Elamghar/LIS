@@ -121,6 +121,4 @@ public class loginController {
     protected void onHelloButtonClick() {
         welcomeText.setText("Welcome to JavaFX Application!");
     }
-=======
->>>>>>> 19ddaf391c7eaf4cd98be386662e7d37b29a9875
 }
