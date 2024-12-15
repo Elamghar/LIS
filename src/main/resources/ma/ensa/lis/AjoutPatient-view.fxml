@@ -32,7 +32,6 @@
       <Label layoutX="306.0" layoutY="125.0" text="genre" />
       <Label layoutX="10.0" layoutY="196.0" text="email" />
       <Label layoutX="14.0" layoutY="264.0" text="numero du telephone" />
-      <Label layoutX="14.0" layoutY="330.0" text="role" />
       <Label layoutX="14.0" layoutY="400.0" text="adresse" />
       <Button layoutX="106.0" layoutY="487.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="26.0" prefWidth="116.0" text="ajouter" />
       <Button layoutX="9.0" layoutY="12.0" mnemonicParsing="false" onAction="#retur" prefHeight="26.0" prefWidth="78.0" text="return" />
