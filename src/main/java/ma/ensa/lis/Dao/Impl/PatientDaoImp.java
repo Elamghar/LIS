@@ -2,6 +2,7 @@ package ma.ensa.lis.Dao.Impl;
 
 import ma.ensa.lis.Dao.PatientDao;
 import ma.ensa.lis.models.Patient;
+import ma.ensa.lis.models.TestLab;
 import ma.ensa.lis.utils.DbConnection;
 
 import java.sql.*;
@@ -11,10 +12,10 @@ import java.util.List;
 public class PatientDaoImp implements PatientDao {
 
     @Override
-    public void save(Patient patient) {
+    public void save(Patient patient, List<TestLab> tests) {
         DbConnection db = new DbConnection();
         Connection conn = db.getConn();
-        String query = "INSERT INTO Patient (patientId, firstName, lastName, age, gender, email, address, role, phoneNumber) " +
+        String query = "INSERT INTO Patient (patientId, firstName, lastName, age, gender, email, address, phoneNumber) " +
                 "VALUES (?,?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement stmt = conn.prepareStatement(query);
@@ -25,11 +26,19 @@ public class PatientDaoImp implements PatientDao {
             stmt.setInt(4, patient.getAge());
             stmt.setString(5, patient.getGender());
             stmt.setString(6, patient.getEmail());
-//            stmt.setString(7, patient.getPassword());
+            //stmt.setString(7, patient.getPassword());
             stmt.setString(7, patient.getAddress());
-            stmt.setString(8,patient.getRole());
             stmt.setString(9,patient.getPhoneNumber());
             stmt.executeUpdate();
+
+            // Associer les tests au patient
+            String testQuery = "INSERT INTO Patient_Tests (patient_id, test_id) VALUES (?, ?)";
+            PreparedStatement testStmt = conn.prepareStatement(testQuery);
+            for (TestLab test : tests) {
+                testStmt.setString(1, patient.getId());
+                testStmt.setString(2, test.getId());
+                testStmt.executeUpdate();
+            }
             System.out.println("patient added successfully");
         } catch (SQLException e) {
             e.printStackTrace();
@@ -87,7 +96,8 @@ public class PatientDaoImp implements PatientDao {
             stmt.setString(1, "%" + firstName + "%");
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-                patients.add(new Patient(rs.getString("patientId"),
+                patients.add(new Patient(
+                        rs.getString("patientId"),
                         rs.getString("firstName"),
                         rs.getString("lastName"),
                         rs.getInt("age"),
@@ -147,7 +157,6 @@ public class PatientDaoImp implements PatientDao {
                         rs.getInt("age"),
                         rs.getString("gender"),
                         rs.getString("email"),
-
                         rs.getString("address")
                 ));
             }
@@ -174,7 +183,6 @@ public class PatientDaoImp implements PatientDao {
                         rs.getInt("age"),
                         rs.getString("gender"),
                         rs.getString("email"),
-
                         rs.getString("address")
                 ));
             }
