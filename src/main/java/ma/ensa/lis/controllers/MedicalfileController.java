@@ -12,7 +12,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import ma.ensa.lis.models.Patient;
 import ma.ensa.lis.models.TestLab;
 import ma.ensa.lis.utils.DbConnection;
 
@@ -71,7 +70,7 @@ public class MedicalfileController {
     }
 
     @FXML
-    public void see(ActionEvent actionEvent) throws SQLException {
+    public void seee(ActionEvent actionEvent) throws SQLException {
         String id=findId(email.getText());
         if(id!=null) {
             DbConnection db = new DbConnection();
