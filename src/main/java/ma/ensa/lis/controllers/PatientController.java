@@ -9,16 +9,10 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import ma.ensa.lis.Dao.Impl.TestDaoImp;
-import ma.ensa.lis.Dao.Impl.VisitDaoImp;
-import ma.ensa.lis.models.Visit;
 import ma.ensa.lis.utils.DbConnection;
 
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.Date;
 import java.util.Objects;
-import java.util.UUID;
 
 public class PatientController {
     @FXML
@@ -44,12 +38,6 @@ public class PatientController {
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
-    }
-    public void ajout_visit(ActionEvent actionEvent) throws IOException{
-        VisitDaoImp visitcont=new VisitDaoImp();
-        String uniqueId = UUID.randomUUID().toString();
-        LocalDate localDate=datev.getValue(); //return localDate
-        visitcont.save(new Visit(uniqueId,Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant()), diag.getText()));//mn localDate l Date
     }
     public void ajout_test(ActionEvent actionEvent) throws IOException{
         TestDaoImp man=new TestDaoImp(new DbConnection());

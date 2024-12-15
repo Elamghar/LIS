@@ -14,6 +14,11 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="622.0" prefWidth="754.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ma.ensa.lis.controllers.AdminController">
+    <ImageView fitHeight="700.0" fitWidth="800.0" preserveRatio="false" pickOnBounds="true">
+        <image>
+            <javafx.scene.image.Image url="@/img.png" />
+        </image>
+    </ImageView>
     <children>
         <ImageView fitHeight="143.0" fitWidth="193.0" layoutX="173.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
 
@@ -55,7 +60,7 @@
         </Text>
       <Button layoutX="234.0" layoutY="425.0" mnemonicParsing="false" onAction="#logout" prefHeight="26.0" prefWidth="139.0" text="logout" />
       <Button layoutX="430.0" layoutY="426.0" mnemonicParsing="false" onAction="#create" prefHeight="26.0" prefWidth="99.0" text="ajout patient" />
-      <Button layoutX="590.0" layoutY="426.0" mnemonicParsing="false" text="delete patient" />
+      <Button layoutX="590.0" layoutY="426.0" mnemonicParsing="false" onAction="#deletepatient" text="delete patient" />
     </children>
 </AnchorPane>
 

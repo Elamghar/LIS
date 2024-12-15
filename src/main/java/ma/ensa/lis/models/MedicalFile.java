@@ -17,9 +17,9 @@ public class MedicalFile {
     private Date dateCrea;
     private Date dateModif;
     Patient patient;
-    Set<Visit> visit;
     List<String> Allergies;
     List<String> Notes;
 
 
 }
+

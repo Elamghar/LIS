@@ -35,7 +35,6 @@ public class TestLab {
     private String result;
     @Expose
     private Float price;
-    Visit visit;
     // Constructor
     public TestLab(String id, String name, Date testDate, Float price, String category, Date expectedCompletionDate) {
         this.id = id;
@@ -150,3 +149,4 @@ public class TestLab {
 
 
 }
+
