@@ -29,7 +29,7 @@
       <Text layoutX="45.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DATE" />
       <Text layoutX="34.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="diagnistic" />
       <DatePicker fx:id="datev" layoutX="62.0" layoutY="85.0" />
-      <Button layoutX="52.0" layoutY="206.0" mnemonicParsing="false" onAction="#ajout_visit" prefHeight="26.0" prefWidth="184.0" text="add visit" />
+
       <DatePicker fx:id="date_test" layoutX="39.0" layoutY="436.0" />
       <TextField fx:id="test_name" layoutX="39.0" layoutY="291.0" />
       <TextField fx:id="catego" layoutX="39.0" layoutY="360.0" />
