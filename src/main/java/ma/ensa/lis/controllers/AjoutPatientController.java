@@ -126,7 +126,7 @@ public class AjoutPatientController {
         patientDao.save(newPatient, selectedTests);
     }
 
-    public void retur(ActionEvent actionEvent) throws IOException {
+    public void returnn(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/admin-view.fxml"));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 754, 622);
@@ -137,7 +137,7 @@ public class AjoutPatientController {
         stage.show();
     }
 
-    public void barcode(ActionEvent actionEvent) throws IOException {
+    public void accederbarcode(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/GenererLireBarcode.fxml."));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 1000, 700);

@@ -12,9 +12,13 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import ma.ensa.lis.Dao.Impl.PatientDaoImp;
+import ma.ensa.lis.models.Patient;
 import ma.ensa.lis.models.TestLab;
 import ma.ensa.lis.utils.DbConnection;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.*;
 import java.util.Date;
@@ -92,6 +96,46 @@ public class MedicalfileController {
         }
     }
 
+    private void writeInFile(String name,String nomTest,String category,Date date,String testresult) throws IOException {
+        FileWriter f = new FileWriter("infosurpatient.txt");
+        String s = name +","+nomTest + "," + category + "," + date+","+testresult;
+        f.write(s);
+        f.close();
+    }
 
+    private void createFile() {
+        try {
+            File myObj = new File("infosurtestdupatient.txt");
+            if (myObj.createNewFile()) {
+                System.out.println("File created: " + myObj.getName());
+            } else {
+                System.out.println("File already exists.");
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
+    public void generateFile(ActionEvent actionEvent) throws SQLException, IOException {
+        String id=findId(email.getText());
+        if(id!=null) {
+            DbConnection db = new DbConnection();
+            Connection connection = db.getConn();
+            String sql2 = "SELECT * FROM Test WHERE patientId=?";
+            PreparedStatement stmt = connection.prepareStatement(sql2);
+            stmt.setString(1, id);
+            ResultSet rs = stmt.executeQuery();
+            PatientDaoImp patientDaoImp=new PatientDaoImp();
+            Patient patient=patientDaoImp.searchById(id);
+            createFile();
+            while (rs.next()) {
+                String namee = rs.getString("testName");
+                String diagg = rs.getString("category");
+                Date datee = rs.getDate("dateTest");
+                String resu = rs.getString("testResult");
+                writeInFile(patient.getFirstName(),namee,diagg,datee,resu);
+            }
+        }
+    }
 }
 

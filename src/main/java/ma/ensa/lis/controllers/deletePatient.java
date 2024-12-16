@@ -11,7 +11,7 @@ public class deletePatient {
     @FXML
     TextField email;//make the email insertionn unique
     @FXML
-    public void delete(ActionEvent actionEvent) {
+    public void deletePatient(ActionEvent actionEvent) {
         PatientDaoImp pa=new PatientDaoImp();
         pa.delete(new Patient(email.getText()));
     }
