@@ -1,5 +1,7 @@
 package ma.ensa.lis.utils;
 
+import javafx.scene.control.Alert;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -26,5 +28,12 @@ public class useFullFunction {
         } catch (Exception e) {
             throw new IOException("Error executing SQL script: " + e.getMessage(), e);
         }
+    }
+    public static void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }

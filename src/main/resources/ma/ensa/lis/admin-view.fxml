@@ -14,11 +14,6 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="622.0" prefWidth="754.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ma.ensa.lis.controllers.AdminController">
-    <ImageView fitHeight="700.0" fitWidth="800.0" preserveRatio="false" pickOnBounds="true">
-        <image>
-            <javafx.scene.image.Image url="@/img.png" />
-        </image>
-    </ImageView>
     <children>
         <ImageView fitHeight="143.0" fitWidth="193.0" layoutX="173.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
 
@@ -43,7 +38,7 @@
             </menus>
         </MenuBar>
         <Label layoutX="46.0" layoutY="258.0" prefHeight="18.0" prefWidth="446.0" />
-        <Button layoutX="55.0" layoutY="425.0" mnemonicParsing="false" onAction="#gh" prefHeight="26.0" prefWidth="139.0" text="see details" />
+        <Button layoutX="55.0" layoutY="425.0" mnemonicParsing="false" onAction="#seeDetails" prefHeight="26.0" prefWidth="139.0" text="see details" />
         <PointLight color="CHARTREUSE" layoutX="569.0" layoutY="39.0" lightOn="true" />
         <TableView fx:id="table" layoutY="114.0" prefHeight="234.0" prefWidth="747.0">
             <columns>
