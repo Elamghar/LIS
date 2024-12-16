@@ -50,9 +50,8 @@ public class AjoutPatientController {
     private TableColumn<TestLab, String> testCatCol;
     @FXML
     private TableColumn<TestLab, Boolean> testSelectCol;
-    @FXML
-    private ObservableList<TestLab> availableTests = FXCollections.observableArrayList();
 
+    private ObservableList<TestLab> availableTests = FXCollections.observableArrayList();
     private TestDaoImp testDao;
 
     public void initialize() {

@@ -2,7 +2,6 @@ package ma.ensa.lis.Dao.Impl;
 
 import ma.ensa.lis.Dao.TestDao;
 import ma.ensa.lis.models.TestLab;
-import ma.ensa.lis.models.TestStatus;
 import ma.ensa.lis.utils.DbConnection;
 
 import java.sql.*;
