@@ -24,6 +24,8 @@ import java.sql.*;
 import java.util.Date;
 import java.util.Objects;
 
+import static ma.ensa.lis.utils.useFullFunction.showAlert;
+
 public class MedicalfileController {
     @FXML
     private TableView<TestLab> table;
@@ -68,7 +70,7 @@ public class MedicalfileController {
             System.out.println(id);
             return id;
         } else {
-            System.out.println("there is no patient with this email");
+            showAlert("user not found","there is no patient with this email");
             return null;
         }
     }

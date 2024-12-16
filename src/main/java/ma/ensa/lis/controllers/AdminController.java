@@ -10,7 +10,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import ma.ensa.lis.Dao.Impl.PatientDaoImp;
 import ma.ensa.lis.models.Patient;
 import ma.ensa.lis.utils.DbConnection;
 
@@ -55,7 +54,7 @@ public class AdminController {
         gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
     }
 
-    public void gh(javafx.event.ActionEvent actionEvent) throws SQLException {
+    public void seeDetails(javafx.event.ActionEvent actionEvent) throws SQLException {
         System.out.println("saf ghyerha");
         DbConnection db=new DbConnection();
         Connection connection = db.getConn();

@@ -1,5 +1,6 @@
 package ma.ensa.lis.controllers;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.cell.CheckBoxTableCell;
@@ -49,9 +50,8 @@ public class AjoutPatientController {
     private TableColumn<TestLab, String> testCatCol;
     @FXML
     private TableColumn<TestLab, Boolean> testSelectCol;
-    @FXML
-    private ObservableList<TestLab> availableTests = FXCollections.observableArrayList();
 
+    private ObservableList<TestLab> availableTests = FXCollections.observableArrayList();
     private TestDaoImp testDao;
 
     public void initialize() {
@@ -60,8 +60,8 @@ public class AjoutPatientController {
         testDao = new TestDaoImp(dbConnection);
 
         // Configuration des colonnes de la table
-        testNomCol.setCellValueFactory(cellData -> cellData.getValue().nomProperty());
-        testCatCol.setCellValueFactory(cellData -> cellData.getValue().categorieProperty());
+        testNomCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getName()));
+        testCatCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCategory()));
         testSelectCol.setCellValueFactory(cellData -> cellData.getValue().getSelectedProperty());
         testSelectCol.setCellFactory(CheckBoxTableCell.forTableColumn(testSelectCol));
 

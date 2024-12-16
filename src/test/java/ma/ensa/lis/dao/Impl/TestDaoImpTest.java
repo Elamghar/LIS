@@ -2,12 +2,10 @@ package ma.ensa.lis.dao.Impl;
 
 import ma.ensa.lis.Dao.Impl.TestDaoImp;
 import ma.ensa.lis.models.TestLab;
-import ma.ensa.lis.models.TestStatus;
 import ma.ensa.lis.utils.DbConnection;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 public class TestDaoImpTest {
