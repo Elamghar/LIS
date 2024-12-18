@@ -17,8 +17,8 @@ public class App extends  Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-//        String schemaFilePath = "src/main/resources/schema.sql";
-////         Execute the schema file
+      String schemaFilePath = "src/main/resources/schema.sql";
+//         Execute the schema file
 //        try{
 //          DbConnection db=new DbConnection();
 //         Connection conn=db.getConn();
