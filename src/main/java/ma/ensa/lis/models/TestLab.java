@@ -1,6 +1,5 @@
 package ma.ensa.lis.models;
 
-import javafx.beans.value.ObservableValue;
 import lombok.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -8,8 +7,7 @@ import com.google.gson.annotations.Expose;
 
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.value.ObservableValue;
 
 import java.util.Date;
 import java.util.Objects;
@@ -33,11 +31,11 @@ public class TestLab {
     @Expose
     private BooleanProperty selected = new SimpleBooleanProperty(false);
 
-    public TestLab(String namee, String diagg, Date datee, String resu) {
-        this.name=name;
-        this.category=diagg;
-        this.date=datee;
-        this.description=resu;
+    public TestLab(String name, String category, Date date, String description) {
+        this.name = name;
+        this.category = category;
+        this.date = date;
+        this.description = description;
     }
 
     public TestLab(String s, String name, String category, String description, Object o) {
