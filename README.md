@@ -1,71 +1,107 @@
-# LIS : Laboratory Information System
+# Laboratory Information System (LIS)
 
-├── main
+## Description
+Le système LIS est une application de gestion destinée à simplifier et optimiser les opérations quotidiennes d'un laboratoire médical. Il intègre des fonctionnalités comme la gestion des patients, des tests médicaux, des fichiers médicaux et la génération de rapports.
 
-    ├── java
-        └── ma
-            └── ensa
-                └── lis
-                    ├── models
-                        ├── Patient.java
-                        ├── TestLab.java
-                        ├── TestStatus.java
-                        └── MedicalFile.java
+## Fonctionnalités Principales
+- Gestion des patients
+- Ajout et gestion des tests médicaux
+- Gestion des dossiers médicaux
+- Génération et lecture de QR codes
+- Authentification utilisateur
+- Génération de fichiers PDF
 
-                
+## Structure du Projet
 
-                    ├── dao
-                        ├── implementation
-                            ├── PatientDaoImp.java
-                            ├── TestDaoImp.java
-                            └── MedicalFileImp.java
+Voici une vue d'ensemble de la structure du projet basée sur les images fournies :
 
-                        ├── PatientDao.java
-                        ├── TestDao.java
-                        └── MedicalFileDao.java
+```
+LIS-G [Lis]
+├── .idea
+├── .mvn
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   └── ma.ensa.lis
+│   │   │       ├── controllers
+│   │   │       │   ├── AdminController
+│   │   │       │   ├── AjoutPatientController
+│   │   │       │   ├── deletePatient
+│   │   │       │   ├── GenererLireBarcode
+│   │   │       │   ├── loginController
+│   │   │       │   ├── MedicalfileController
+│   │   │       │   ├── PatientController
+│   │   │       │   └── TestController
+│   │   │       ├── dao
+│   │   │       │   ├── MedicalFileDao
+│   │   │       │   ├── PatientDao
+│   │   │       │   ├── TestDao
+│   │   │       │   └── Impl
+│   │   │       │       ├── MedicalFileImp
+│   │   │       │       ├── PatientDaoImp
+│   │   │       │       └── TestDaoImp
+│   │   │       ├── exceptions
+│   │   │       │   ├── patientException
+│   │   │       │   └── TestException
+│   │   │       ├── models
+│   │   │       │   ├── MedicalFile
+│   │   │       │   ├── Patient
+│   │   │       │   └── TestLab
+│   │   │       └── utils
+│   │   │           ├── DbConnection
+│   │   │           ├── JsonUtils
+│   │   │           ├── PDFGenerator
+│   │   │           ├── QRCodeGenerator
+│   │   │           └── useFullFunction
+│   │   ├── resources
+│   │   │   ├── ma.ensa.lis
+│   │   │   │   ├── admin.css
+│   │   │   │   ├── admin-view.fxml
+│   │   │   │   ├── AjoutPatient-view.fxml
+│   │   │   │   ├── deletePatient-view.fxml
+│   │   │   │   ├── GenererLireBarcode.fxml
+│   │   │   │   ├── login.css
+│   │   │   │   ├── login-view.fxml
+│   │   │   │   ├── medicalfile-view.fxml
+│   │   │   │   ├── STYLE.css
+│   │   │   │   ├── test-view.fxml
+│   │   │   │   └── img
+│   │   │   │       ├── img.png
+│   │   │   │       ├── logo.png
+│   │   │   │       └── schema.sql
+├── test
+│   ├── java
+│   │   └── ma.ensa.lis
+│   │       ├── controllers
+│   │       │   └── TestControllerTest.java
+│   │       ├── dao
+│   │       │   └── Impl
+│   │       │       ├── TestDAOTest
+│   │       │       └── TestDaoImpTest.java
+│   │       └── models
+│   │           └── TestLabTest
+├── target
+├── pom.xml
+└── README.md
+```
 
-                    ├── controllers
-                        ├── AdminController.java
-                        ├── loginController.java
-                        ├── MedicalFileController.java
-                        ├── PatientController.java
-                        ├── TestController.java
-                    
-                    ├── utils
-                        ├── DbConnection.java
-                        ├── JsonUtils.java
-                        ├── PDFGenerator.java
-                        ├── QRCodeGenerator.java
-                        └── useFullFunstion.java
+## Installation
+1. Clonez le projet :
+   ```bash
+   git clone <repository-url>
+   ```
+2. Importez le projet dans votre IDE préféré (IntelliJ, Eclipse, etc.).
+3. Assurez-vous que Maven est installé et configuré correctement.
+4. Exécutez les scripts de création de base de données fournis dans `schema.sql`.
+5. Lancez l'application.
 
-                    └── App.java
+## Utilisation
+1. Connectez-vous en utilisant les identifiants d'administration.
+2. Naviguez entre les différentes vues pour gérer les patients, tests, et fichiers médicaux.
+3. Générez des rapports PDF et des codes QR selon les besoins.
 
-├── test 
-    
-    ├── java
-        └── ma
-            └── ensa
-                └── lis
-                    ├── models
-                        ├── VisistTest.java
-                        ├── TestTestLab.java
-                        └── TestStatusTestLab.java
-
-                    ├── dao
-                        └──implementation
-                            └── TestDaoImpTest.java
-
-                        └── TestDaoTest.java
-
-
-
-                    ├── controllers
-                        └── TestControllerTest.java
-                    
-                    └── utils
-                        └── QRCodeGeneratorTest.java
-
-
-└── pom.xml
-
->>>>>>> origin/main
+## Tests
+Le projet inclut des tests unitaires dans le répertoire `test`. Pour les exécuter, utilisez la commande suivante :
+```bash
+mvn test
+```
