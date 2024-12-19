@@ -9,7 +9,6 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.value.ObservableValue;
 
-import java.util.Date;
 import java.util.Objects;
 
 @AllArgsConstructor
@@ -19,7 +18,6 @@ import java.util.Objects;
 @ToString
 public class TestLab {
 
-    private  Date date;
     @Expose
     private String id;
     @Expose
@@ -31,10 +29,9 @@ public class TestLab {
     @Expose
     private BooleanProperty selected = new SimpleBooleanProperty(false);
 
-    public TestLab(String name, String category, Date date, String description) {
+    public TestLab(String name, String category, String description) {
         this.name = name;
         this.category = category;
-        this.date = date;
         this.description = description;
     }
 
