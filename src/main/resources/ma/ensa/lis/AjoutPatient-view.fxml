@@ -9,36 +9,36 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ma.ensa.lis.controllers.AjoutPatientController">
+<AnchorPane prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ma.ensa.lis.controllers.AjoutPatientController" stylesheets="@ajoutpa_style.css">
    <children>
       <!-- Titre -->
-      <Text layoutX="140.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AJOUTER UN PATIENT">
+      <Text layoutX="140.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AJOUTER UN PATIENT" styleClass="title">
          <font>
             <Font name="Calisto MT" size="30.0" />
          </font>
       </Text>
 
       <!-- Champs Patient -->
-      <TextField fx:id="nom" layoutX="7.0" layoutY="92.0" prefHeight="26.0" prefWidth="294.0" />
-      <TextField fx:id="prenom" layoutX="304.0" layoutY="92.0" prefHeight="26.0" prefWidth="287.0" />
-      <TextField fx:id="age" layoutX="7.0" layoutY="150.0" prefHeight="26.0" prefWidth="294.0" />
-      <TextField fx:id="genre" layoutX="305.0" layoutY="150.0" prefHeight="26.0" prefWidth="294.0" />
-      <TextField fx:id="email" layoutX="14.0" layoutY="223.0" prefHeight="26.0" prefWidth="578.0" />
-      <TextField fx:id="num" layoutX="13.0" layoutY="290.0" prefHeight="26.0" prefWidth="578.0" />
-      <TextField fx:id="adresse" layoutX="17.0" layoutY="354.0" prefHeight="26.0" prefWidth="578.0" />
+      <TextField fx:id="nom" layoutX="7.0" layoutY="92.0" prefHeight="26.0" prefWidth="294.0" styleClass="text-field" />
+      <TextField fx:id="prenom" layoutX="304.0" layoutY="92.0" prefHeight="26.0" prefWidth="287.0" styleClass="text-field" />
+      <TextField fx:id="age" layoutX="7.0" layoutY="150.0" prefHeight="26.0" prefWidth="294.0" styleClass="text-field" />
+      <TextField fx:id="genre" layoutX="305.0" layoutY="150.0" prefHeight="26.0" prefWidth="294.0" styleClass="text-field" />
+      <TextField fx:id="email" layoutX="14.0" layoutY="223.0" prefHeight="26.0" prefWidth="578.0" styleClass="text-field" />
+      <TextField fx:id="num" layoutX="13.0" layoutY="290.0" prefHeight="26.0" prefWidth="578.0" styleClass="text-field" />
+      <TextField fx:id="adresse" layoutX="17.0" layoutY="354.0" prefHeight="26.0" prefWidth="578.0" styleClass="text-field" />
 
       <!-- Labels -->
-      <Label layoutX="16.0" layoutY="65.0" text="Nom" />
-      <Label layoutX="306.0" layoutY="65.0" text="Prénom" />
-      <Label layoutX="14.0" layoutY="125.0" text="Âge" />
-      <Label layoutX="306.0" layoutY="125.0" text="Genre" />
-      <Label layoutX="10.0" layoutY="196.0" text="Email" />
-      <Label layoutX="14.0" layoutY="264.0" text="Numéro de téléphone" />
-      <Label layoutX="14.0" layoutY="330.0" text="Adresse" />
+      <Label layoutX="16.0" layoutY="65.0" text="Nom" styleClass="label" />
+      <Label layoutX="306.0" layoutY="65.0" text="Prénom" styleClass="label" />
+      <Label layoutX="14.0" layoutY="125.0" text="Âge" styleClass="label" />
+      <Label layoutX="306.0" layoutY="125.0" text="Genre" styleClass="label" />
+      <Label layoutX="10.0" layoutY="196.0" text="Email" styleClass="label" />
+      <Label layoutX="14.0" layoutY="264.0" text="Numéro de téléphone" styleClass="label" />
+      <Label layoutX="14.0" layoutY="330.0" text="Adresse" styleClass="label" />
 
       <!-- TableView des Tests -->
-      <Label layoutX="14.0" layoutY="390.0" text="Sélectionnez les Tests :" />
-      <TableView fx:id="testTableView" layoutX="14.0" layoutY="410.0" prefHeight="200.0" prefWidth="578.0">
+      <Label layoutX="14.0" layoutY="390.0" text="Sélectionnez les Tests :" styleClass="label" />
+      <TableView fx:id="testTableView" layoutX="14.0" layoutY="410.0" prefHeight="200.0" prefWidth="578.0" styleClass="table-view">
          <columns>
             <TableColumn fx:id="testIdCol" text="ID" prefWidth="80.0" />
             <TableColumn fx:id="testNomCol" text="Nom" prefWidth="120.0" />
@@ -49,8 +49,8 @@
       </TableView>
 
       <!-- Boutons -->
-      <Button layoutX="9.0" layoutY="650.0" mnemonicParsing="false" onAction="#returnn" prefHeight="26.0" prefWidth="78.0" text="Retour" />
-      <Button layoutX="106.0" layoutY="650.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="26.0" prefWidth="116.0" text="Ajouter Patient" />
-      <Button layoutX="364.0" layoutY="650.0" mnemonicParsing="false" onAction="#accederbarcode" prefHeight="26.0" prefWidth="103.0" text="Voir Barcode" />
+      <Button layoutX="9.0" layoutY="650.0" mnemonicParsing="false" onAction="#returnn" prefHeight="26.0" prefWidth="78.0" text="Retour" styleClass="button" />
+      <Button layoutX="106.0" layoutY="650.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="26.0" prefWidth="116.0" text="Ajouter Patient" styleClass="button" />
+      <Button layoutX="364.0" layoutY="650.0" mnemonicParsing="false" onAction="#accederbarcode" prefHeight="26.0" prefWidth="103.0" text="Voir Barcode" styleClass="button" />
    </children>
 </AnchorPane>
