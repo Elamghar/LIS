@@ -38,7 +38,7 @@
             </menus>
         </MenuBar>
         <Label layoutX="46.0" layoutY="258.0" prefHeight="18.0" prefWidth="446.0" />
-        <Button layoutX="55.0" layoutY="425.0" mnemonicParsing="false" onAction="#gh" prefHeight="26.0" prefWidth="139.0" text="see details" />
+        <Button layoutX="55.0" layoutY="425.0" mnemonicParsing="false" onAction="#seeDetails" prefHeight="26.0" prefWidth="139.0" text="see details" />
         <PointLight color="CHARTREUSE" layoutX="569.0" layoutY="39.0" lightOn="true" />
         <TableView fx:id="table" layoutY="114.0" prefHeight="234.0" prefWidth="747.0">
             <columns>
