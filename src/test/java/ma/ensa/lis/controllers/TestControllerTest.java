@@ -1,85 +1,123 @@
-
-package ma.ensa.lis.controllers;
-
-import ma.ensa.lis.models.TestLab;
-import ma.ensa.lis.utils.DbConnection;
-
-import java.util.List;
-
-public class TestControllerTest {
-
-    public static void main(String[] args) {
-/*
-        // Initialize the TestController
-        TestController testController = new TestController();
-
-        // Test createTest
-        System.out.println("Testing createTest...");
-        try {
-            testController.createTest("T002", "MRI Scan", "Radiology", 1500.0f);
-            System.out.println("Test created successfully.");
-        } catch (Exception e) {
-            System.out.println("Error during test creation: " + e.getMessage());
-        }
-
-        // Test getTestById
-        System.out.println("\nTesting getTestById...");
-        try {
-            TestLab fetchedTest = testController.getTestById("T002");
-            System.out.println(fetchedTest != null ? fetchedTest : "Test not found");
-        } catch (Exception e) {
-            System.out.println("Error fetching test: " + e.getMessage());
-        }
-
-        // Test updateTest
-        System.out.println("\nTesting updateTest...");
-        try {
-            TestLab fetchedTest = testController.getTestById("T002");
-            if (fetchedTest != null) {
-                fetchedTest.setName("Updated MRI Scan");
-                fetchedTest.setPrice(1600.0f);
-                testController.updateTest(fetchedTest); // Use TestLab object directly
-                System.out.println("Test updated successfully.");
-
-                // Fetch and print updated record
-                TestLab updatedTest = testController.getTestById("T002");
-                System.out.println(updatedTest != null ? updatedTest : "Test not found");
-            } else {
-                System.out.println("Test with ID T002 not found, cannot update.");
-            }
-        } catch (Exception e) {
-            System.out.println("Error during test update: " + e.getMessage());
-        }
-
-        // Test getAllTests
-        System.out.println("\nTesting getAllTests...");
-        try {
-            List<TestLab> allTests = testController.getAllTests();
-            allTests.forEach(test -> System.out.println(test));
-        } catch (Exception e) {
-            System.out.println("Error fetching all tests: " + e.getMessage());
-        }
-
-        // Test deleteTest
-        System.out.println("\nTesting deleteTest...");
-        try {
-            testController.deleteTest("T002");
-            System.out.println("Test deleted successfully.");
-        } catch (Exception e) {
-            System.out.println("Error during test deletion: " + e.getMessage());
-        }
-
-        // Verify Deletion
-        System.out.println("\nVerifying deletion...");
-        try {
-            TestLab deletedTest = testController.getTestById("T002");
-            System.out.println(deletedTest != null ? "Delete failed" : "Test successfully deleted");
-        } catch (Exception e) {
-            System.out.println("Error verifying deletion: " + e.getMessage());
-        }
-    }
-
- */
-    }
-}
-
+//package ma.ensa.lis.controllers;
+//
+//import javafx.collections.FXCollections;
+//import javafx.collections.ObservableList;
+//import javafx.scene.control.Alert;
+//import javafx.scene.control.TableView;
+//import javafx.scene.control.TableColumn;
+//import javafx.scene.control.Button;
+//import javafx.event.ActionEvent;
+//import ma.ensa.lis.Dao.Impl.TestDaoImp;
+//import ma.ensa.lis.models.TestLab;
+//import ma.ensa.lis.utils.DbConnection;
+//import org.junit.jupiter.api.BeforeEach;
+//import org.junit.jupiter.api.Test;
+//import static org.mockito.Mockito.*;
+//import static org.junit.jupiter.api.Assertions.*;
+//
+//class TestControllerTest {
+//
+//    private TestController testController;
+//    private TestDaoImp mockTestDao;
+//    private DbConnection mockDbConnection;
+//    private TableView<TestLab> mockTestTable;
+//    private ObservableList<TestLab> mockTestList;
+//    private Alert mockAlert;
+//
+//    @BeforeEach
+//    void setUp() {
+//        // Mock the DbConnection to simulate database interaction
+//        mockDbConnection = mock(DbConnection.class);
+//        mockTestDao = new TestDaoImp(mockDbConnection);
+//
+//        // Mock JavaFX components
+//        mockTestTable = mock(TableView.class);
+//        mockTestList = FXCollections.observableArrayList();
+//        mockAlert = mock(Alert.class);
+//
+//        // Create an instance of TestController with mocked dependencies
+//        testController = new TestController() {
+//            @Override
+//            public TestDaoImp getTestDao() {
+//                return mockTestDao;
+//            }
+//
+//            @Override
+//            public TableView<TestLab> getTestTable() {
+//                return mockTestTable;
+//            }
+//
+//            @Override
+//            public ObservableList<TestLab> getTestList() {
+//                return mockTestList;
+//            }
+//
+//            @Override
+//            public void showAlert(String title, String message) {
+//                mockAlert.setContentText(message);  // Capture alert content
+//            }
+//        };
+//
+//        // Initialize the controller
+//        testController.initialize();
+//    }
+//
+//    @Test
+//    void testCreateTest() {
+//        // Arrange
+//        when(mockTestDao.save(any(TestLab.class))).thenReturn(null);
+//
+//        // Simulate the createTest method
+//        ActionEvent event = mock(ActionEvent.class);
+//        testController.createTest(event);
+//
+//        // Assert
+//        assertEquals(1, mockTestList.size()); // One new test should be added
+//        verify(mockTestDao).save(any(TestLab.class)); // Save method is called
+//        assertNotNull(mockAlert.getContentText());
+//        assertTrue(mockAlert.getContentText().contains("Test Created"));
+//    }
+//
+//    @Test
+//    void testUpdateTest() {
+//        // Arrange
+//        TestLab test = new TestLab("Test1", "Category1", new java.util.Date(), "Description");
+//        mockTestList.add(test);
+//        when(mockTestDao.update(any(TestLab.class))).thenReturn(null);
+//
+//        // Simulate the updateTest method
+//        ActionEvent event = mock(ActionEvent.class);
+//        testController.updateTest(event);
+//
+//        // Assert
+//        assertTrue(test.getName().contains("Updated")); // Name should be updated
+//        verify(mockTestDao).update(test); // Update method is called
+//        assertNotNull(mockAlert.getContentText());
+//        assertTrue(mockAlert.getContentText().contains("Test Updated"));
+//    }
+//
+//    @Test
+//    void testDeleteTest() {
+//        // Arrange
+//        TestLab test = new TestLab("Test1", "Category1", new java.util.Date(), "Description");
+//        mockTestList.add(test);
+//        when(mockTestDao.delete(anyString())).thenReturn(null);
+//
+//        // Simulate the deleteTest method
+//        ActionEvent event = mock(ActionEvent.class);
+//        testController.deleteTest(event);
+//
+//        // Assert
+//        assertTrue(mockTestList.isEmpty()); // Test should be removed from the list
+//        verify(mockTestDao).delete(test.getId()); // Delete method is called
+//        assertNotNull(mockAlert.getContentText());
+//        assertTrue(mockAlert.getContentText().contains("Test Deleted"));
+//    }
+//
+//    @Test
+//    void testShowAlert() {
+//        // Test the showAlert method by directly invoking it
+//        testController.showAlert("Test", "Test alert");
+//        verify(mockAlert).setContentText("Test alert");
+//    }
+//}

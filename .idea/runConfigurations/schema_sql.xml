@@ -3,6 +3,9 @@
     <script-file value="$PROJECT_DIR$/src/main/resources/schema.sql" />
     <script-mode>FILE</script-mode>
     <data-source id="5dbaddda-877f-4bc8-8187-38c2bc3a0772" />
-    <method v="2" />
+    <data-source id="5dbaddda-877f-4bc8-8187-38c2bc3a0772" />
+    <method v="2">
+      <option name="LaunchBrowser.Before.Run" />
+    </method>
   </configuration>
 </component>

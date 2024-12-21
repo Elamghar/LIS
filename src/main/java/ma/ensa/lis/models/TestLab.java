@@ -1,13 +1,14 @@
 package ma.ensa.lis.models;
 
+import lombok.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.Expose;
+
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
-import lombok.*;
+import javafx.beans.value.ObservableValue;
 
-import java.util.Date;
 import java.util.Objects;
 
 @AllArgsConstructor
@@ -28,8 +29,13 @@ public class TestLab {
     @Expose
     private BooleanProperty selected = new SimpleBooleanProperty(false);
 
-    public TestLab(String name, String diagg, Date datee, String resu) {
-        this.name=name;
+    public TestLab(String name, String category, String description) {
+        this.name = name;
+        this.category = category;
+        this.description = description;
+    }
+
+    public TestLab(String s, String name, String category, String description, Object o) {
     }
 
     // Properties for TableView binding
@@ -67,5 +73,12 @@ public class TestLab {
     }
 
 
+    public ObservableValue<String> nomProperty() {
+        return null;
+}
+
+    public ObservableValue<String> categorieProperty() {
+        return null;
+    }
 }
 

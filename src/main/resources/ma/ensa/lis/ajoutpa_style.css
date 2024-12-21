@@ -1,0 +1,44 @@
+/* Couleur dominante */
+.root {
+    -fx-background-color: #e8f5e9; /* Vert clair */
+}
+
+/* Titre principal */
+.title {
+    -fx-fill: #1b5e20; /* Vert foncé */
+    -fx-font-weight: bold;
+}
+
+/* Labels */
+.label {
+    -fx-text-fill: #1b5e20;
+    -fx-font-size: 14px;
+}
+
+/* Champs de texte */
+.text-field {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #66bb6a;
+    -fx-border-radius: 5px;
+    -fx-text-fill: #1b5e20;
+}
+
+/* TableView */
+.table-view {
+    -fx-border-color: #1b5e20;
+    -fx-border-radius: 5px;
+}
+
+/* Boutons */
+.button {
+    -fx-background-color: linear-gradient(to bottom, #4caf50, #388e3c);
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10px;
+    -fx-border-color: #2e7d32;
+}
+
+.button:hover {
+    -fx-background-color: #2e7d32;
+}

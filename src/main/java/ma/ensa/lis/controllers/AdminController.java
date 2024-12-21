@@ -90,7 +90,7 @@ public class AdminController {
         stage.show();
     }
 
-    public void create(javafx.event.ActionEvent actionEvent) throws IOException {
+    public void createPatient(javafx.event.ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/AjoutPatient-view.fxml"));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 754, 622);
@@ -112,7 +112,7 @@ public class AdminController {
         stage.show();
     }
 
-    public void seeMed(javafx.event.ActionEvent actionEvent) throws IOException {
+    public void seeMedicalFile(javafx.event.ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/medicalfile-view.fxml"));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 754, 622);

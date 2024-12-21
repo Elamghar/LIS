@@ -24,7 +24,7 @@
             </Text>
             <TextField fx:id="email" layoutX="80.0" layoutY="166.0" prefHeight="25.0" prefWidth="380.0" />
             <Text layoutX="66.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="email of patient " />
-            <Button layoutX="315.0" layoutY="280.0" mnemonicParsing="false" onAction="#delete" text="delete" />
+            <Button layoutX="315.0" layoutY="280.0" mnemonicParsing="false" onAction="#deletePatient" text="delete" />
          </children>
       </AnchorPane>
    </children>

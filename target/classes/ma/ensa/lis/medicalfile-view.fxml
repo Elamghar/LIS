@@ -35,11 +35,11 @@
          </columns>
       </TableView>
       <Button layoutX="100.0" layoutY="556.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="106.0" text="send pdf" />
-      <Button layoutX="313.0" layoutY="556.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="97.0" text="generate file" />
+      <Button layoutX="313.0" layoutY="556.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="97.0" text="generate file" onAction="#generateFile" />
       <Button layoutX="662.0" layoutY="28.0" mnemonicParsing="false" onAction="#returne" text="return" />
       <Button layoutX="542.0" layoutY="554.0" mnemonicParsing="false" onAction="#seee" prefHeight="30.0"  prefWidth="98.0" text="see details" />
-      <TextField fx:id="email" layoutX="39.0" layoutY="107.0" prefHeight="26.0" prefWidth="235.0" />
-      <Text layoutX="41.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0"  text="Enter email of the patient" />
+      <TextField fx:id="email" layoutX="39.0" layoutY="107.0" prefHeight="26.0" prefWidth="235.0"  promptText="email..."/>
+      <Text layoutX="41.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0"  text="Enter email of the patient"/>
 
    </children>
 </AnchorPane>

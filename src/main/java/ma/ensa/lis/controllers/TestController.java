@@ -14,7 +14,7 @@ import ma.ensa.lis.Dao.Impl.TestDaoImp;
 import ma.ensa.lis.models.TestLab;
 import ma.ensa.lis.utils.DbConnection;
 
-public class TestController {
+public abstract class TestController {
 
     @FXML
     private TableView<TestLab> testTable;
@@ -61,7 +61,7 @@ public class TestController {
     }
 
     @FXML
-    private void createTest(ActionEvent actionEvent) {
+    void createTest(ActionEvent actionEvent) {
         String name = "New Test";
         String category = "Default Category";
         String description = "Default Description";
@@ -77,7 +77,7 @@ public class TestController {
     }
 
     @FXML
-    private void updateTest(ActionEvent actionEvent) {
+    void updateTest(ActionEvent actionEvent) {
         TestLab selectedTest = testTable.getSelectionModel().getSelectedItem();
         if (selectedTest == null) {
             showAlert("No Selection", "Please select a test to update.");
@@ -118,6 +118,12 @@ public class TestController {
         return "TST-" + System.currentTimeMillis();
     }
 
+    protected abstract TestDaoImp getTestDao();
+
+    protected abstract TableView<TestLab> getTestTable();
+
+    protected abstract ObservableList<TestLab> getTestList();
+
     private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
@@ -125,4 +131,6 @@ public class TestController {
         alert.setContentText(message);
         alert.showAndWait();
     }
+
+    protected abstract void showAlert(String title, String message);
 }

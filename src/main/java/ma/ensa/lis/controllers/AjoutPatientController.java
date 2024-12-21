@@ -45,38 +45,38 @@ public class AjoutPatientController {
     @FXML
     private TableView<TestLab> testTableView;
     @FXML
+    private TableColumn<TestLab, String> testIdCol;
+    @FXML
     private TableColumn<TestLab, String> testNomCol;
     @FXML
     private TableColumn<TestLab, String> testCatCol;
     @FXML
-    private TableColumn<TestLab, Boolean> testSelectCol;
+    private TableColumn<TestLab, String> testDescCol;
     @FXML
-    private ObservableList<TestLab> availableTests = FXCollections.observableArrayList();
+    private TableColumn<TestLab, Boolean> testSelectCol;
 
-    private TestDaoImp testDao;
+    private final ObservableList<TestLab> availableTests = FXCollections.observableArrayList();
 
     public void initialize() {
+        loadTestsFromDB();
 
-        DbConnection dbConnection = new DbConnection();
-        testDao = new TestDaoImp(dbConnection);
-
-        // Configuration des colonnes de la table
+        // Configuration des colonnes
+        testIdCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getId()));
         testNomCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getName()));
         testCatCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCategory()));
+        testDescCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDescription()));
         testSelectCol.setCellValueFactory(cellData -> cellData.getValue().getSelectedProperty());
         testSelectCol.setCellFactory(CheckBoxTableCell.forTableColumn(testSelectCol));
 
-        // Charger les tests depuis la base de données
-        loadTests();
-
-        // Lier les tests disponibles à la table
         testTableView.setItems(availableTests);
     }
 
-    private void loadTests() {
-        List<TestLab> tests = testDao.findAll();
+    private void loadTestsFromDB() {
+        TestDaoImp testDao = new TestDaoImp(new DbConnection());
+        List<TestLab> tests = testDao.findAll(); // Récupère les tests depuis la BD
         availableTests.addAll(tests);
     }
+
 
     private void writeInFile() throws IOException {
         FileWriter f = new FileWriter("infosurpatient.txt");
@@ -127,7 +127,7 @@ public class AjoutPatientController {
         patientDao.save(newPatient, selectedTests);
     }
 
-    public void retur(ActionEvent actionEvent) throws IOException {
+    public void returnn(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/admin-view.fxml"));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 754, 622);
@@ -138,7 +138,7 @@ public class AjoutPatientController {
         stage.show();
     }
 
-    public void barcode(ActionEvent actionEvent) throws IOException {
+    public void accederbarcode(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/GenererLireBarcode.fxml."));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 1000, 700);
