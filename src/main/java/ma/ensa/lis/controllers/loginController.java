@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
-import static ma.ensa.lis.utils.useFullFunction.showAlert;
+import static ma.ensa.lis.utils.useFullFunction.ShowAlert;
 
 public class loginController {
 
@@ -30,7 +30,7 @@ public class loginController {
         String username = login.getText().trim();
         String password = ps.getText();
         if (username.isEmpty() || password.isEmpty()) {
-            showAlert("Login Error", "Please enter both username and password.");
+            ShowAlert("Login Error", "Please enter both username and password.");
             return;
         }
 
@@ -38,7 +38,7 @@ public class loginController {
             if (authenticateUser(username, password)) {
                 navigateToAdminView(actionEvent);
             } else {
-               showAlert("Login Failed", "Invalid username or password.");
+               ShowAlert("Login Failed", "Invalid username or password.");
             }
         } catch (Exception e) {
 

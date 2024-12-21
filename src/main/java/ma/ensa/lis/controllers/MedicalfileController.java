@@ -23,9 +23,6 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.Date;
 import java.util.Objects;
-
-import static ma.ensa.lis.utils.useFullFunction.showAlert;
-
 public class MedicalfileController {
     @FXML
     private TableView<TestLab> table;
@@ -70,7 +67,7 @@ public class MedicalfileController {
             System.out.println(id);
             return id;
         } else {
-            showAlert("user not found","there is no patient with this email");
+            //showAlert("user not found","there is no patient with this email");
             return null;
         }
     }
@@ -87,11 +84,10 @@ public class MedicalfileController {
             ResultSet rs = stmt.executeQuery();
             ObservableList<TestLab> ob = FXCollections.observableArrayList();
             while (rs.next()) {
-                String namee = rs.getString("testName");
-                String diagg = rs.getString("category");
-                Date datee = rs.getDate("dateTest");
-                String resu = rs.getString("testResult");
-                TestLab te = new TestLab(namee, diagg, datee, resu);
+                String name = rs.getString("testName");
+                String cat = rs.getString("category");
+                String desc = rs.getString("desc");
+                TestLab te = new TestLab(name, cat,desc);
                 ob.add(te);
                 table.setItems(ob);
             }

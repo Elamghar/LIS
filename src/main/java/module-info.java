@@ -26,7 +26,6 @@ module ma.ensa.lis {
     opens ma.ensa.lis to javafx.fxml;
     opens ma.ensa.lis.models to javafx.base;
 
-
     exports ma.ensa.lis;
     exports ma.ensa.lis.controllers;
 

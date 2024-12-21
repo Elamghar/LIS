@@ -4,7 +4,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -13,6 +12,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import ma.ensa.lis.Dao.Impl.TestDaoImp;
 import ma.ensa.lis.models.TestLab;
 import ma.ensa.lis.utils.DbConnection;
+
+import static ma.ensa.lis.utils.useFullFunction.ShowAlert;
+
+
 
 public abstract class TestController {
 
@@ -73,14 +76,14 @@ public abstract class TestController {
         // Add the new test to the list and refresh the table
         testList.add(newTest);
         testTable.refresh();
-        showAlert("Test Created", "A new test has been successfully created.");
+        ShowAlert("Test Created", "A new test has been successfully created.");
     }
 
     @FXML
     void updateTest(ActionEvent actionEvent) {
         TestLab selectedTest = testTable.getSelectionModel().getSelectedItem();
         if (selectedTest == null) {
-            showAlert("No Selection", "Please select a test to update.");
+            ShowAlert("No Selection", "Please select a test to update.");
             return;
         }
 
@@ -90,14 +93,14 @@ public abstract class TestController {
         testDao.update(selectedTest);
 
         testTable.refresh();
-        showAlert("Test Updated", "The selected test has been successfully updated.");
+        ShowAlert("Test Updated", "The selected test has been successfully updated.");
     }
 
     @FXML
     private void deleteTest(ActionEvent actionEvent) {
         TestLab selectedTest = testTable.getSelectionModel().getSelectedItem();
         if (selectedTest == null) {
-            showAlert("No Selection", "Please select a test to delete.");
+            ShowAlert("No Selection", "Please select a test to delete.");
             return;
         }
 
@@ -105,7 +108,7 @@ public abstract class TestController {
         testDao.delete(selectedTest.getId());
         testList.remove(selectedTest);
         testTable.refresh();
-        showAlert("Test Deleted", "The selected test has been successfully deleted.");
+        ShowAlert("Test Deleted", "The selected test has been successfully deleted.");
     }
 
     @FXML
@@ -124,13 +127,13 @@ public abstract class TestController {
 
     protected abstract ObservableList<TestLab> getTestList();
 
-    private void showAlert(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
+//    private void ShowAlert(String title, String message) {
+//        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//        alert.setTitle(title);
+//        alert.setHeaderText(null);
+//        alert.setContentText(message);
+//        alert.showAndWait();
+//    }
 
-    protected abstract void showAlert(String title, String message);
+    //protected abstract void ShowAlert(String title, String message); //khoya mafhemtch  ach kadir hna hhhhhhhhh
 }
