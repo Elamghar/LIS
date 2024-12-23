@@ -23,7 +23,7 @@
     <Label layoutX="298.0" layoutY="440.0" onMouseClicked="#register" prefHeight="25.0" prefWidth="69.0" styleClass="link-label" text="SIGN UP" textAlignment="RIGHT" />
     <Label layoutX="116.0" layoutY="187.0" prefHeight="18.0" prefWidth="90.0" styleClass="form-label" text="login" />
     <Label layoutX="116.0" layoutY="273.0" styleClass="form-label" text="password" />
-    <Text layoutX="216.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header-text" text="LIS">
+    <Text layoutX="216.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header-text" text="LOGIN FORM">
         <font>
             <Font name="Bodoni MT Black" size="32.0" />
         </font>
