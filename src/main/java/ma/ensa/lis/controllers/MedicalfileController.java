@@ -135,5 +135,9 @@ public class MedicalfileController {
             }
         }
     }
+
+    public void sendPdf(ActionEvent actionEvent) {
+
+    }
 }
 
