@@ -22,6 +22,7 @@ module ma.ensa.lis {
     requires com.google.zxing.javase;
     requires kernel;
     requires layout;
+    requires io;
     opens ma.ensa.lis.controllers to javafx.fxml;
     opens ma.ensa.lis to javafx.fxml;
     opens ma.ensa.lis.models to javafx.base;
