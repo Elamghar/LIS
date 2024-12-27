@@ -1,4 +1,4 @@
-/* General Styles */
+/* Root Background */
 .root {
     -fx-background-image: url("/img.png");
     -fx-background-size: cover;
@@ -7,19 +7,14 @@
     -fx-font-family: "Roboto", sans-serif;
 }
 
-/* Header Text */
-.header-text {
-    -fx-font-size: 36px;
-    -fx-font-weight: bold;
-    -fx-fill: #1e3a8a; /* Deep blue */
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0.5, 0.5, 0.5);
-}
-
-/* Form Labels */
-.form-label {
-    -fx-font-size: 18px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #1e40af; /* Medium blue */
+/* Form Fields */
+.form-field {
+    -fx-background-color: #e0f2fe; /* Light blue */
+    -fx-border-color: #1e40af;
+    -fx-border-width: 2px;
+    -fx-border-radius: 8px;
+    -fx-padding: 8px;
+    -fx-font-size: 16px;
 }
 
 /* Form Fields */
@@ -34,7 +29,7 @@
 
 /* Primary Button */
 .primary-button {
-    -fx-background-color: linear-gradient(to bottom, #3b82f6, #2563eb);
+    -fx-background-color: linear-gradient(to bottom, #3b82f6, #2563eb); /* Blue gradient */
     -fx-text-fill: white;
     -fx-font-size: 18px;
     -fx-font-weight: bold;
@@ -43,9 +38,47 @@
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.4), 10, 0, 0, 5);
 }
 
+/* Primary Button Hover Effect */
 .primary-button:hover {
     -fx-background-color: #1d4ed8;
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 15, 0, 0, 7);
+    -fx-cursor: hand;
+}
+
+/* Icon Button Styling */
+.icon-button {
+    -fx-background-color: transparent; /* No background */
+    -fx-border-color: transparent; /* No border */
+    -fx-padding: 0; /* No padding */
+    -fx-alignment: center; /* Center content (icon and text) */
+}
+
+.icon-button:hover {
+    -fx-background-color: transparent; /* Maintain transparency */
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 10, 0, 0, 5); /* Shadow on hover */
+    -fx-cursor: hand;
+}
+
+/* Table Styling */
+.table-view {
+    -fx-border-color: #1e3a8a; /* Border color */
+    -fx-border-width: 2px; /* Border width */
+    -fx-border-radius: 10px; /* Rounded corners */
+    -fx-background-color: #f3f4f6; /* Light gray background */
+    -fx-padding: 10px; /* Inner padding */
+    -fx-font-size: 16px;
+    -fx-font-family: "Roboto", sans-serif;
+}
+
+.table-view .column-header {
+    -fx-text-fill: white; /* Header text */
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.table-view .cell {
+    -fx-background-color: #ffffff; /* Cell background */
+    -fx-text-fill: #000000; /* Cell text */
 }
 
 /* Link Label */
