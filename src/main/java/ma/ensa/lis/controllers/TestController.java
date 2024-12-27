@@ -35,6 +35,7 @@ public abstract class TestController {
         DbConnection dbConnection = new DbConnection();
         this.testDao = new TestDaoImp(dbConnection);
         this.testList = FXCollections.observableArrayList(testDao.findAll());
+        System.out.println(this.testList);
     }
 
     @FXML

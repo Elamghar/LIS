@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?xml version="1.0" encoding="UTF-8"?>
-
-<?import javafx.scene.control.*?>
+<?import javafx.scene.PointLight?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.PointLight?>
-<?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+
 <AnchorPane prefHeight="622.0" prefWidth="754.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ma.ensa.lis.controllers.AdminController">
     <children>
         <ImageView fitHeight="143.0" fitWidth="193.0" layoutX="173.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
@@ -51,17 +53,8 @@
                 <Font name="Haettenschweiler" size="33.0" />
             </font>
         </Text>
-        <Button fx:id="logout" layoutX="639.0" layoutY="56.0" onAction="#logout" prefHeight="45.0" prefWidth="45.0" styleClass="Btn">
-            <graphic>
-                <StackPane>
-                    <VBox alignment="CENTER" styleClass="sign">
-                        <SVGPath content="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"
-                                 styleClass="svg-icon"/>
-                    </VBox>
-                </StackPane>
-            </graphic>
-        </Button>
-        <Button layoutX="430.0" layoutY="426.0" mnemonicParsing="false" onAction="#createPatient" prefHeight="26.0" prefWidth="99.0" text="ajout patient" />
+      <Button layoutX="639.0" layoutY="56.0" mnemonicParsing="false" onAction="#logout" prefHeight="26.0" prefWidth="90.0" text="logout" />
+      <Button layoutX="430.0" layoutY="426.0" mnemonicParsing="false" onAction="#createPatient" prefHeight="26.0" prefWidth="99.0" text="ajout patient" />
       <Button layoutX="590.0" layoutY="426.0" mnemonicParsing="false" onAction="#deletepatient" text="delete patient" />
       <Button layoutX="232.0" layoutY="425.0" mnemonicParsing="false" onAction="#seeMedicalFile" prefHeight="25.0" prefWidth="114.0" text="see medical file" />
     </children>

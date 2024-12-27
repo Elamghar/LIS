@@ -18,7 +18,6 @@ public class TestDaoImp implements TestDao {
 
     @Override
     public TestLab findById(String id) {
-
         String query = "SELECT * FROM Test WHERE id = ?";
 
         try(PreparedStatement stmt = dbConnection.getConn().prepareStatement(query)) {
@@ -36,12 +35,15 @@ public class TestDaoImp implements TestDao {
 
     @Override
     public List<TestLab> findAll() {
-
         List<TestLab> tests = new ArrayList<>();
-        String query = "SELECT * FROM Test";
+        String query = "SELECT * FROM test";
 
-        try(Statement stmt = dbConnection.getConn().createStatement();
-            ResultSet rs = stmt.executeQuery(query)) {
+        try{
+            DbConnection db=new DbConnection() ;
+            Connection Conn=db.getConn();
+            PreparedStatement stm=Conn.prepareStatement(query);
+            ResultSet rs=stm.executeQuery();
+            System.out.println("je suis dans test daoImp findall");
             while(rs.next()) {
                 tests.add(mapRowToTest(rs));
             }
@@ -49,6 +51,7 @@ public class TestDaoImp implements TestDao {
         catch(SQLException e) {
             e.printStackTrace();
         }
+        System.out.println("tessssssssssssts:"+tests);
         return tests;
     }
 
@@ -100,9 +103,10 @@ public class TestDaoImp implements TestDao {
     private TestLab mapRowToTest(ResultSet rs) throws SQLException {
 
         TestLab test = new TestLab();
-        test.setId(rs.getString("id"));
-        test.setName(rs.getString("name"));
+        test.setId(rs.getString("testId"));
+        test.setName(rs.getString("testName"));
         test.setCategory(rs.getString("category"));
+        test.setDescription(rs.getString("description"));
 
         return test;
 

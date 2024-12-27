@@ -19,16 +19,16 @@ public class PatientDaoImp implements PatientDao {
                 "VALUES (?,?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement stmt = conn.prepareStatement(query);
+
             stmt.setString(1, patient.getId());
-            System.out.println(patient.getFirstName());
             stmt.setString(2, patient.getFirstName());
             stmt.setString(3, patient.getLastName());
             stmt.setInt(4, patient.getAge());
             stmt.setString(5, patient.getGender());
             stmt.setString(6, patient.getEmail());
-            //stmt.setString(7, patient.getPassword());
             stmt.setString(7, patient.getAddress());
             stmt.setString(9,patient.getPhoneNumber());
+
             stmt.executeUpdate();
 
             // Associer les tests au patient
@@ -39,7 +39,7 @@ public class PatientDaoImp implements PatientDao {
                 testStmt.setString(2, test.getId());
                 testStmt.executeUpdate();
             }
-            System.out.println("patient added successfully");
+            System.out.println("Patient added successfully !!");
         } catch (SQLException e) {
             e.printStackTrace();
         }

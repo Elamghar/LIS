@@ -3,13 +3,16 @@ package ma.ensa.lis.controllers;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.stage.Stage;
 import ma.ensa.lis.Dao.Impl.PatientDaoImp;
 import ma.ensa.lis.Dao.Impl.TestDaoImp;
@@ -20,12 +23,14 @@ import ma.ensa.lis.utils.DbConnection;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
 import java.util.Objects;
+import java.util.ResourceBundle;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-public class AjoutPatientController {
+public class AjoutPatientController  implements Initializable {
 
     @FXML
     private TextField nom;
@@ -57,23 +62,26 @@ public class AjoutPatientController {
 
     private final ObservableList<TestLab> availableTests = FXCollections.observableArrayList();
 
-    public void initialize() {
-        loadTestsFromDB();
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        System.out.println("je suis laaaaaaaaaaaaaaaaaaaaaaaaa");
 
-        // Configuration des colonnes
+        // Configure columns
         testIdCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getId()));
         testNomCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getName()));
         testCatCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCategory()));
         testDescCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDescription()));
+        // Bind the checkbox column to the `selected` property
         testSelectCol.setCellValueFactory(cellData -> cellData.getValue().getSelectedProperty());
         testSelectCol.setCellFactory(CheckBoxTableCell.forTableColumn(testSelectCol));
-
+        // Load data into the table
+        loadTestsFromDB();
         testTableView.setItems(availableTests);
     }
-
     private void loadTestsFromDB() {
         TestDaoImp testDao = new TestDaoImp(new DbConnection());
-        List<TestLab> tests = testDao.findAll(); // Récupère les tests depuis la BD
+        List<TestLab> tests = testDao.findAll();
+        System.out.print("je suis dans looaaad"+tests);      // Récupère les tests depuis la BD
         availableTests.addAll(tests);
     }
 
@@ -148,4 +156,5 @@ public class AjoutPatientController {
         stage.setScene(scene);
         stage.show();
     }
+
 }
