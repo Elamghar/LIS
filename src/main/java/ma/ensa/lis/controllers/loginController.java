@@ -54,7 +54,7 @@ public class loginController {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/admin-view.fxml"));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
 
-        Scene scene = new Scene(fxmlLoader.load(), 754, 622);
+        Scene scene = new Scene(fxmlLoader.load(), 700, 600);
         String css = getClass().getResource("/ma/ensa/lis/admin.css").toExternalForm();
         scene.getStylesheets().add(css);
 
