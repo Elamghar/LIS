@@ -39,9 +39,7 @@ public class TestDaoImp implements TestDao {
         String query = "SELECT * FROM test";
 
         try{
-            DbConnection db=new DbConnection() ;
-            Connection Conn=db.getConn();
-            PreparedStatement stm=Conn.prepareStatement(query);
+            PreparedStatement stm=dbConnection.getConn().prepareStatement(query);
             ResultSet rs=stm.executeQuery();
             System.out.println("je suis dans test daoImp findall");
             while(rs.next()) {
