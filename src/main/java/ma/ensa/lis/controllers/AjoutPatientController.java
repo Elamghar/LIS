@@ -31,7 +31,6 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 public class AjoutPatientController  implements Initializable {
-
     @FXML
     private TextField nom;
     @FXML
