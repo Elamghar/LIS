@@ -96,11 +96,13 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.32</version> <!-- Use the latest stable version -->
+            <version>8.0.32</version>
         </dependency>
+
 
         <dependency>
             <groupId>de.jensd</groupId>

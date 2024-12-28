@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="MySQL Connector ODBC 9">
+    <CLASSES />
+    <JAVADOC />
+    <NATIVE>
+      <root url="file://$PROJECT_DIR$/../../../../../../../../Program Files/MySQL/MySQL Connector ODBC 9.0" />
+    </NATIVE>
+    <SOURCES />
+  </library>
+</component>
