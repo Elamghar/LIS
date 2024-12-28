@@ -30,7 +30,6 @@ LIS-G [Lis]
 │   │   │       │   ├── GenererLireBarcode
 │   │   │       │   ├── loginController
 │   │   │       │   ├── MedicalfileController
-│   │   │       │   ├── PatientController
 │   │   │       │   └── TestController
 │   │   │       ├── dao
 │   │   │       │   ├── MedicalFileDao
