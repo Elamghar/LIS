@@ -23,6 +23,8 @@ module ma.ensa.lis {
     requires kernel;
     requires layout;
     requires io;
+    requires java.mail;
+    requires activation;
     opens ma.ensa.lis.controllers to javafx.fxml;
     opens ma.ensa.lis to javafx.fxml;
     opens ma.ensa.lis.models to javafx.base;
