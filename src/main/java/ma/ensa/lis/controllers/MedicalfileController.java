@@ -185,7 +185,7 @@ public class MedicalfileController {
     public void sendPdf(ActionEvent actionEvent) throws SQLException {
           makePdf();
         EmailSender emailSender=new EmailSender();
-        emailSender.sendemail("ayougilzaki@gmail.com");
+        emailSender.sendemail(email.getText());
     }
 }
 
