@@ -54,7 +54,7 @@ public class loginController {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/admin-view.fxml"));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
 
-        Scene scene = new Scene(fxmlLoader.load(), 700, 600);
+        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         String css = getClass().getResource("/ma/ensa/lis/admin.css").toExternalForm();
         scene.getStylesheets().add(css);
 
@@ -64,17 +64,4 @@ public class loginController {
     }
 
 
-    @FXML
-    public void register(MouseEvent actionEvent) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/Registration.fxml"));
-        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-
-        Scene scene = new Scene(fxmlLoader.load(), 754, 622);
-        String css = getClass().getResource("/ma/ensa/lis/STYLE.css").toExternalForm();
-        scene.getStylesheets().add(css);
-
-        stage.setTitle("User Registration");
-        stage.setScene(scene);
-        stage.show();
-    }
 }

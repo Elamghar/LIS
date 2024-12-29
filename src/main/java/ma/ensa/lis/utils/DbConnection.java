@@ -6,9 +6,9 @@ import java.sql.SQLException;
 
 public class DbConnection {
 
-    String url = "jdbc:mysql://localhost:3306/LisDb1";
+    String url = "jdbc:mysql://localhost:3306/LisDb";
     String user = "root";
-    String password = "";
+    String password = "root";
 
     private Connection Conn;
 
