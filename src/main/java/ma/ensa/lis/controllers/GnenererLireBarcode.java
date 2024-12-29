@@ -80,6 +80,34 @@ public class GnenererLireBarcode {
             idimagechoisir.setImage(image);
         }
     }
+    @FXML
+    private void handleRetourClick(ActionEvent event) throws IOException {
+        // Charger la première page (AjoutPatient-view.fxml)
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/GenererBarcode.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(fxmlLoader.load(), 754, 622);
+
+
+        // Afficher la première page
+        stage.setTitle("Ajout Patient");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    private void handleLireCodeBarButtonClick(ActionEvent event) throws IOException {
+        // Charger la scène LireCodeBar
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/LirecodeBar.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(fxmlLoader.load(), 754, 622);
+
+
+        // Afficher la nouvelle scène
+        stage.setTitle("Lire Code Bar");
+        stage.setScene(scene);
+        stage.show();
+    }
+
     String[] Lirelistinfo() throws IOException {//lire info stocker sur foichier et supprimer ces info de fichier
         BufferedReader br = new BufferedReader(new FileReader("infosurpatient.txt"));
         String line;
