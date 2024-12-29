@@ -178,7 +178,7 @@ public class AjoutPatientController implements Initializable {
             File file = new File(fileName);
             if (file.createNewFile()) {
                 System.out.println("File created: " + file.getName());
-            } else {
+            } else{
                 System.out.println("File already exists: " + fileName);
             }
         } catch (IOException e) {
