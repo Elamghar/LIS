@@ -20,7 +20,7 @@ public class App extends  Application {
         String css = Objects.requireNonNull(this.getClass().getResource("login.css")).toExternalForm();
         scene.getStylesheets().add(css);
         stage.setTitle("LIS");
-        Image logo = new Image(Objects.requireNonNull(this.getClass().getResourceAsStream("src/main/resources/logo.png")));
+        Image logo = new Image(Objects.requireNonNull(this.getClass().getResourceAsStream("/logo.png")));
         stage.getIcons().add(logo);
         stage.setScene(scene);
         stage.show();
