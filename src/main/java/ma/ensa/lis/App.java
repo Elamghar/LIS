@@ -13,13 +13,10 @@ import java.util.Objects;
 public class App extends  Application {
     @Override
     public void start(Stage stage) throws IOException {
-
         String schemaFilePath = "src/main/resources/schema.sql";
        //Execute the schema file
-
-
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("login-view.fxml"));
-        Scene scene = new Scene((Parent) fxmlLoader.load(), 700, 600);
+        Scene scene = new Scene((Parent) fxmlLoader.load(), 800, 600);
         String css = Objects.requireNonNull(this.getClass().getResource("login.css")).toExternalForm();
         scene.getStylesheets().add(css);
         stage.setTitle("LIS");
@@ -29,7 +26,5 @@ public class App extends  Application {
         stage.show();
     }
 
-    public static void main(String[] args) {
-        launch();
-    }
+    public static void main(String[] args) { launch(); }
 }

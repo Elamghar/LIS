@@ -16,12 +16,16 @@ import ma.ensa.lis.Dao.Impl.PatientDaoImp;
 import ma.ensa.lis.models.Patient;
 import ma.ensa.lis.models.TestLab;
 import ma.ensa.lis.utils.DbConnection;
+import ma.ensa.lis.utils.EmailSender;
+import ma.ensa.lis.utils.PDFGenerator;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 public class MedicalfileController {
     @FXML
@@ -135,9 +139,53 @@ public class MedicalfileController {
             }
         }
     }
+    List<String> getdataForpdf() throws SQLException {
+        String id = findId(email.getText());
+        List<String> list = null;
+        if (id != null) {
+            list = new ArrayList<>();
+            DbConnection db = new DbConnection();
+            Connection connection = db.getConn();
+            String sql2 = "SELECT * FROM Test WHERE patientId=?";
+            PreparedStatement stmt = connection.prepareStatement(sql2);
+            stmt.setString(1, id);
+            ResultSet rs = stmt.executeQuery();
+            PatientDaoImp patientDaoImp = new PatientDaoImp();
+            Patient patient = patientDaoImp.searchById(id);
+            createFile();
+            while (rs.next()) {
+                String namee = rs.getString("testName");
+                String diagg = rs.getString("category");
+                String resu = rs.getString("testResult");
+                list.add(namee);list.add(diagg);list.add(resu);
+            }
+        }
+        else{
+            System.out.println("this patient is not in the data base");
+        }
+        return list;
+    }
+    void makePdf() throws SQLException {
+        String fileP="output.pdf";
+        String cont="LABORATORY INFORMATION SYSTEM.";
+        List<String> list=getdataForpdf();
+        Patient pa=(new PatientDaoImp()).searchById(findId(email.getText()));
+        if(pa==null) {
+            System.out.println("this patient is not in the data base");
+            return;
+        }
+        PDFGenerator pdfGenerator = new PDFGenerator(fileP, cont, list, pa.getFirstName());
+        if (pdfGenerator.getPdfDocument()!=null) {
+            System.out.println("PDF généré avec succès !");
+        } else {
+            System.out.println("Une erreur est survenue lors de la génération du PDF.");
+        }
+    }
 
-    public void sendPdf(ActionEvent actionEvent) {
-
+    public void sendPdf(ActionEvent actionEvent) throws SQLException {
+          makePdf();
+        EmailSender emailSender=new EmailSender();
+        emailSender.sendemail(email.getText());
     }
 }
 
