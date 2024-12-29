@@ -35,7 +35,7 @@ public class PDFGenerator {
             // Initialisation du PdfDocument
             pdfDocument = new PdfDocument(writer);
             Document document = new Document(pdfDocument);
-            String path = "C:/Users/ayoug/IdeaProjects/LIS/src/main/resources/logo.png";
+            String path = "src/main/resources/logo.png";
             ImageData imageData=ImageDataFactory.create(path);
             Image image=new Image(imageData).setWidth(150).setHeight(100).setHorizontalAlignment(HorizontalAlignment.CENTER);
             document.add(image);
