@@ -17,7 +17,6 @@
 
         </ImageView>
         <Label layoutX="46.0" layoutY="258.0" prefHeight="18.0" prefWidth="446.0" />
-        <Button layoutX="27.0" layoutY="369.0" mnemonicParsing="false" onAction="#seeDetails" prefHeight="26.0" prefWidth="139.0" text="see details" />
         <PointLight color="CHARTREUSE" layoutX="569.0" layoutY="39.0" lightOn="true" />
         <TableView fx:id="table" layoutX="20.0" layoutY="77.0" prefHeight="234.0" prefWidth="691.0">
             <columns>
@@ -50,7 +49,7 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button layoutX="436.0" layoutY="530.0" onAction="#deletepatient" styleClass="icon-button">
+        <Button layoutX="436.0" layoutY="530.0" onAction="#deletePatient" styleClass="icon-button">
             <graphic>
                 <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                     <image>

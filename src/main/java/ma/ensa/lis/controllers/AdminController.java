@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
@@ -14,71 +15,71 @@ import ma.ensa.lis.models.Patient;
 import ma.ensa.lis.utils.DbConnection;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.Date;
+import java.net.URL;
+import java.sql.*;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
-public class AdminController {
-
+public class AdminController implements Initializable {
 
     @FXML
     private TableView<Patient> table;
     @FXML
-    private TableColumn<Patient,String> loginn;
+    private TableColumn<Patient, String> id; // Changer le type de la colonne à String
     @FXML
-    private TableColumn<Patient,String> pass;
-    @FXML
-    private TableColumn<Patient, Date> date_ns;
+    private TableColumn<Patient, String> name;
     @FXML
     private TableColumn<Patient, String> prenom;
-
     @FXML
-    private TableColumn<Patient,String> name;
-    @FXML
-    private TableColumn<Patient,Integer> id;
-    @FXML
-    private TableColumn<Patient,String> gender;//liaison m3a table f view
+    private TableColumn<Patient, String> gender;
 
-
-
-
-    @FXML
-    public void initialize () {//liaison m3a Patient  ,kola column mn tableau khass t3ref ina attribut f Patient takhod
-        id.setCellValueFactory(new PropertyValueFactory<>("Id"));
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        // Associer les colonnes aux propriétés de l'objet Patient
+        id.setCellValueFactory(new PropertyValueFactory<>("id"));
         name.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         prenom.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
+
+        try {
+            loadPatientDetails(); // Charger les patients depuis la base de données
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void seeDetails(javafx.event.ActionEvent actionEvent) throws SQLException {
-        System.out.println("saf ghyerha");
-        DbConnection db=new DbConnection();
+    // Méthode pour charger les patients depuis la base de données
+    public void loadPatientDetails() throws SQLException {
+        DbConnection db = new DbConnection();
         Connection connection = db.getConn();
         Statement stmt = connection.createStatement();
 
-        String sql2 = "SELECT * FROM patient";
-        ResultSet rs=stmt.executeQuery(sql2);
-        ObservableList<Patient> ob= FXCollections.observableArrayList();
+        // Requête SQL pour récupérer les informations des patients
+        String sql = "SELECT * FROM patient";
+        ResultSet rs = stmt.executeQuery(sql);
+
+        ObservableList<Patient> patients = FXCollections.observableArrayList();
+
+        // Parcours des résultats et ajout à la liste observable
         while (rs.next()) {
-            String id = rs.getString("patientId");
-            String first_name = rs.getString("firstName");
-            String prenomm=rs.getString("lastName");
-            int age = rs.getInt("age");
+            String patientId = rs.getString("patientId"); // ID est maintenant une String
+            String firstName = rs.getString("firstName");
+            String lastName = rs.getString("lastName");
             String gender = rs.getString("gender");
 
-            Patient pa = new Patient(id,first_name,prenomm,gender);
-//            String email=rs.getString("email");
-//            String address=rs.getString("address");
-//            Patient pa = new Patient(id,first_name,prenomm,age,gender,email,address);
-
-            ob.add(pa);
-            table.setItems(ob);
+            // Création d'un objet Patient avec l'ID en String
+            Patient patient = new Patient(patientId, firstName, lastName, gender);
+            patients.add(patient);
         }
 
+        // Associer les patients récupérés à la table
+        table.setItems(patients);
+
+        // Fermer la connexion à la base de données
+        db.closeConnection();
     }
+
+    // Méthodes pour naviguer entre les vues (login, ajout, suppression, etc.)
     public void logout(javafx.event.ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/login-view.fxml"));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
@@ -101,7 +102,7 @@ public class AdminController {
         stage.show();
     }
 
-    public void deletepatient(javafx.event.ActionEvent actionEvent) throws IOException {
+    public void deletePatient(javafx.event.ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/deletePatient-view.fxml"));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 754, 622);
@@ -122,7 +123,4 @@ public class AdminController {
         stage.setScene(scene);
         stage.show();
     }
-
-
 }
-

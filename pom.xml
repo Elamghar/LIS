@@ -17,18 +17,20 @@
     <dependencies>
 
             <!-- iText Core Kernel -->
-            <dependency>
-                <groupId>com.itextpdf</groupId>
-                <artifactId>kernel</artifactId>
-                <version>7.2.5</version> <!-- Check for the latest version -->
-            </dependency>
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>kernel</artifactId>
+            <version>7.2.5</version> <!-- Check for the latest version -->
+        </dependency>
 
-            <!-- iText Layout for creating PDF content -->
-            <dependency>
-                <groupId>com.itextpdf</groupId>
-                <artifactId>layout</artifactId>
-                <version>7.2.5</version> <!-- Check for the latest version -->
-            </dependency>
+
+
+        <!-- iText Layout for creating PDF content -->
+       <dependency>
+           <groupId>com.itextpdf</groupId>
+           <artifactId>layout</artifactId>
+           <version>7.2.5</version> <!-- Check for the latest version -->
+        </dependency>
 
         <dependency>
             <groupId>org.openjfx</groupId>

@@ -16,6 +16,7 @@ import ma.ensa.lis.Dao.Impl.PatientDaoImp;
 import ma.ensa.lis.models.Patient;
 import ma.ensa.lis.models.TestLab;
 import ma.ensa.lis.utils.DbConnection;
+import ma.ensa.lis.utils.EmailSender;
 import ma.ensa.lis.utils.PDFGenerator;
 
 import java.io.File;
@@ -183,6 +184,8 @@ public class MedicalfileController {
 
     public void sendPdf(ActionEvent actionEvent) throws SQLException {
           makePdf();
+        EmailSender emailSender=new EmailSender();
+        emailSender.sendemail(email.getText());
     }
 }
 
