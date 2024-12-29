@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -18,7 +19,9 @@ public class App extends  Application {
         Scene scene = new Scene((Parent) fxmlLoader.load(), 800, 600);
         String css = Objects.requireNonNull(this.getClass().getResource("login.css")).toExternalForm();
         scene.getStylesheets().add(css);
-        stage.setTitle("Hello!");
+        stage.setTitle("LIS");
+        Image logo = new Image(Objects.requireNonNull(this.getClass().getResourceAsStream("src/main/resources/logo.png")));
+        stage.getIcons().add(logo);
         stage.setScene(scene);
         stage.show();
     }
