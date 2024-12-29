@@ -13,10 +13,11 @@ public class PatientDaoImp implements PatientDao {
 
     @Override
     public void save(Patient patient, List<TestLab> tests) {
+        System.out.println("ana kandir f save patient");
         DbConnection db = new DbConnection();
         Connection conn = db.getConn();
         String query = "INSERT INTO Patient (patientId, firstName, lastName, age, gender, email, address, phoneNumber) " +
-                "VALUES (?,?, ?, ?, ?, ?, ?, ?, ?)";
+                "VALUES (?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement stmt = conn.prepareStatement(query);
 
@@ -27,16 +28,17 @@ public class PatientDaoImp implements PatientDao {
             stmt.setString(5, patient.getGender());
             stmt.setString(6, patient.getEmail());
             stmt.setString(7, patient.getAddress());
-            stmt.setString(9,patient.getPhoneNumber());
+            stmt.setString(8,patient.getPhoneNumber());
 
             stmt.executeUpdate();
 
             // Associer les tests au patient
-            String testQuery = "INSERT INTO Patient_Tests (patient_id, test_id) VALUES (?, ?)";
+            String testQuery = "INSERT INTO Patient_test (patientid, testid,selected) VALUES (?, ?,?)";
             PreparedStatement testStmt = conn.prepareStatement(testQuery);
             for (TestLab test : tests) {
                 testStmt.setString(1, patient.getId());
                 testStmt.setString(2, test.getId());
+                testStmt.setBoolean(3,true);
                 testStmt.executeUpdate();
             }
             System.out.println("Patient added successfully !!");

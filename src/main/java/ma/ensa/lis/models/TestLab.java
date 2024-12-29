@@ -80,5 +80,11 @@ public class TestLab {
     public ObservableValue<String> categorieProperty() {
         return null;
     }
+    public void setSelected(boolean selected) {
+        this.selected.set(selected);
+    }
+    public boolean isSelected() {
+        return selected.get();
+    }
 }
 
