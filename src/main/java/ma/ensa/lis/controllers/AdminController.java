@@ -52,6 +52,7 @@ public class AdminController implements Initializable {
     public void loadPatientDetails() throws SQLException {
         DbConnection db = new DbConnection();
         Connection connection = db.getConn();
+        System.out.println("an hnnaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
         Statement stmt = connection.createStatement();
 
         // Requête SQL pour récupérer les informations des patients

@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class DbConnection {
 
-    String url = "jdbc:mysql://localhost:3306/LisDb";
+    String url = "jdbc:mysql://localhost:8889/LisDb";
     String user = "root";
     String password = "root";
 
@@ -38,5 +38,8 @@ public class DbConnection {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+    public static void main(String[] args) {
+        DbConnection dbc = new DbConnection();
     }
 }
