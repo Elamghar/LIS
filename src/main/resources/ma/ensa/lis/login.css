@@ -1,6 +1,6 @@
 /* General Styles */
 .root {
-    -fx-background-image: url("/img.png");
+    -fx-background-image: url("/img.jpg");
     -fx-background-size: cover;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
@@ -27,7 +27,7 @@
     -fx-background-color: #e0f2fe; /* Light blue */
     -fx-border-color: #1e40af; /* Border color */
     -fx-border-width: 2px; /* Border thickness */
-    -fx-border-radius: 15px; /* Smooth rounded corners */
+    -fx-border-radius: 20px; /* Smooth rounded corners */
     -fx-background-radius: 15px; /* Match border-radius for smoothness */
     -fx-padding: 8px; /* Padding inside the field */
     -fx-font-size: 16px; /* Text size */

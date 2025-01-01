@@ -9,11 +9,6 @@
 <?import javafx.scene.text.Text?>
 <?import java.lang.String?>
 <AnchorPane prefHeight="664.0" prefWidth="600.0" stylesheets="@ajoutpa_style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ma.ensa.lis.controllers.AjoutPatientController">
-   <ImageView fitHeight="622.0" fitWidth="754.0" pickOnBounds="true" preserveRatio="false" layoutX="0.0" layoutY="0.0">
-      <image>
-         <javafx.scene.image.Image url="@/img.jpg" />
-      </image>
-   </ImageView>
    <children>
       <!-- Titre -->
       <Text layoutX="135.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="AJOUTER UN PATIENT">
