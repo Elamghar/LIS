@@ -8,13 +8,12 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<?import javafx.scene.image.ImageView?>
 <AnchorPane prefHeight="622.0" prefWidth="754.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ma.ensa.lis.controllers.MedicalfileController">
-   <ImageView fitHeight="700.0" fitWidth="800.0" preserveRatio="false" pickOnBounds="true">
-      <image>
-         <javafx.scene.image.Image url="@/img.jpg" />
-      </image>
-   </ImageView>
+<!--   <ImageView fitHeight="700.0" fitWidth="800.0" preserveRatio="false" pickOnBounds="true">-->
+<!--      <image>-->
+<!--         <javafx.scene.image.Image url="@/img.jpg" />-->
+<!--      </image>-->
+<!--   </ImageView>-->
    <children>
       <Text layoutX="258.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MEDICALE FILE" wrappingWidth="234.60040283203125">
          <font>
@@ -28,18 +27,17 @@
       </Text>
       <TableView fx:id="table" layoutX="52.0" layoutY="216.0" prefHeight="190.0" prefWidth="600.0">
          <columns>
-            <TableColumn fx:id="name" prefWidth="138.3999900817871" text="name" />
-            <TableColumn fx:id="diag" prefWidth="160.00001525878906" text="diagnostic" />
-            <TableColumn fx:id="date" prefWidth="161.60003662109375" text="test date" />
-            <TableColumn fx:id="result" prefWidth="140.0" text="test results" />
+            <TableColumn fx:id="name" prefWidth="183.0" text="name" />
+            <TableColumn fx:id="diag" prefWidth="208.0" text="diagnostic" />
+            <TableColumn fx:id="date" prefWidth="208.0" text="test date" />
          </columns>
       </TableView>
-      <Button layoutX="100.0" layoutY="556.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="106.0" onAction="#sendPdf" text="send pdf" />
-      <Button layoutX="313.0" layoutY="556.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="97.0" text="generate file" onAction="#generateFile" />
+      <Button layoutX="100.0" layoutY="556.0" mnemonicParsing="false" onAction="#sendPdf" prefHeight="26.0" prefWidth="106.0" text="send pdf" />
+      <Button layoutX="313.0" layoutY="556.0" mnemonicParsing="false" onAction="#generateFile" prefHeight="26.0" prefWidth="97.0" text="generate file" />
       <Button layoutX="662.0" layoutY="28.0" mnemonicParsing="false" onAction="#returne" text="return" />
-      <Button layoutX="542.0" layoutY="554.0" mnemonicParsing="false" onAction="#seee" prefHeight="30.0"  prefWidth="98.0" text="see details" />
-      <TextField fx:id="email" layoutX="39.0" layoutY="107.0" prefHeight="26.0" prefWidth="235.0"  promptText="email..."/>
-      <Text layoutX="41.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0"  text="Enter email of the patient"/>
+      <Button layoutX="542.0" layoutY="554.0" mnemonicParsing="false" onAction="#seee" prefHeight="30.0" prefWidth="98.0" text="see details" />
+      <TextField fx:id="email" layoutX="39.0" layoutY="107.0" prefHeight="26.0" prefWidth="235.0" promptText="email..." />
+      <Text layoutX="41.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter email of the patient" />
 
    </children>
 </AnchorPane>
