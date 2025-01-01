@@ -7,9 +7,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="685.0" prefWidth="791.0" style="-fx-background-color: bleu;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ma.ensa.lis.controllers.GnenererLireBarcode">
     <children>
-        <ImageView fitHeight="700.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="false">
+        <ImageView fitHeight="600.0" fitWidth="736.0" pickOnBounds="true" preserveRatio="false">
             <image>
-                <javafx.scene.image.Image url="@/img.png" />
+                <javafx.scene.image.Image url="@/img.jpg" />
             </image>
         </ImageView>
         <AnchorPane layoutX="208.0" layoutY="29.0" prefHeight="76.0" prefWidth="354.0" style="-fx-background-color: #1ba1bf;">

@@ -8,7 +8,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -54,10 +53,10 @@ public class loginController {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/admin-view.fxml"));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
 
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+        Scene scene = new Scene(fxmlLoader.load(), 700, 600);
         String css = getClass().getResource("/ma/ensa/lis/admin.css").toExternalForm();
         scene.getStylesheets().add(css);
-
+        stage.setResizable(false);
         stage.setTitle("Admin Dashboard");
         stage.setScene(scene);
         stage.show();

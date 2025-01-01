@@ -233,6 +233,7 @@ public class AjoutPatientController implements Initializable {
         Scene scene = new Scene(fxmlLoader.load(), 754, 622);
         String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/admin.css")).toExternalForm();
         scene.getStylesheets().add(css);
+        stage.setResizable(false);
         stage.setTitle("Admin Panel");
         stage.setScene(scene);
         stage.show();
