@@ -38,6 +38,8 @@ public class AjoutPatientController implements Initializable {
     @FXML
     private TextField age;
     @FXML
+    private TextField CIN;
+    @FXML
     private TextField num;
     @FXML
     private TextField email;
@@ -156,10 +158,8 @@ public class AjoutPatientController implements Initializable {
 
     private void savePatient() {
         PatientDaoImp patientDao = new PatientDaoImp();
-        String uniqueId = UUID.randomUUID().toString();
-
         Patient newPatient = new Patient(
-                uniqueId,
+                CIN.getText(),
                 nom.getText(),
                 prenom.getText(),
                 Integer.parseInt(age.getText()),
@@ -177,17 +177,18 @@ public class AjoutPatientController implements Initializable {
         try {
             File file = new File(fileName);
             if (file.createNewFile()) {
-                System.out.println("File created: " + file.getName());
+                System.out.println("File created: "+ file.getName());
             } else{
-                System.out.println("File already exists: " + fileName);
+                System.out.println("File already exists: "+ fileName);
             }
         } catch (IOException e) {
-            System.err.println("Error creating file " + fileName + ": " + e.getMessage());
-            throw new RuntimeException("Failed to create file: " + fileName, e);
+            System.err.println("Error creating file "+ fileName +" : " + e.getMessage());
+            throw new RuntimeException("Failed to create file:  " + fileName, e);
         }
     }
 
     private void writePatientInfo() throws IOException {
+        List<TestLab> selectedTests = getSelectedTests();
         try (FileWriter writer = new FileWriter("infosurpatient.txt")) {
             String patientInfo = String.join(",",
                     nom.getText(),
@@ -234,7 +235,7 @@ public class AjoutPatientController implements Initializable {
         String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/admin.css")).toExternalForm();
         scene.getStylesheets().add(css);
         stage.setResizable(false);
-        stage.setTitle("Admin Panel");
+        stage.setTitle("LIS");
         stage.setScene(scene);
         stage.show();
     }
@@ -246,7 +247,7 @@ public class AjoutPatientController implements Initializable {
         Scene scene = new Scene(fxmlLoader.load(), 1000, 700);
         String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/admin.css")).toExternalForm();
         scene.getStylesheets().add(css);
-        stage.setTitle("Barcode Generator");
+        stage.setTitle("LIS");
         stage.setScene(scene);
         stage.show();
     }

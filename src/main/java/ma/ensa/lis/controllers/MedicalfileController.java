@@ -55,11 +55,11 @@ public class MedicalfileController {
         Scene scene = new Scene(fxmlLoader.load(), 754, 622);
         String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/admin.css")).toExternalForm();
         scene.getStylesheets().add(css);
-        stage.setTitle("Hello!");
+        stage.setTitle("LIS");
         stage.setScene(scene);
         stage.show();
     }
-    String findId(String email) throws SQLException {
+    String findCIN(String email) throws SQLException {
         DbConnection db=new DbConnection();
         Connection connection=db.getConn();
         String sql="SELECT * FROM patient WHERE email = ?";
@@ -67,9 +67,9 @@ public class MedicalfileController {
         stmt.setString(1, email);
         ResultSet rs=stmt.executeQuery();
         if (rs.next()) {
-            String id=rs.getString("patientId");
-            System.out.println(id);
-            return id;
+            String cin=rs.getString("CIN");
+            System.out.println(cin);
+            return cin;
         } else {
             //showAlert("user not found","there is no patient with this email");
             return null;
@@ -78,13 +78,13 @@ public class MedicalfileController {
 
     @FXML
     public void seee(ActionEvent actionEvent) throws SQLException {
-        String id=findId(email.getText());
-        if(id!=null) {
+        String CIN=findCIN(email.getText());
+        if(CIN!=null) {
             DbConnection db = new DbConnection();
             Connection connection = db.getConn();
-            String sql2 = "SELECT * FROM Test WHERE patientId=?";
+            String sql2 = "SELECT * FROM Test WHERE CIN=?";
             PreparedStatement stmt = connection.prepareStatement(sql2);
-            stmt.setString(1, id);
+            stmt.setString(1, CIN);
             ResultSet rs = stmt.executeQuery();
             ObservableList<TestLab> ob = FXCollections.observableArrayList();
             while (rs.next()) {
@@ -119,16 +119,16 @@ public class MedicalfileController {
         }
     }
     public void generateFile(ActionEvent actionEvent) throws SQLException, IOException {
-        String id=findId(email.getText());
-        if(id!=null) {
+        String CIN=findCIN(email.getText());
+        if(CIN!=null) {
             DbConnection db = new DbConnection();
             Connection connection = db.getConn();
-            String sql2 = "SELECT * FROM Test WHERE patientId=?";
+            String sql2 = "SELECT * FROM Test WHERE CIN=?";
             PreparedStatement stmt = connection.prepareStatement(sql2);
-            stmt.setString(1, id);
+            stmt.setString(1, CIN);
             ResultSet rs = stmt.executeQuery();
             PatientDaoImp patientDaoImp=new PatientDaoImp();
-            Patient patient=patientDaoImp.searchById(id);
+            Patient patient=patientDaoImp.searchByCIN(CIN);
             createFile();
             while (rs.next()) {
                 String namee = rs.getString("testName");
@@ -140,18 +140,18 @@ public class MedicalfileController {
         }
     }
     List<String> getdataForpdf() throws SQLException {
-        String id = findId(email.getText());
+        String CIN = findCIN(email.getText());
         List<String> list = null;
-        if (id != null) {
+        if (CIN != null) {
             list = new ArrayList<>();
             DbConnection db = new DbConnection();
             Connection connection = db.getConn();
-            String sql2 = "SELECT * FROM Test WHERE patientId=?";
+            String sql2 = "SELECT * FROM Test WHERE CIN=?";
             PreparedStatement stmt = connection.prepareStatement(sql2);
-            stmt.setString(1, id);
+            stmt.setString(1, CIN);
             ResultSet rs = stmt.executeQuery();
             PatientDaoImp patientDaoImp = new PatientDaoImp();
-            Patient patient = patientDaoImp.searchById(id);
+            Patient patient = patientDaoImp.searchByCIN(CIN);
             createFile();
             while (rs.next()) {
                 String namee = rs.getString("testName");
@@ -169,7 +169,7 @@ public class MedicalfileController {
         String fileP="output.pdf";
         String cont="LABORATORY INFORMATION SYSTEM.";
         List<String> list=getdataForpdf();
-        Patient pa=(new PatientDaoImp()).searchById(findId(email.getText()));
+        Patient pa=(new PatientDaoImp()).searchByCIN(findCIN(email.getText()));
         if(pa==null) {
             System.out.println("this patient is not in the data base");
             return;

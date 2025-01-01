@@ -9,7 +9,7 @@ import java.util.List;
 public interface PatientDao {
     void save(Patient patient, List<TestLab> tests);
     void delete(Patient patient);
-    Patient searchById(String Id);
+    Patient searchByCIN(String cin);
     List<Patient> searchByFirstName(String firstName);
     List<Patient> searchByLastName(String lastName);
     List<Patient> searchByAge(int age);

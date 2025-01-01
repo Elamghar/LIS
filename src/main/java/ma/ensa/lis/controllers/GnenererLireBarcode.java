@@ -89,7 +89,7 @@ public class GnenererLireBarcode {
 
 
         // Afficher la première page
-        stage.setTitle("Ajout Patient");
+        stage.setTitle("LIS");
         stage.setScene(scene);
         stage.show();
     }
@@ -249,7 +249,7 @@ public class GnenererLireBarcode {
         Scene scene = new Scene(fxmlLoader.load(), 754, 622);
         String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/admin.css")).toExternalForm();
         scene.getStylesheets().add(css);
-        stage.setTitle("Hello!");
+        stage.setTitle("LIS");
         stage.setScene(scene);
         stage.show();
     }
@@ -261,7 +261,7 @@ public class GnenererLireBarcode {
         Scene scene = new Scene(fxmlLoader.load(), 754, 622);
         String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/STYLE.css")).toExternalForm();
         scene.getStylesheets().add(css);
-        stage.setTitle("Hello!");
+        stage.setTitle("LIS");
         stage.setScene(scene);
         stage.show();
     }

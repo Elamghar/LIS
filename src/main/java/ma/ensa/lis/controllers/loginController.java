@@ -57,7 +57,7 @@ public class loginController {
         String css = getClass().getResource("/ma/ensa/lis/admin.css").toExternalForm();
         scene.getStylesheets().add(css);
         stage.setResizable(false);
-        stage.setTitle("Admin Dashboard");
+        stage.setTitle("LIS");
         stage.setScene(scene);
         stage.show();
     }

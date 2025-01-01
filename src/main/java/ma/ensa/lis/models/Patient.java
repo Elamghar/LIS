@@ -14,6 +14,7 @@ import java.util.List;
 public class Patient  {
 
     private String id;
+    private String CIN;
     private String firstName;
     private String lastName;
     private int age;
@@ -23,8 +24,8 @@ public class Patient  {
     private String phoneNumber;
     private List<TestLab> tests = new ArrayList<>();
 
-    public Patient(String patientId, String firstName, String lastName, int age, String gender, String email, String address) {
-        this.id = patientId;
+    public Patient(String CIN, String firstName, String lastName, int age, String gender, String email, String address) {
+        this.CIN = CIN;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
@@ -33,8 +34,8 @@ public class Patient  {
         this.email = email;
     }
 
-    public Patient(String patientId, String firstName, String lastName, int age, String gender, String email, String address, String phoneNumber) {
-        this.id = patientId;
+    public Patient(String cin, String firstName, String lastName, int age, String gender, String email, String address, String phoneNumber) {
+        this.CIN=cin;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
@@ -53,6 +54,11 @@ public class Patient  {
 
     public Patient(String email) {
         String[] tokens = email.split(" ");
+    }
+
+    public Patient(String name,String text) {
+        this.firstName=name;
+        this.CIN=text;
     }
 }
 

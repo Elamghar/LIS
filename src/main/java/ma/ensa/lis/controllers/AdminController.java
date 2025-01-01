@@ -52,7 +52,8 @@ public class AdminController implements Initializable {
     public void loadPatientDetails() throws SQLException {
         DbConnection db = new DbConnection();
         Connection connection = db.getConn();
-        Statement stmt = connection.createStatement();
+        System.out.println("an hnnaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        Statement stmt =connection.createStatement();
 
         // Requête SQL pour récupérer les informations des patients
         String sql = "SELECT * FROM patient";
@@ -62,13 +63,13 @@ public class AdminController implements Initializable {
 
         // Parcours des résultats et ajout à la liste observable
         while (rs.next()) {
-            String patientId = rs.getString("patientId"); // ID est maintenant une String
+            String CIN = rs.getString("CIN"); // ID est maintenant une String
             String firstName = rs.getString("firstName");
             String lastName = rs.getString("lastName");
             String gender = rs.getString("gender");
 
             // Création d'un objet Patient avec l'ID en String
-            Patient patient = new Patient(patientId, firstName, lastName, gender);
+            Patient patient = new Patient(CIN, firstName, lastName, gender);
             patients.add(patient);
         }
 
@@ -87,7 +88,7 @@ public class AdminController implements Initializable {
         String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/STYLE.css")).toExternalForm();
         scene.getStylesheets().add(css);
         stage.setResizable(false);
-        stage.setTitle("Hello!");
+        stage.setTitle("LIS");
         stage.setScene(scene);
         stage.show();
     }
@@ -98,7 +99,7 @@ public class AdminController implements Initializable {
         Scene scene = new Scene(fxmlLoader.load(), 600, 650);
         String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/STYLE.css")).toExternalForm();
         scene.getStylesheets().add(css);
-        stage.setTitle("Hello!");
+        stage.setTitle("LIS");
         stage.setScene(scene);
         stage.show();
     }
@@ -109,7 +110,7 @@ public class AdminController implements Initializable {
         Scene scene = new Scene(fxmlLoader.load(), 700, 600);
         String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/STYLE.css")).toExternalForm();
         scene.getStylesheets().add(css);
-        stage.setTitle("Hello!");
+        stage.setTitle("LIS");
         stage.setScene(scene);
         stage.show();
     }
@@ -120,7 +121,7 @@ public class AdminController implements Initializable {
         Scene scene = new Scene(fxmlLoader.load(), 754, 622);
         String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/STYLE.css")).toExternalForm();
         scene.getStylesheets().add(css);
-        stage.setTitle("Hello!");
+        stage.setTitle("LIS");
         stage.setScene(scene);
         stage.show();
     }

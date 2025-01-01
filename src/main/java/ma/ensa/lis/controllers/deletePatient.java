@@ -16,11 +16,13 @@ import java.util.Objects;
 public class deletePatient {
 
     @FXML
-    TextField email;//make the email insertionn unique
+    TextField CIN;
+    @FXML
+    TextField firstname;
     @FXML
     public void deletePatient(ActionEvent actionEvent) {
         PatientDaoImp pa=new PatientDaoImp();
-        pa.delete(new Patient(email.getText()));
+        pa.delete(new Patient(firstname.getText(),CIN.getText()));
     }
 
     public void Return(ActionEvent actionEvent) throws IOException {
@@ -29,7 +31,7 @@ public class deletePatient {
         Scene scene = new Scene(fxmlLoader.load(), 754, 622);
         String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/admin.css")).toExternalForm();
         scene.getStylesheets().add(css);
-        stage.setTitle("Hello!");
+        stage.setTitle("LIS");
         stage.setScene(scene);
         stage.show();
     }
