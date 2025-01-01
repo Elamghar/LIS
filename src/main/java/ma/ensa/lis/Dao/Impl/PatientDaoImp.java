@@ -36,7 +36,7 @@ public class PatientDaoImp implements PatientDao {
             String testQuery = "INSERT INTO Patient_test (CIN, testid,selected) VALUES (?, ?,?)";
             PreparedStatement testStmt = conn.prepareStatement(testQuery);
             for (TestLab test : tests) {
-                testStmt.setString(1, patient.getId());
+                testStmt.setString(1, patient.getCIN());
                 testStmt.setString(2, test.getId());
                 testStmt.setBoolean(3,true);
                 testStmt.executeUpdate();
