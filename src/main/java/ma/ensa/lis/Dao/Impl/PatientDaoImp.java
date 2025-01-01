@@ -51,10 +51,11 @@ public class PatientDaoImp implements PatientDao {
     public void delete(Patient patient) {
         DbConnection db = new DbConnection();
         Connection conn = db.getConn();
-        String query = "DELETE FROM Patient WHERE email = ?";
+        String query = "DELETE FROM Patient WHERE cardId = ? and firstName= ?";
         try {
             PreparedStatement stmt = conn.prepareStatement(query);
-            stmt.setString(1, patient.getEmail());
+            stmt.setString(1, patient.getCIN());
+            stmt.setString(2, patient.getFirstName());
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

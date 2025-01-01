@@ -14,6 +14,7 @@ import java.util.List;
 public class Patient  {
 
     private String id;
+    private String CIN;
     private String firstName;
     private String lastName;
     private int age;
@@ -33,8 +34,9 @@ public class Patient  {
         this.email = email;
     }
 
-    public Patient(String patientId, String firstName, String lastName, int age, String gender, String email, String address, String phoneNumber) {
+    public Patient(String patientId,String cin, String firstName, String lastName, int age, String gender, String email, String address, String phoneNumber) {
         this.id = patientId;
+        this.CIN=cin;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
@@ -53,6 +55,11 @@ public class Patient  {
 
     public Patient(String email) {
         String[] tokens = email.split(" ");
+    }
+
+    public Patient(String name,String text) {
+        this.firstName=name;
+        this.CIN=text;
     }
 }
 

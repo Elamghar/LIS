@@ -53,7 +53,7 @@ public class AdminController implements Initializable {
         DbConnection db = new DbConnection();
         Connection connection = db.getConn();
         System.out.println("an hnnaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-        Statement stmt = connection.createStatement();
+        Statement stmt =connection.createStatement();
 
         // Requête SQL pour récupérer les informations des patients
         String sql = "SELECT * FROM patient";

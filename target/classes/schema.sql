@@ -1,5 +1,14 @@
-CREATE TABLE IF NOT EXISTS Patient (
+SET FOREIGN_KEY_CHECKS = 0;
+
+DROP TABLE IF EXISTS Patient_Test;
+DROP TABLE IF EXISTS MedicalFile;
+DROP TABLE IF EXISTS Test;
+DROP TABLE IF EXISTS Patient;
+
+SET FOREIGN_KEY_CHECKS = 1;
+CREATE TABLE  Patient (
                                        patientId VARCHAR(50) PRIMARY KEY,
+                                       cardId VARCHAR(20) NOT NULL ,
                                        firstName VARCHAR(100) NOT NULL,
                                        lastName VARCHAR(100) NOT NULL,
                                        age INT NOT NULL,

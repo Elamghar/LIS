@@ -16,11 +16,13 @@ import java.util.Objects;
 public class deletePatient {
 
     @FXML
-    TextField email;//make the email insertionn unique
+    TextField CIN;
+    @FXML
+    TextField firstname;
     @FXML
     public void deletePatient(ActionEvent actionEvent) {
         PatientDaoImp pa=new PatientDaoImp();
-        pa.delete(new Patient(email.getText()));
+        pa.delete(new Patient(firstname.getText(),CIN.getText()));
     }
 
     public void Return(ActionEvent actionEvent) throws IOException {
