@@ -63,13 +63,13 @@ public class AdminController implements Initializable {
 
         // Parcours des résultats et ajout à la liste observable
         while (rs.next()) {
-            String patientId = rs.getString("patientId"); // ID est maintenant une String
+            String CIN = rs.getString("CIN"); // ID est maintenant une String
             String firstName = rs.getString("firstName");
             String lastName = rs.getString("lastName");
             String gender = rs.getString("gender");
 
             // Création d'un objet Patient avec l'ID en String
-            Patient patient = new Patient(patientId, firstName, lastName, gender);
+            Patient patient = new Patient(CIN, firstName, lastName, gender);
             patients.add(patient);
         }
 

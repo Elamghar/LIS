@@ -20,7 +20,7 @@
                   <Font name="Century" size="26.0" />
                </font>
             </Text>
-            <TextField fx:id="CIN" layoutX="74.0" layoutY="145.0" prefHeight="25.0" prefWidth="380.0" promptText="CIN"/>
+            <TextField fx:id="CIN" layoutX="74.0" layoutY="145.0" prefHeight="25.0" prefWidth="380.0" promptText="CIN" />
             <Text layoutX="59.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" enter the CIN and first name of patient  ">
                <font>
                   <Font name="Broadway" size="12.0" />

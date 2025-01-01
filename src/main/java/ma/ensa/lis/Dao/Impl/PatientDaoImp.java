@@ -13,15 +13,15 @@ public class PatientDaoImp implements PatientDao {
 
     @Override
     public void save(Patient patient, List<TestLab> tests) {
-        System.out.println("ana kandir f save patient");
+        System.out.println("save patient");
         DbConnection db = new DbConnection();
         Connection conn = db.getConn();
-        String query = "INSERT INTO Patient (patientId, firstName, lastName, age, gender, email, address, phoneNumber) " +
+        String query = "INSERT INTO Patient (CIN, firstName, lastName, age, gender, email, address, phoneNumber) " +
                 "VALUES (?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement stmt = conn.prepareStatement(query);
 
-            stmt.setString(1, patient.getId());
+            stmt.setString(1, patient.getCIN());
             stmt.setString(2, patient.getFirstName());
             stmt.setString(3, patient.getLastName());
             stmt.setInt(4, patient.getAge());
@@ -33,7 +33,7 @@ public class PatientDaoImp implements PatientDao {
             stmt.executeUpdate();
 
             // Associer les tests au patient
-            String testQuery = "INSERT INTO Patient_test (patientid, testid,selected) VALUES (?, ?,?)";
+            String testQuery = "INSERT INTO Patient_test (CIN, testid,selected) VALUES (?, ?,?)";
             PreparedStatement testStmt = conn.prepareStatement(testQuery);
             for (TestLab test : tests) {
                 testStmt.setString(1, patient.getId());
@@ -51,7 +51,7 @@ public class PatientDaoImp implements PatientDao {
     public void delete(Patient patient) {
         DbConnection db = new DbConnection();
         Connection conn = db.getConn();
-        String query = "DELETE FROM Patient WHERE cardId = ? and firstName= ?";
+        String query = "DELETE FROM Patient WHERE CIN = ? and firstName= ?";
         try {
             PreparedStatement stmt = conn.prepareStatement(query);
             stmt.setString(1, patient.getCIN());
@@ -63,17 +63,17 @@ public class PatientDaoImp implements PatientDao {
     }
 
     @Override
-    public Patient searchById(String patientId) {
+    public Patient searchByCIN(String CIN) {
         DbConnection db = new DbConnection();
         Connection conn = db.getConn();
-        String query = "SELECT * FROM Patient WHERE patientId = ?";
+        String query = "SELECT * FROM Patient WHERE CIN= ?";
         try {
             PreparedStatement stmt = conn.prepareStatement(query);
-            stmt.setString(1, patientId);
+            stmt.setString(1,  CIN);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 return new Patient(
-                        rs.getString("patientId"),
+                        rs.getString("CIN"),
                         rs.getString("firstName"),
                         rs.getString("lastName"),
                         rs.getInt("age"),
@@ -100,7 +100,7 @@ public class PatientDaoImp implements PatientDao {
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 patients.add(new Patient(
-                        rs.getString("patientId"),
+                        rs.getString("CIN"),
                         rs.getString("firstName"),
                         rs.getString("lastName"),
                         rs.getInt("age"),
@@ -127,7 +127,7 @@ public class PatientDaoImp implements PatientDao {
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 patients.add(new Patient(
-                        rs.getString("patientId"),
+                        rs.getString("CIN"),
                         rs.getString("firstName"),
                         rs.getString("lastName"),
                         rs.getInt("age"),
@@ -154,7 +154,7 @@ public class PatientDaoImp implements PatientDao {
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 patients.add(new Patient(
-                        rs.getString("patientId"),
+                        rs.getString("CIN"),
                         rs.getString("firstName"),
                         rs.getString("lastName"),
                         rs.getInt("age"),
@@ -180,7 +180,7 @@ public class PatientDaoImp implements PatientDao {
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 patients.add(new Patient(
-                        rs.getString("patientId"),
+                        rs.getString("CIN"),
                         rs.getString("firstName"),
                         rs.getString("lastName"),
                         rs.getInt("age"),

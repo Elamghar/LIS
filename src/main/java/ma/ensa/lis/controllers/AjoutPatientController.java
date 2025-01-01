@@ -158,9 +158,7 @@ public class AjoutPatientController implements Initializable {
 
     private void savePatient() {
         PatientDaoImp patientDao = new PatientDaoImp();
-        String uniqueId = UUID.randomUUID().toString();
         Patient newPatient = new Patient(
-                uniqueId,
                 CIN.getText(),
                 nom.getText(),
                 prenom.getText(),

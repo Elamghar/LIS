@@ -24,8 +24,8 @@ public class Patient  {
     private String phoneNumber;
     private List<TestLab> tests = new ArrayList<>();
 
-    public Patient(String patientId, String firstName, String lastName, int age, String gender, String email, String address) {
-        this.id = patientId;
+    public Patient(String CIN, String firstName, String lastName, int age, String gender, String email, String address) {
+        this.CIN = CIN;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
@@ -34,8 +34,7 @@ public class Patient  {
         this.email = email;
     }
 
-    public Patient(String patientId,String cin, String firstName, String lastName, int age, String gender, String email, String address, String phoneNumber) {
-        this.id = patientId;
+    public Patient(String cin, String firstName, String lastName, int age, String gender, String email, String address, String phoneNumber) {
         this.CIN=cin;
         this.firstName = firstName;
         this.lastName = lastName;
