@@ -2,24 +2,31 @@
 
 <?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 <?import java.lang.String?>
-<AnchorPane prefHeight="700.0" prefWidth="600.0" stylesheets="@ajoutpa_style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ma.ensa.lis.controllers.AjoutPatientController">
+<AnchorPane prefHeight="664.0" prefWidth="600.0" stylesheets="@ajoutpa_style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ma.ensa.lis.controllers.AjoutPatientController">
+   <ImageView fitHeight="622.0" fitWidth="754.0" pickOnBounds="true" preserveRatio="false" layoutX="0.0" layoutY="0.0">
+      <image>
+         <javafx.scene.image.Image url="@/img.jpg" />
+      </image>
+   </ImageView>
    <children>
       <!-- Titre -->
-      <Text layoutX="140.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="AJOUTER UN PATIENT">
+      <Text layoutX="135.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="AJOUTER UN PATIENT">
          <font>
             <Font name="Calisto MT" size="30.0" />
          </font>
       </Text>
 
       <!-- Champs Patient -->
-      <TextField fx:id="nom" layoutX="8.0" layoutY="75.0" prefHeight="26.0" prefWidth="294.0" styleClass="text-field" />
-      <TextField fx:id="prenom" layoutX="308.0" layoutY="75.0" prefHeight="26.0" prefWidth="287.0" styleClass="text-field" />
-      <TextField fx:id="age" layoutX="8.0" layoutY="131.0" prefHeight="26.0" prefWidth="294.0" styleClass="text-field" />
-      <ComboBox fx:id="genderComboBox" layoutX="305.0" layoutY="131.0" prefWidth="294.0">
+      <TextField fx:id="nom" layoutX="17.0" layoutY="62.0" prefHeight="26.0" prefWidth="294.0" styleClass="text-field" />
+      <TextField fx:id="prenom" layoutX="308.0" layoutY="62.0" prefHeight="26.0" prefWidth="287.0" styleClass="text-field" />
+      <TextField fx:id="age" layoutX="14.0" layoutY="118.0" prefHeight="26.0" prefWidth="287.0" styleClass="text-field" />
+      <ComboBox fx:id="genderComboBox" layoutX="308.0" layoutY="118.0" prefHeight="25.0" prefWidth="287.0">
          <items>
             <FXCollections fx:factory="observableArrayList">
                <String fx:value="Male" />
@@ -29,22 +36,22 @@
       </ComboBox>
 
 
-      <TextField fx:id="email" layoutX="13.0" layoutY="187.0" prefHeight="26.0" prefWidth="578.0" styleClass="text-field" />
-      <TextField fx:id="num" layoutX="14.0" layoutY="248.0" prefHeight="26.0" prefWidth="578.0" styleClass="text-field" />
-      <TextField fx:id="adresse" layoutX="16.0" layoutY="303.0" prefHeight="26.0" prefWidth="578.0" styleClass="text-field" />
+      <TextField fx:id="email" layoutX="14.0" layoutY="169.0" prefHeight="26.0" prefWidth="287.0" styleClass="text-field" />
+      <TextField fx:id="num" layoutX="12.0" layoutY="219.0" prefHeight="26.0" prefWidth="578.0" styleClass="text-field" />
+      <TextField fx:id="adresse" layoutX="14.0" layoutY="269.0" prefHeight="26.0" prefWidth="578.0" styleClass="text-field" />
 
       <!-- Labels -->
-      <Label layoutX="17.0" layoutY="55.0" styleClass="label" text="Nom" />
-      <Label layoutX="306.0" layoutY="55.0" styleClass="label" text="Prénom" />
-      <Label layoutX="14.0" layoutY="105.0" styleClass="label" text="Âge" />
-      <Label layoutX="305.0" layoutY="105.0" styleClass="label" text="Genre" />
-      <Label layoutX="16.0" layoutY="167.0" styleClass="label" text="Email" />
-      <Label layoutX="16.0" layoutY="221.0" styleClass="label" text="Numéro de téléphone" />
-      <Label layoutX="14.0" layoutY="283.0" styleClass="label" text="Adresse" />
+      <Label layoutX="17.0" layoutY="46.0" styleClass="label" text="Nom" />
+      <Label layoutX="303.0" layoutY="46.0" styleClass="label" text="Prénom" />
+      <Label layoutX="19.0" layoutY="100.0" styleClass="label" text="Âge" />
+      <Label layoutX="308.0" layoutY="100.0" styleClass="label" text="Genre" />
+      <Label layoutX="16.0" layoutY="152.0" styleClass="label" text="Email" />
+      <Label layoutX="15.0" layoutY="202.0" styleClass="label" text="Numéro de téléphone" />
+      <Label layoutX="19.0" layoutY="252.0" styleClass="label" text="Adresse" />
 
       <!-- TableView des Tests -->
-      <Label layoutX="14.0" layoutY="340.0" styleClass="label" text="Sélectionnez les Tests :" />
-      <TableView fx:id="testTableView" layoutX="11.0" layoutY="360.0" prefHeight="200.0" prefWidth="578.0" styleClass="table-view">
+      <Label layoutX="13.0" layoutY="310.0" styleClass="label" text="Sélectionnez les Tests :" />
+      <TableView fx:id="testTableView" layoutX="11.0" layoutY="335.0" prefHeight="200.0" prefWidth="578.0" styleClass="table-view">
          <columns>
             <TableColumn fx:id="testIdCol" prefWidth="80.0" text="ID" />
             <TableColumn fx:id="testNomCol" prefWidth="120.0" text="Nom" />
@@ -55,8 +62,8 @@
       </TableView>
 
       <!-- Boutons -->
-      <Button layoutX="16.0" layoutY="577.0" mnemonicParsing="false" onAction="#returnn" prefHeight="26.0" prefWidth="78.0" styleClass="button" text="Retour" />
-      <Button layoutX="112.0" layoutY="577.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="32.0" prefWidth="141.0" styleClass="button" text="Ajouter Patient" />
-      <Button layoutX="324.0" layoutY="577.0" mnemonicParsing="false" onAction="#accederbarcode" prefHeight="26.0" prefWidth="137.0" styleClass="button" text="Voir Barcode" />
+      <Button layoutX="15.0" layoutY="545.0" mnemonicParsing="false" onAction="#returnn" prefHeight="26.0" prefWidth="78.0" styleClass="button" text="Retour" />
+      <Button layoutX="182.0" layoutY="545.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="26.0" prefWidth="141.0" styleClass="button" text="Ajouter Patient" />
+      <Button layoutX="411.0" layoutY="545.0" mnemonicParsing="false" onAction="#accederbarcode" prefHeight="26.0" prefWidth="137.0" styleClass="button" text="Voir Barcode" />
    </children>
 </AnchorPane>

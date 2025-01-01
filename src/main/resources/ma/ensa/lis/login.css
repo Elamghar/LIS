@@ -22,15 +22,17 @@
     -fx-text-fill: #1e40af; /* Medium blue */
 }
 
-/* Form Fields */
+/* Form Fields (Login and Password) */
 .form-field {
     -fx-background-color: #e0f2fe; /* Light blue */
-    -fx-border-color: #1e40af;
-    -fx-border-width: 2px;
-    -fx-border-radius: 8px;
-    -fx-padding: 8px;
-    -fx-font-size: 16px;
+    -fx-border-color: #1e40af; /* Border color */
+    -fx-border-width: 2px; /* Border thickness */
+    -fx-border-radius: 15px; /* Smooth rounded corners */
+    -fx-background-radius: 15px; /* Match border-radius for smoothness */
+    -fx-padding: 8px; /* Padding inside the field */
+    -fx-font-size: 16px; /* Text size */
 }
+
 
 /* Primary Button */
 .primary-button {

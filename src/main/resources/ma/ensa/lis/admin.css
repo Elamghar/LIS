@@ -64,22 +64,35 @@
     -fx-border-color: #1e3a8a; /* Border color */
     -fx-border-width: 2px; /* Border width */
     -fx-border-radius: 10px; /* Rounded corners */
-    -fx-background-color: #f3f4f6; /* Light gray background */
+    -fx-background-color: transparent; /* Fully transparent background */
     -fx-padding: 10px; /* Inner padding */
     -fx-font-size: 16px;
     -fx-font-family: "Roboto", sans-serif;
 }
 
-.table-view .column-header {
-    -fx-text-fill: white; /* Header text */
-    -fx-font-size: 16px;
-    -fx-font-weight: bold;
+.table-view .column-header-background {
+    -fx-background-color: transparent; /* Transparent header background */
+    -fx-border-color: #1e3a8a; /* Border color around header */
+    -fx-border-width: 1px; /* Header border width */
 }
 
-.table-view .cell {
-    -fx-background-color: #ffffff; /* Cell background */
-    -fx-text-fill: #000000; /* Cell text */
+.table-view .column-header {
+    -fx-background-color: transparent; /* Transparent header cells */
+    -fx-border-color: #1e3a8a; /* Header border color */
+    -fx-border-width: 1px; /* Thin border lines */
+    -fx-text-fill: #1e3a8a; /* Header text color */
+    -fx-font-weight: bold; /* Bold text for headers */
 }
+
+/* Cell Styling */
+.table-view .cell {
+    -fx-background-color: transparent; /* Transparent cells */
+    -fx-border-color: #1e3a8a; /* Borders for each cell */
+    -fx-border-width: 1px; /* Thin border lines */
+    -fx-text-fill: #000000; /* Cell text color */
+}
+
+
 
 /* Link Label */
 .link-label {
