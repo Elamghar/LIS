@@ -4,7 +4,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.PerspectiveTransform?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,20 +11,34 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="600.0" prefWidth="727.0" stylesheets="@login.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ma.ensa.lis.controllers.loginController">
-    <ImageView fitHeight="600.0" fitWidth="736.0" pickOnBounds="true" preserveRatio="false">
+
+    <!-- Background Image -->
+    <ImageView fitHeight="600.0" fitWidth="727.0" pickOnBounds="true" preserveRatio="false">
         <image>
             <javafx.scene.image.Image url="@/img.jpg" />
         </image>
     </ImageView>
-    <Label fx:id="welcomeText" layoutX="20.0" layoutY="60.0" />
-    <TextField fx:id="login" layoutX="149.0" layoutY="200.0" prefHeight="47.0" prefWidth="367.0" />
-    <PasswordField fx:id="ps" layoutX="149.0" layoutY="306.0" prefHeight="47.0" prefWidth="367.0" />
-    <Button layoutX="252.0" layoutY="402.0" mnemonicParsing="false" onAction="#enter" prefHeight="47.0" prefWidth="148.0" styleClass="primary-button" text="SIGN IN" />
-    <Label layoutX="111.0" layoutY="164.0" prefHeight="18.0" prefWidth="90.0" styleClass="form-label" text="login" />
-    <Label layoutX="116.0" layoutY="273.0" styleClass="form-label" text="password" />
-    <Text layoutX="156.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header-text" text="Laboratory  System" wrappingWidth="437.52801513671875">
+
+    <!-- Header Label -->
+    <Text layoutX="140.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header-text" text="Laboratory System">
         <font>
-            <Font name="Bauhaus 93" size="39.0" />
+            <Font name="Bauhaus 93" size="60.0" />
         </font>
     </Text>
+
+    <!-- Login Label -->
+    <Label layoutX="164.0" layoutY="200.0" styleClass="form-label" text="Login" />
+
+    <!-- Login Field -->
+    <TextField fx:id="login" layoutX="164.0" layoutY="230.0" prefHeight="47.0" prefWidth="400.0" styleClass="form-field" />
+
+    <!-- Password Label -->
+    <Label layoutX="164.0" layoutY="300.0" styleClass="form-label" text="Password" />
+
+    <!-- Password Field -->
+    <PasswordField fx:id="ps" layoutX="164.0" layoutY="330.0" prefHeight="47.0" prefWidth="400.0" styleClass="form-field" />
+
+    <!-- Sign-In Button -->
+    <Button layoutX="289.0" layoutY="410.0" mnemonicParsing="false" onAction="#enter" prefHeight="47.0" prefWidth="150.0" styleClass="primary-button" text="SIGN IN" />
+
 </AnchorPane>

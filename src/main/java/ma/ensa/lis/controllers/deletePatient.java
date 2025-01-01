@@ -28,7 +28,7 @@ public class deletePatient {
     public void Return(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/admin-view.fxml"));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 754, 622);
+        Scene scene = new Scene(fxmlLoader.load(), 700, 600);
         String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/admin.css")).toExternalForm();
         scene.getStylesheets().add(css);
         stage.setTitle("LIS");

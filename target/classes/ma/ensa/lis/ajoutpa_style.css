@@ -1,6 +1,6 @@
 /* General Styles */
 .root {
-    -fx-background-image: url("/img.png");
+
     -fx-background-size: cover;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
@@ -30,6 +30,19 @@
     -fx-border-radius: 8px;
     -fx-padding: 8px;
     -fx-font-size: 16px;
+}
+/* Icon Button Styling */
+.icon-button {
+    -fx-background-color: transparent; /* No background */
+    -fx-border-color: transparent; /* No border */
+    -fx-padding: 0; /* No padding */
+    -fx-alignment: center; /* Center content (icon and text) */
+}
+
+.icon-button:hover {
+    -fx-background-color: transparent; /* Maintain transparency */
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 10, 0, 0, 5); /* Shadow on hover */
+    -fx-cursor: hand;
 }
 
 /* Primary Button */

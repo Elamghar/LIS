@@ -84,7 +84,7 @@ public class AdminController implements Initializable {
     public void logout(javafx.event.ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/login-view.fxml"));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 754, 622);
+        Scene scene = new Scene(fxmlLoader.load(), 700, 600);
         String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/STYLE.css")).toExternalForm();
         scene.getStylesheets().add(css);
         stage.setResizable(false);
@@ -96,8 +96,8 @@ public class AdminController implements Initializable {
     public void createPatient(javafx.event.ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/AjoutPatient-view.fxml"));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 600, 600);
-        String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/STYLE.css")).toExternalForm();
+        Scene scene = new Scene(fxmlLoader.load(), 620, 650);
+        String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/ajoutpa_style.css")).toExternalForm();
         scene.getStylesheets().add(css);
         stage.setTitle("LIS");
         stage.setScene(scene);

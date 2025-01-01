@@ -104,3 +104,10 @@ Le projet inclut des tests unitaires dans le répertoire `test`. Pour les exécu
 ```bash
 mvn test
 ```
+
+le diagramme use case simple représentatif:
+![Architecture Diagram](Images/use-case.png "diagramme use case")
+
+le diagramme séquence représentatif:
+![Architecture Diagram](Images/sequence.png "diagramme de séquence")
+
