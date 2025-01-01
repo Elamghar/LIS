@@ -11,7 +11,7 @@
    <children>
        <ImageView fitHeight="700.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="false">
            <image>
-               <javafx.scene.image.Image url="@/img.png" />
+               <javafx.scene.image.Image url="@/return.png" />
            </image>
        </ImageView>
       <AnchorPane layoutX="128.0" layoutY="-9.0" prefHeight="62.0" prefWidth="366.0">
