@@ -234,7 +234,7 @@ public class AjoutPatientController implements Initializable {
         String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/admin.css")).toExternalForm();
         scene.getStylesheets().add(css);
         stage.setResizable(false);
-        stage.setTitle("Admin Panel");
+        stage.setTitle("LIS");
         stage.setScene(scene);
         stage.show();
     }
@@ -246,7 +246,7 @@ public class AjoutPatientController implements Initializable {
         Scene scene = new Scene(fxmlLoader.load(), 1000, 700);
         String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/admin.css")).toExternalForm();
         scene.getStylesheets().add(css);
-        stage.setTitle("Barcode Generator");
+        stage.setTitle("LIS");
         stage.setScene(scene);
         stage.show();
     }

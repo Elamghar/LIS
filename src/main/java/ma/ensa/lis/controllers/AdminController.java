@@ -88,7 +88,7 @@ public class AdminController implements Initializable {
         String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/STYLE.css")).toExternalForm();
         scene.getStylesheets().add(css);
         stage.setResizable(false);
-        stage.setTitle("Hello!");
+        stage.setTitle("LIS");
         stage.setScene(scene);
         stage.show();
     }
@@ -99,7 +99,7 @@ public class AdminController implements Initializable {
         Scene scene = new Scene(fxmlLoader.load(), 600, 600);
         String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/STYLE.css")).toExternalForm();
         scene.getStylesheets().add(css);
-        stage.setTitle("Hello!");
+        stage.setTitle("LIS");
         stage.setScene(scene);
         stage.show();
     }
@@ -110,7 +110,7 @@ public class AdminController implements Initializable {
         Scene scene = new Scene(fxmlLoader.load(), 700, 600);
         String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/STYLE.css")).toExternalForm();
         scene.getStylesheets().add(css);
-        stage.setTitle("Hello!");
+        stage.setTitle("LIS");
         stage.setScene(scene);
         stage.show();
     }
@@ -121,7 +121,7 @@ public class AdminController implements Initializable {
         Scene scene = new Scene(fxmlLoader.load(), 754, 622);
         String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/STYLE.css")).toExternalForm();
         scene.getStylesheets().add(css);
-        stage.setTitle("Hello!");
+        stage.setTitle("LIS");
         stage.setScene(scene);
         stage.show();
     }
