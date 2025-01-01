@@ -106,8 +106,8 @@ mvn test
 ```
 
 le diagramme use case simple représentatif:
-![Architecture Diagram](images/use case.png "diagramme use case")
+![Architecture Diagram](/images/use case.png "diagramme use case")
 
 le diagramme séquence représentatif:
-![Architecture Diagram](images/use case.png "diagramme de séquence")
+![Architecture Diagram](/images/use case.png "diagramme de séquence")
 
