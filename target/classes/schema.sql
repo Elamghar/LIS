@@ -1,11 +1,11 @@
-# # SET FOREIGN_KEY_CHECKS = 0;
-# #
-# # DROP TABLE IF EXISTS Patient_Test;
-# # DROP TABLE IF EXISTS MedicalFile;
-# # DROP TABLE IF EXISTS Test;
-# # DROP TABLE IF EXISTS Patient;
-# #
-# # SET FOREIGN_KEY_CHECKS = 1;
+# SET FOREIGN_KEY_CHECKS = 0;
+#
+ DROP TABLE IF EXISTS Patient_Test;
+# DROP TABLE IF EXISTS MedicalFile;
+# DROP TABLE IF EXISTS Test;
+# DROP TABLE IF EXISTS Patient;
+#
+# SET FOREIGN_KEY_CHECKS = 1;
 # CREATE TABLE  Patient (
 #                           CIN VARCHAR(50) PRIMARY KEY,
 #                           firstName VARCHAR(100) NOT NULL,
@@ -31,12 +31,14 @@
 #                                     category VARCHAR(50),
 #                                     description TEXT
 # );
-#
-# CREATE TABLE IF NOT EXISTS Patient_Test (
-#                                             CIN VARCHAR(50) NOT NULL,
-#                                             testId INT NOT NULL,
-#                                             selected BOOLEAN DEFAULT FALSE,
-#                                             PRIMARY KEY (CIN, testId),
-#                                             FOREIGN KEY (CIN) REFERENCES Patient(CIN) ON DELETE CASCADE,
-#                                             FOREIGN KEY (testId) REFERENCES Test(testId) ON DELETE CASCADE
-# );
+
+CREATE TABLE IF NOT EXISTS Patient_Test (
+                                            CIN VARCHAR(50) NOT NULL,
+                                            testId INT NOT NULL,
+                                            dateTEST DATE NOT NULL,
+                                            testName VARCHAR(20) NOT NULL,
+                                            selected BOOLEAN DEFAULT FALSE,
+                                            PRIMARY KEY (CIN, testId),
+                                            FOREIGN KEY (CIN) REFERENCES Patient(CIN) ON DELETE CASCADE,
+                                            FOREIGN KEY (testId) REFERENCES Test(testId) ON DELETE CASCADE
+);

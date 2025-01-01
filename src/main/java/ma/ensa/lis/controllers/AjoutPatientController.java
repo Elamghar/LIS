@@ -221,7 +221,7 @@ public class AjoutPatientController implements Initializable {
         email.clear();
         adresse.clear();
         genderComboBox.setValue(null);
-
+        CIN.clear();
         // Clear test selections
         availableTests.forEach(test -> test.setSelected(false));
         testTableView.refresh();

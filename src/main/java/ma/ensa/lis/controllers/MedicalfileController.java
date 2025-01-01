@@ -60,6 +60,7 @@ public class MedicalfileController {
         stage.show();
     }
     String findCIN(String email) throws SQLException {
+        System.out.println("entered to findcin");
         DbConnection db=new DbConnection();
         Connection connection=db.getConn();
         String sql="SELECT * FROM patient WHERE email = ?";
@@ -78,19 +79,21 @@ public class MedicalfileController {
 
     @FXML
     public void seee(ActionEvent actionEvent) throws SQLException {
+        System.out.println("entered to seeDetails");
         String CIN=findCIN(email.getText());
         if(CIN!=null) {
             DbConnection db = new DbConnection();
             Connection connection = db.getConn();
-            String sql2 = "SELECT * FROM Test WHERE CIN=?";
+            String sql2 = "SELECT * FROM Patient_Test WHERE CIN=?";
             PreparedStatement stmt = connection.prepareStatement(sql2);
             stmt.setString(1, CIN);
             ResultSet rs = stmt.executeQuery();
+
             ObservableList<TestLab> ob = FXCollections.observableArrayList();
             while (rs.next()) {
                 String name = rs.getString("testName");
                 String cat = rs.getString("category");
-                String desc = rs.getString("desc");
+                String desc = rs.getString("description");
                 TestLab te = new TestLab(name, cat,desc);
                 ob.add(te);
                 table.setItems(ob);

@@ -6,6 +6,7 @@ import ma.ensa.lis.models.TestLab;
 import ma.ensa.lis.utils.DbConnection;
 
 import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,12 +34,14 @@ public class PatientDaoImp implements PatientDao {
             stmt.executeUpdate();
 
             // Associer les tests au patient
-            String testQuery = "INSERT INTO Patient_test (CIN, testid,selected) VALUES (?, ?,?)";
+            String testQuery = "INSERT INTO Patient_test (CIN, testid,dateTEST,testName,selected) VALUES (?,?,? ,?,?)";
             PreparedStatement testStmt = conn.prepareStatement(testQuery);
             for (TestLab test : tests) {
                 testStmt.setString(1, patient.getCIN());
                 testStmt.setString(2, test.getId());
-                testStmt.setBoolean(3,true);
+                testStmt.setTimestamp(3, java.sql.Timestamp.valueOf(LocalDateTime.now()));
+                testStmt.setString(4, test.getName());
+                testStmt.setBoolean(5,true);
                 testStmt.executeUpdate();
             }
             System.out.println("Patient added successfully !!");
