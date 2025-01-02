@@ -14,7 +14,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import ma.ensa.lis.Dao.Impl.PatientDaoImp;
 import ma.ensa.lis.models.Patient;
-import ma.ensa.lis.models.Patient_test;
 import ma.ensa.lis.models.TestLab;
 import ma.ensa.lis.utils.DbConnection;
 import ma.ensa.lis.utils.EmailSender;
@@ -30,19 +29,23 @@ import java.util.List;
 import java.util.Objects;
 public class MedicalfileController {
     @FXML
-    private TableView<Patient_test> table;
+    private TableView<TestLab> table;
     @FXML
-    private TableColumn<Patient_test,String> name;
-
+    private TableColumn<TestLab,String> name;
     @FXML
-    private TableColumn<Patient_test, Date> date;
-
+    private TableColumn<TestLab,String> diag;
+    @FXML
+    private TableColumn<TestLab, Date> date;
+    @FXML
+    private TableColumn<TestLab,String> result;
     @FXML
     private TextField email;
     @FXML
     public void initialize () {
-        name.setCellValueFactory(new PropertyValueFactory<>("testname"));
-        date.setCellValueFactory(new PropertyValueFactory<>("dateTest"));
+        name.setCellValueFactory(new PropertyValueFactory<>("name"));
+        diag.setCellValueFactory(new PropertyValueFactory<>("category"));
+        date.setCellValueFactory(new PropertyValueFactory<>("testDate"));
+        result.setCellValueFactory(new PropertyValueFactory<>("result"));
     }
 
     @FXML
@@ -57,7 +60,6 @@ public class MedicalfileController {
         stage.show();
     }
     String findCIN(String email) throws SQLException {
-        System.out.println("entered to findcin");
         DbConnection db=new DbConnection();
         Connection connection=db.getConn();
         String sql="SELECT * FROM patient WHERE email = ?";
@@ -76,28 +78,23 @@ public class MedicalfileController {
 
     @FXML
     public void seee(ActionEvent actionEvent) throws SQLException {
-        System.out.println("entered to seeDetails");
         String CIN=findCIN(email.getText());
-        System.out.println(CIN+"iwaa");
         if(CIN!=null) {
             DbConnection db = new DbConnection();
             Connection connection = db.getConn();
-            String sql2 = "SELECT * FROM patient_test WHERE CIN = ?";
+            String sql2 = "SELECT * FROM Test WHERE CIN=?";
             PreparedStatement stmt = connection.prepareStatement(sql2);
-            stmt.setString(1, CIN.trim());
+            stmt.setString(1, CIN);
             ResultSet rs = stmt.executeQuery();
-            System.out.println("dkhelt"+rs.next());
-            ObservableList<Patient_test> ob = FXCollections.observableArrayList();
+            ObservableList<TestLab> ob = FXCollections.observableArrayList();
             while (rs.next()) {
                 String name = rs.getString("testName");
-                System.out.println(name);
-                Date date = rs.getDate("dateTEST");
-                System.out.println(date);
-                Patient_test te = new Patient_test(name,date);
+                String cat = rs.getString("category");
+                String desc = rs.getString("desc");
+                TestLab te = new TestLab(name, cat,desc);
                 ob.add(te);
-
+                table.setItems(ob);
             }
-            table.setItems(ob);
         }
     }
 
@@ -149,7 +146,7 @@ public class MedicalfileController {
             list = new ArrayList<>();
             DbConnection db = new DbConnection();
             Connection connection = db.getConn();
-            String sql2 = "SELECT * FROM patient_test WHERE CIN=?";
+            String sql2 = "SELECT * FROM Test WHERE CIN=?";
             PreparedStatement stmt = connection.prepareStatement(sql2);
             stmt.setString(1, CIN);
             ResultSet rs = stmt.executeQuery();
@@ -158,8 +155,9 @@ public class MedicalfileController {
             createFile();
             while (rs.next()) {
                 String namee = rs.getString("testName");
-                String  date = rs.getString("datetest");
-                list.add(namee);list.add(date);
+                String diagg = rs.getString("category");
+                String resu = rs.getString("testResult");
+                list.add(namee);list.add(diagg);list.add(resu);
             }
         }
         else{
