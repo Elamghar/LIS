@@ -10,9 +10,4 @@ public interface MedicalFileDao {
     void deleteMed(int id);
     File generateFile();
     MedicalFile searchMed(int id);
-    void addAllergie();
-    void addNotes();
-    void archive();
-
-
 }

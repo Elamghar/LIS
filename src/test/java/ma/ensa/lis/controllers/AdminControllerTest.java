@@ -2,6 +2,7 @@ package ma.ensa.lis.controllers;
 
 import javafx.collections.ObservableList;
 import javafx.embed.swing.JFXPanel;
+import javafx.event.ActionEvent;
 import javafx.scene.control.TableView;
 import ma.ensa.lis.models.Patient;
 import ma.ensa.lis.utils.DbConnection;

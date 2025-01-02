@@ -26,7 +26,7 @@ import ma.ensa.lis.models.TestLab;
 import ma.ensa.lis.utils.DbConnection;
 import ma.ensa.lis.utils.EmailSender;
 import ma.ensa.lis.utils.PDFGenerator;
-
+import ma.ensa.lis.utils.useFullFunction;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -121,23 +121,7 @@ public class MedicalfileController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-    String findemail(String CIN) throws SQLException {
-        System.out.println("entered to findcin");
-        DbConnection db=new DbConnection();
-        Connection connection=db.getConn();
-        String sql="SELECT * FROM patient WHERE email = ?";
-        PreparedStatement stmt=connection.prepareStatement(sql);
-        stmt.setString(1, CIN);
-        ResultSet rs=stmt.executeQuery();
-        if (rs.next()) {
-            String email=rs.getString("email");
-            System.out.println(email);
-            return email;
-        } else {
-//            showAlert("user not found","there is no patient with this email");
-            return null;
-        }
-    }
+
 
     @FXML
     public void seee(ActionEvent actionEvent) throws SQLException {
@@ -151,7 +135,6 @@ public class MedicalfileController implements Initializable {
             PreparedStatement stmt = connection.prepareStatement(sql2);
             stmt.setString(1, CIN.trim());
             ResultSet rs = stmt.executeQuery();
-            testExist=true;
             System.out.println("dkhelt"+rs.next());
             ObservableList<Patient_test> ob = FXCollections.observableArrayList();
             while (rs.next()) {
@@ -164,6 +147,8 @@ public class MedicalfileController implements Initializable {
                 testExist=true;
             }
             table.setItems(ob);
+        }else{
+            useFullFunction.ShowAlert("user not found","there is no patient with this email");
         }
     }
 
@@ -253,7 +238,8 @@ public class MedicalfileController implements Initializable {
     public void sendPdf(ActionEvent actionEvent) throws SQLException {
           makePdf();
         EmailSender emailSender=new EmailSender();
-        emailSender.sendemail(findemail(CINN.getText()));
+        String email=new PatientDaoImp().findemail(CINN.getText());
+        emailSender.sendemail(email);
     }
 
 

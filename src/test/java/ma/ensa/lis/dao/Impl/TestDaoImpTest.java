@@ -1,99 +1,139 @@
-//package ma.ensa.lis.dao.Impl;
-//
-//import static javafx.beans.binding.Bindings.when;
-//import static javax.management.Query.times;
-//import static jdk.internal.org.objectweb.asm.util.CheckClassAdapter.verify;
-//import static org.mockito.Mockito.*;
-//import static org.junit.jupiter.api.Assertions.*;
-//
-//import javafx.beans.value.ObservableBooleanValue;
-//import ma.ensa.lis.Dao.Impl.TestDaoImp;
-//import ma.ensa.lis.models.TestLab;
-//import ma.ensa.lis.utils.DbConnection;
-//import org.junit.jupiter.api.BeforeEach;
-//import org.junit.jupiter.api.Test;
-//import java.sql.*;
-//import java.util.List;
-//
-//class TestDaoImpTest {
-//
-//    private DbConnection dbConnection;
-//    private TestDaoImp testDao;
-//    private Connection mockConnection;
-//
-//    @BeforeEach
-//    void setUp() {
-//        mockConnection = mock(Connection.class);
-//        dbConnection = mock(DbConnection.class);
-//        when((ObservableBooleanValue) dbConnection.getConn()).then(mockConnection);
-//        testDao = new TestDaoImp(dbConnection);
-//    }
-//
-//    @Test
-//    void testSave() throws SQLException {
-//        TestLab test = new TestLab("Test1", "Category1", "Description");
-//        String query = "INSERT INTO Test (id, name, category, testDate, expectedCompletionDate, status, result, price) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-//        PreparedStatement mockStatement = mock(PreparedStatement.class);
-//        when((ObservableBooleanValue) mockConnection.prepareStatement(query)).then(mockStatement);
-//
-//        testDao.save(test);
-//        verify(mockStatement, times(1)).executeUpdate();
-//    }
-//
-//    @Test
-//    void testFindById() throws SQLException {
-//        String testId = "123";
-//        String query = "SELECT * FROM Test WHERE id = ?";
-//        ResultSet mockResultSet = mock(ResultSet.class);
-//        PreparedStatement mockStatement = mock(PreparedStatement.class);
-//
-//        when(mockConnection.prepareStatement(query)).thenReturn(mockStatement);
-//        when(mockStatement.executeQuery()).thenReturn(mockResultSet);
-//        when(mockResultSet.next()).thenReturn(true);
-//        when(mockResultSet.getString("id")).thenReturn(testId);
-//
-//        TestLab test = testDao.findById(testId);
-//
-//        assertNotNull(test);
-//        assertEquals(testId, test.getId());
-//    }
-//
-//    @Test
-//    void testFindAll() throws SQLException {
-//        String query = "SELECT * FROM Test";
-//        ResultSet mockResultSet = mock(ResultSet.class);
-//        Statement mockStatement = mock(Statement.class);
-//
-//        when(mockConnection.createStatement()).thenReturn(mockStatement);
-//        when(mockStatement.executeQuery(query)).thenReturn(mockResultSet);
-//        when(mockResultSet.next()).thenReturn(true).thenReturn(false);  // Simulating one result
-//        when(mockResultSet.getString("id")).thenReturn("123");
-//
-//        List<TestLab> tests = testDao.findAll();
-//        assertNotNull(tests);
-//        assertEquals(1, tests.size());
-//    }
-//
-//    @Test
-//    void testUpdate() throws SQLException {
-//        TestLab test = new TestLab("Test1", "Category1", new Date(), "Description");
-//        String query = "UPDATE Test SET name = ?, category = ?, testDate = ?, expectedCompletionDate = ?, status = ?, result = ?, price = ? WHERE id = ?";
-//        PreparedStatement mockStatement = mock(PreparedStatement.class);
-//        when(mockConnection.prepareStatement(query)).thenReturn(mockStatement);
-//
-//        testDao.update(test);
-//        verify(mockStatement, times(1)).executeUpdate();
-//    }
-//
-//    @Test
-//    void testDelete() throws SQLException {
-//        String testId = "123";
-//        String query = "DELETE FROM Test WHERE id = ?";
-//        PreparedStatement mockStatement = mock(PreparedStatement.class);
-//        when(mockConnection.prepareStatement(query)).thenReturn(mockStatement);
-//
-//        testDao.delete(testId);
-//        verify(mockStatement, times(1)).executeUpdate();
-//    }
-//}
-//
+package ma.ensa.lis.dao.Impl;
+
+import ma.ensa.lis.Dao.Impl.TestDaoImp;
+import ma.ensa.lis.models.TestLab;
+import ma.ensa.lis.utils.DbConnection;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+
+import java.sql.*;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
+public class TestDaoImpTest {
+
+    private DbConnection dbConnectionMock;
+    private TestDaoImp testDao;
+    private Connection connectionMock;
+
+    @BeforeEach
+    public void setUp() throws SQLException {
+        // Créez des mocks pour la connexion et les déclarations SQL
+        dbConnectionMock = mock(DbConnection.class);
+        connectionMock = mock(Connection.class);
+
+        // Configurez le mock pour la méthode getConn() pour retourner une connexion simulée
+        when(dbConnectionMock.getConn()).thenReturn(connectionMock);
+
+        // Initialisez le DAO avec le mock
+        testDao = new TestDaoImp(dbConnectionMock);
+    }
+
+    @Test
+    public void testFindById() throws SQLException {
+        // Préparer un ResultSet simulé
+        ResultSet resultSetMock = mock(ResultSet.class);
+        when(resultSetMock.next()).thenReturn(true);
+        when(resultSetMock.getString("id")).thenReturn("8");
+        when(resultSetMock.getString("name")).thenReturn("Protéine C réactive");
+        when(resultSetMock.getString("category")).thenReturn("Immunologie");
+        when(resultSetMock.getString("description")).thenReturn("Dosage pour évaluer les niveaux de CRP dans le sang");
+
+        // Simuler la méthode executeQuery pour retourner le ResultSet simulé
+        PreparedStatement preparedStatementMock = mock(PreparedStatement.class);
+        when(preparedStatementMock.executeQuery()).thenReturn(resultSetMock);
+        when(connectionMock.prepareStatement(anyString())).thenReturn(preparedStatementMock);
+
+        // Appel à la méthode findById
+        TestLab test = testDao.findById("8");
+
+        // Vérification des résultats
+        assertNotNull(test);
+        assertEquals("8", test.getId());
+        assertEquals("Protéine C réactive", test.getName());
+        assertEquals("Immunologie", test.getCategory());
+        assertEquals("Dosage pour évaluer les niveaux de CRP dans le sang", test.getDescription());
+    }
+
+    @Test
+    public void testFindAll() throws SQLException {
+        // Préparer un ResultSet simulé
+        ResultSet resultSetMock = mock(ResultSet.class);
+        when(resultSetMock.next()).thenReturn(true).thenReturn(false);  // Une seule ligne
+        when(resultSetMock.getString("id")).thenReturn("8");
+        when(resultSetMock.getString("name")).thenReturn("Protéine C réactive");
+        when(resultSetMock.getString("category")).thenReturn("Immunologie");
+        when(resultSetMock.getString("description")).thenReturn("Dosage pour évaluer les niveaux de CRP dans le sang");
+
+        // Simuler la méthode executeQuery pour retourner le ResultSet simulé
+        PreparedStatement preparedStatementMock = mock(PreparedStatement.class);
+        when(preparedStatementMock.executeQuery()).thenReturn(resultSetMock);
+        when(connectionMock.prepareStatement(anyString())).thenReturn(preparedStatementMock);
+
+        // Appel à la méthode findAll
+        List<TestLab> tests = testDao.findAll();
+
+        // Vérification des résultats
+        assertNotNull(tests);
+        assertEquals(1, tests.size());
+        TestLab test = tests.getFirst();
+        assertEquals("8", test.getId());
+        assertEquals("Protéine C réactive", test.getName());
+        assertEquals("Immunologie", test.getCategory());
+        assertEquals("Dosage pour évaluer les niveaux de CRP dans le sang", test.getDescription());
+    }
+
+    @Test
+    public void testSave() throws SQLException {
+        TestLab testLab = new TestLab();
+        testLab.setId("8");
+        testLab.setName("Protéine C réactive");
+        testLab.setCategory("Immunologie");
+        testLab.setDescription("Dosage pour évaluer les niveaux de CRP dans le sang");
+
+        // Simuler la méthode executeUpdate pour l'insertion dans la base
+        PreparedStatement preparedStatementMock = mock(PreparedStatement.class);
+        when(connectionMock.prepareStatement(anyString())).thenReturn(preparedStatementMock);
+
+        // Appel à la méthode save
+        testDao.save(testLab);
+
+        // Vérifier que la méthode executeUpdate a été appelée
+        verify(preparedStatementMock, times(1)).executeUpdate();
+    }
+
+    @Test
+    public void testUpdate() throws SQLException {
+        TestLab testLab = new TestLab();
+        testLab.setId("8");
+        testLab.setName("Protéine C réactive");
+        testLab.setCategory("Immunologie");
+        testLab.setDescription("Mise à jour du dosage de CRP");
+
+        // Simuler la méthode executeUpdate pour la mise à jour dans la base
+        PreparedStatement preparedStatementMock = mock(PreparedStatement.class);
+        when(connectionMock.prepareStatement(anyString())).thenReturn(preparedStatementMock);
+
+        // Appel à la méthode update
+        testDao.update(testLab);
+
+        // Vérifier que la méthode executeUpdate a été appelée
+        verify(preparedStatementMock, times(1)).executeUpdate();
+    }
+
+    @Test
+    public void testDelete() throws SQLException {
+        // Simuler la méthode executeUpdate pour la suppression dans la base
+        PreparedStatement preparedStatementMock = mock(PreparedStatement.class);
+        when(connectionMock.prepareStatement(anyString())).thenReturn(preparedStatementMock);
+
+        // Appel à la méthode delete
+        testDao.delete("8");
+
+        // Vérifier que la méthode executeUpdate a été appelée
+        verify(preparedStatementMock, times(1)).executeUpdate();
+    }
+}
