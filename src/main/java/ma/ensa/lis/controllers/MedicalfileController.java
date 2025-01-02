@@ -38,7 +38,7 @@ public class MedicalfileController {
     private TableColumn<Patient_test, Date> date;
 
     @FXML
-    private TextField email;
+    private TextField CINN;
     @FXML
     public void initialize () {
         name.setCellValueFactory(new PropertyValueFactory<>("testname"));
@@ -56,20 +56,20 @@ public class MedicalfileController {
         stage.setScene(scene);
         stage.show();
     }
-    String findCIN(String email) throws SQLException {
+    String findemail(String CIN) throws SQLException {
         System.out.println("entered to findcin");
         DbConnection db=new DbConnection();
         Connection connection=db.getConn();
         String sql="SELECT * FROM patient WHERE email = ?";
         PreparedStatement stmt=connection.prepareStatement(sql);
-        stmt.setString(1, email);
+        stmt.setString(1, CIN);
         ResultSet rs=stmt.executeQuery();
         if (rs.next()) {
-            String cin=rs.getString("CIN");
-            System.out.println(cin);
-            return cin;
+            String email=rs.getString("email");
+            System.out.println(email);
+            return email;
         } else {
-            //showAlert("user not found","there is no patient with this email");
+//            showAlert("user not found","there is no patient with this email");
             return null;
         }
     }
@@ -77,7 +77,7 @@ public class MedicalfileController {
     @FXML
     public void seee(ActionEvent actionEvent) throws SQLException {
         System.out.println("entered to seeDetails");
-        String CIN=findCIN(email.getText());
+        String CIN=CINN.getText();
         System.out.println(CIN+"iwaa");
         if(CIN!=null) {
             DbConnection db = new DbConnection();
@@ -122,7 +122,7 @@ public class MedicalfileController {
         }
     }
     public void generateFile(ActionEvent actionEvent) throws SQLException, IOException {
-        String CIN=findCIN(email.getText());
+        String CIN=CINN.getText();
         if(CIN!=null) {
             DbConnection db = new DbConnection();
             Connection connection = db.getConn();
@@ -143,7 +143,7 @@ public class MedicalfileController {
         }
     }
     List<String> getdataForpdf() throws SQLException {
-        String CIN = findCIN(email.getText());
+        String CIN = CINN.getText();
         List<String> list = null;
         if (CIN != null) {
             list = new ArrayList<>();
@@ -171,7 +171,7 @@ public class MedicalfileController {
         String fileP="output.pdf";
         String cont="LABORATORY INFORMATION SYSTEM.";
         List<String> list=getdataForpdf();
-        Patient pa=(new PatientDaoImp()).searchByCIN(findCIN(email.getText()));
+        Patient pa=(new PatientDaoImp()).searchByCIN(CINN.getText());
         if(pa==null) {
             System.out.println("this patient is not in the data base");
             return;
@@ -187,7 +187,7 @@ public class MedicalfileController {
     public void sendPdf(ActionEvent actionEvent) throws SQLException {
           makePdf();
         EmailSender emailSender=new EmailSender();
-        emailSender.sendemail(email.getText());
+        emailSender.sendemail(findemail(CINN.getText()));
     }
 }
 
