@@ -27,7 +27,6 @@ import java.net.URL;
 import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 import static ma.ensa.lis.utils.useFullFunction.ShowAlert;
@@ -235,7 +234,7 @@ public class AjoutPatientController implements Initializable {
     public void returnn(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/admin-view.fxml"));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 754, 622);
+        Scene scene = new Scene(fxmlLoader.load(), 700, 600);
         String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/admin.css")).toExternalForm();
         scene.getStylesheets().add(css);
         stage.setResizable(false);
@@ -248,7 +247,7 @@ public class AjoutPatientController implements Initializable {
     public void accederbarcode(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/GenererBarcode.fxml"));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 1000, 700);
+        Scene scene = new Scene(fxmlLoader.load(), 700, 600);
         String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/admin.css")).toExternalForm();
         scene.getStylesheets().add(css);
         stage.setTitle("LIS");

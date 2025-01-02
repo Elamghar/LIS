@@ -4,6 +4,7 @@ import ma.ensa.lis.models.Patient;
 import ma.ensa.lis.models.TestLab;
 
 
+import java.sql.SQLException;
 import java.util.List;
 
 public interface PatientDao {
@@ -14,5 +15,6 @@ public interface PatientDao {
     List<Patient> searchByLastName(String lastName);
     List<Patient> searchByAge(int age);
     List<Patient> getAllPatients();
+    String findemail(String CIN) throws SQLException;
 
 }

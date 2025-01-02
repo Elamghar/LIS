@@ -1,8 +1,10 @@
 package ma.ensa.lis.controllers;
-import javafx.embed.swing.SwingFXUtils;
+
 import com.google.zxing.*;
-import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.common.HybridBinarizer;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,25 +15,15 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.stage.FileChooser;
-import com.google.zxing.BarcodeFormat;
-import com.google.zxing.EncodeHintType;
-import com.google.zxing.MultiFormatWriter;
-import com.google.zxing.common.BitMatrix;
 import javafx.scene.paint.Color;
-
-import com.google.zxing.BinaryBitmap;
-import com.google.zxing.MultiFormatReader;
-import com.google.zxing.Result;
-import com.google.zxing.common.HybridBinarizer;
-import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import ma.ensa.lis.utils.SerialCommunicator;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -83,7 +75,7 @@ public class GnenererLireBarcode {
         // Charger la première page (AjoutPatient-view.fxml)
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/GenererBarcode.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 754, 622);
+        Scene scene = new Scene(fxmlLoader.load(), 700, 600);
 
 
         // Afficher la première page
@@ -94,13 +86,11 @@ public class GnenererLireBarcode {
 
     @FXML
     private void handleLireCodeBarButtonClick(ActionEvent event) throws IOException {
-        // Charger la scène LireCodeBar
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/LirecodeBar.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 754, 622);
-
-
-        // Afficher la nouvelle scène
+        Scene scene = new Scene(fxmlLoader.load(), 700, 600);
+        String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/ajoutpa_style.css")).toExternalForm();
+        scene.getStylesheets().add(css);
         stage.setTitle("Lire Code Bar");
         stage.setScene(scene);
         stage.show();
@@ -202,7 +192,7 @@ public class GnenererLireBarcode {
 
     private void saveBarcodeToFile(Image barcodeImage) {
         // Répertoire de destination
-        String directoryPath = "C:/Users/21265/OneDrive/Documents/imagecodebar"; // zido hna chemin fin bghiito itstockaw les codes bares
+        String directoryPath = "BareCodes/imagecodebar"; // zido hna chemin fin bghiito itstockaw les codes bares
 
         File directory = new File(directoryPath);
         if (!directory.exists()) {
@@ -263,8 +253,8 @@ public class GnenererLireBarcode {
     public void returnn(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/AjoutPatient-view.fxml"));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 754, 622);
-        String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/admin.css")).toExternalForm();
+        Scene scene = new Scene(fxmlLoader.load(), 700, 600);
+        String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/ajoutpa_style.css")).toExternalForm();
         scene.getStylesheets().add(css);
         stage.setTitle("LIS");
         stage.setScene(scene);
@@ -275,11 +265,25 @@ public class GnenererLireBarcode {
         ClearFile();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/login-view.fxml"));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 754, 622);
+        Scene scene = new Scene(fxmlLoader.load(), 700, 600);
         String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/STYLE.css")).toExternalForm();
         scene.getStylesheets().add(css);
         stage.setTitle("LIS");
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void connectEsp(ActionEvent actionEvent) {
+        SerialCommunicator.listAvailablePorts();
+        SerialCommunicator communicator=new SerialCommunicator("COM3",115200);
+        if (communicator.start()){
+            communicator.sendMessage("Helloooooooooo!");
+            try {
+                Thread.sleep(30000);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+            communicator.stop();//w
+        }
     }
 }

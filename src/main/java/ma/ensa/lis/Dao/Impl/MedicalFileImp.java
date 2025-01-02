@@ -93,9 +93,6 @@ MedicalFileImp implements MedicalFileDao {
                     med.setAllergies(allergies);
                     med.setNotes(note);
                 }
-
-
-
                 med.setId(rs.getInt("id"));
                 med.setDateCrea(rs.getDate("date_crea"));
                 med.setDateModif(rs.getDate("date_modif"));
@@ -115,19 +112,5 @@ MedicalFileImp implements MedicalFileDao {
             throw new RuntimeException(e);
         }
         return null;
-    }
-
-    @Override
-    public void addAllergie() {
-
-    }
-
-    @Override
-    public void addNotes() {
-
-    }
-    @Override
-    public void archive() {
-
     }
 }
