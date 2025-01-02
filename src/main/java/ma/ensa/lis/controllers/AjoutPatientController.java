@@ -12,6 +12,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.stage.Stage;
+import lombok.Getter;
+import lombok.Setter;
 import ma.ensa.lis.Dao.Impl.PatientDaoImp;
 import ma.ensa.lis.Dao.Impl.TestDaoImp;
 import ma.ensa.lis.models.Patient;
@@ -29,6 +31,8 @@ import java.util.stream.Collectors;
 
 import static ma.ensa.lis.utils.useFullFunction.ShowAlert;
 
+@Getter
+@Setter
 public class AjoutPatientController implements Initializable {
     @FXML
     private TextField nom;
@@ -97,7 +101,7 @@ public class AjoutPatientController implements Initializable {
         });
     }
 
-    private void loadTestsFromDB() {
+    public void loadTestsFromDB() {
         try {
             TestDaoImp testDao = new TestDaoImp(new DbConnection());
             availableTests.clear();
@@ -129,7 +133,7 @@ public class AjoutPatientController implements Initializable {
         }
     }
 
-    private boolean validateFields(){
+    boolean validateFields(){
         if (nom.getText().isEmpty() || prenom.getText().isEmpty() || age.getText().isEmpty() ||
                 num.getText().isEmpty() || email.getText().isEmpty() || adresse.getText().isEmpty() ||
                 genderComboBox.getValue() == null) {
@@ -155,7 +159,7 @@ public class AjoutPatientController implements Initializable {
         writeSelectedTests(selectedTests);
     }
 
-    private void savePatient() {
+    public void savePatient() {
         PatientDaoImp patientDao = new PatientDaoImp();
         Patient newPatient = new Patient(
                 CIN.getText(),
@@ -172,7 +176,7 @@ public class AjoutPatientController implements Initializable {
         patientDao.save(newPatient, selectedTests);
     }
 
-    private void createFile(String fileName) {
+    public void createFile(String fileName) {
         try {
             File file = new File(fileName);
             if (file.createNewFile()) {

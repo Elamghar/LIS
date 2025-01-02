@@ -29,8 +29,7 @@ LIS-G [Lis]
 │   │   │       │   ├── deletePatient
 │   │   │       │   ├── GenererLireBarcode
 │   │   │       │   ├── loginController
-│   │   │       │   ├── MedicalfileController
-│   │   │       │   └── TestController
+│   │   │       │   └── MedicalfileController
 │   │   │       ├── dao
 │   │   │       │   ├── MedicalFileDao
 │   │   │       │   ├── PatientDao
@@ -50,7 +49,6 @@ LIS-G [Lis]
 │   │   │           ├── DbConnection
 │   │   │           ├── JsonUtils
 │   │   │           ├── PDFGenerator
-│   │   │           ├── QRCodeGenerator
 │   │   │           └── useFullFunction
 │   │   ├── resources
 │   │   │   ├── ma.ensa.lis
@@ -63,7 +61,6 @@ LIS-G [Lis]
 │   │   │   │   ├── login-view.fxml
 │   │   │   │   ├── medicalfile-view.fxml
 │   │   │   │   ├── STYLE.css
-│   │   │   │   ├── test-view.fxml
 │   │   │   │   └── img
 │   │   │   │       ├── img.png
 │   │   │   │       ├── logo.png
@@ -87,7 +84,7 @@ LIS-G [Lis]
 ## Installation
 1. Clonez le projet :
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/Elamghar/LIS.git
    ```
 2. Importez le projet dans votre IDE préféré (IntelliJ, Eclipse, etc.).
 3. Assurez-vous que Maven est installé et configuré correctement.
@@ -105,11 +102,9 @@ Le projet inclut des tests unitaires dans le répertoire `test`. Pour les exécu
 mvn test
 ```
 
-le diagramme use case simple représentatif:
+Diagramme Use Case simple représentatif:
 ![Architecture Diagram](Images/use-case.png "diagramme use case")
 
-le diagramme séquence représentatif:
-![Architecture Diagram](Images/sequence.png "diagramme de séquence")
-le diagramme entity-association:
-![Architecture Diagram](Images/entity-association.png "diagramme d'entité association")
+Diagramme de Séquence représentatif:
+![Architecture Diagram](Images/sequence.png "Diagramme de séquence")
 
