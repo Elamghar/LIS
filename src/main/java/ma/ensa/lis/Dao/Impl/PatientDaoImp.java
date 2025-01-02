@@ -197,5 +197,32 @@ public class PatientDaoImp implements PatientDao {
         }
         return patients;
     }
-}
+
+    @Override
+    public String findemail(String CIN) throws SQLException {
+            DbConnection db = new DbConnection();
+            Connection conn = db.getConn();
+            String query = "SELECT email FROM Patient WHERE CIN = ?";
+
+            try (PreparedStatement stmt = conn.prepareStatement(query)) {
+                stmt.setString(1, CIN);
+                ResultSet rs = stmt.executeQuery();
+
+                if (rs.next()) {
+                    return rs.getString("email");
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+                throw e;
+            } finally {
+                try {
+                    if (conn != null) conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            return null;
+        }
+    }
 
