@@ -43,7 +43,7 @@ public class PDFGenerator {
             document.add(styledParagraph);
             Paragraph nom=new Paragraph("hello "+name+" here is your test results ").setFontSize(11).setItalic().setTextAlignment(TextAlignment.LEFT);
             document.add(nom);
-            float tablecol[] = {1, 1, 1};
+            float tablecol[] = {1, 1};
             Table table = new Table(UnitValue.createPercentArray(tablecol)).useAllAvailableWidth();
             for(int i=0;i<list.size();i++){
                 table.addCell(new Cell().add(new Paragraph(list.get(i))));

@@ -27,7 +27,6 @@
                </font></Text>
             <Button layoutX="315.0" layoutY="280.0" mnemonicParsing="false" onAction="#deletePatient" text="delete" />
             <Button layoutX="631.0" layoutY="23.0" mnemonicParsing="false" onAction="#Return" text="return" />
-            <TextField fx:id="firstname" layoutX="74.0" layoutY="188.0" prefHeight="25.0" prefWidth="380.0" promptText="name.." />
          </children>
       </AnchorPane>
    </children>

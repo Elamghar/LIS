@@ -207,7 +207,7 @@ public class AjoutPatientController implements Initializable {
     private void writeSelectedTests(List<TestLab> selectedTests) throws IOException {
         try (FileWriter writer = new FileWriter("selectedTests.txt")) {
             for (TestLab test : selectedTests) {
-                writer.write(test.getId() + System.lineSeparator());
+                writer.write(test.getName() + ",");
             }
         }
     }
@@ -220,7 +220,7 @@ public class AjoutPatientController implements Initializable {
         email.clear();
         adresse.clear();
         genderComboBox.setValue(null);
-
+        CIN.clear();
         // Clear test selections
         availableTests.forEach(test -> test.setSelected(false));
         testTableView.refresh();
