@@ -4,7 +4,6 @@ import ma.ensa.lis.Dao.PatientDao;
 import ma.ensa.lis.models.Patient;
 import ma.ensa.lis.models.TestLab;
 import ma.ensa.lis.utils.DbConnection;
-import ma.ensa.lis.utils.useFullFunction;
 
 import java.sql.*;
 import java.time.LocalDateTime;
@@ -50,24 +49,7 @@ public class PatientDaoImp implements PatientDao {
             e.printStackTrace();
         }
     }
-    @Override
-    public String findemail(String CIN) throws SQLException {
-        System.out.println("entered to findcin");
-        DbConnection db=new DbConnection();
-        Connection connection=db.getConn();
-        String sql="SELECT * FROM patient WHERE email = ?";
-        PreparedStatement stmt=connection.prepareStatement(sql);
-        stmt.setString(1, CIN);
-        ResultSet rs=stmt.executeQuery();
-        if (rs.next()) {
-            String email=rs.getString("email");
-            System.out.println(email);
-            return email;
-        } else {
-            useFullFunction.ShowAlert("user not found","there is no patient with this email");
-            return null;
-        }
-    }
+
     @Override
     public void delete(Patient patient) {
         DbConnection db = new DbConnection();
@@ -215,5 +197,32 @@ public class PatientDaoImp implements PatientDao {
         }
         return patients;
     }
-}
+
+    @Override
+    public String findemail(String CIN) throws SQLException {
+            DbConnection db = new DbConnection();
+            Connection conn = db.getConn();
+            String query = "SELECT email FROM Patient WHERE CIN = ?";
+
+            try (PreparedStatement stmt = conn.prepareStatement(query)) {
+                stmt.setString(1, CIN);
+                ResultSet rs = stmt.executeQuery();
+
+                if (rs.next()) {
+                    return rs.getString("email");
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+                throw e;
+            } finally {
+                try {
+                    if (conn != null) conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            return null;
+        }
+    }
 

@@ -39,7 +39,4 @@ public class DbConnection {
             e.printStackTrace();
         }
     }
-    public static void main(String[] args) {
-        DbConnection dbc = new DbConnection();
-    }
 }

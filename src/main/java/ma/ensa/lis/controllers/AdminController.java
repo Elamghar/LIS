@@ -126,4 +126,9 @@ public class AdminController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+
+    public TableView<Patient> getTable() {
+        return table;
+    }
+
 }
