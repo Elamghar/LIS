@@ -5,14 +5,20 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import lombok.Getter;
+import lombok.Setter;
 import ma.ensa.lis.Dao.Impl.PatientDaoImp;
+import ma.ensa.lis.Dao.Impl.TestDaoImp;
 import ma.ensa.lis.models.Patient;
 import ma.ensa.lis.models.Patient_test;
 import ma.ensa.lis.models.TestLab;
@@ -23,13 +29,30 @@ import ma.ensa.lis.utils.useFullFunction;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.*;
 
-public class MedicalfileController {
+import static ma.ensa.lis.utils.useFullFunction.ShowAlert;
+
+@Getter
+@Setter
+public class MedicalfileController implements Initializable {
+    @FXML
+    private TableView<TestLab> testTableView;
+    @FXML
+    private TableColumn<TestLab, String> testIdCol;
+    @FXML
+    private TableColumn<TestLab, String> testNomCol;
+    @FXML
+    private TableColumn<TestLab, String> testCatCol;
+    @FXML
+    private TableColumn<TestLab, String> testDescCol;
+    @FXML
+    private TableColumn<TestLab, Boolean> testSelectCol;
     @FXML
     private TableView<Patient_test> table;
     @FXML
@@ -41,10 +64,42 @@ public class MedicalfileController {
     @FXML
     private TextField CINN;
     @FXML
-    public void initialize () {
+    private final ObservableList<TestLab> availableTests = FXCollections.observableArrayList();
+    boolean testExist=false;
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         name.setCellValueFactory(new PropertyValueFactory<>("testname"));
         date.setCellValueFactory(new PropertyValueFactory<>("dateTest"));
+        System.out.println("Initializing AjoutPatientController...");
+        // Configure the table columns
+        testIdCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getId()));
+        testNomCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getName()));
+        testCatCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCategory()));
+        testDescCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDescription()));
+
+        // Configure the checkbox column
+        testSelectCol.setCellValueFactory(cellData -> cellData.getValue().getSelectedProperty());
+        testSelectCol.setCellFactory(column -> new CheckBoxTableCell<>());
+
+        // Make the table editable
+        testTableView.setEditable(true);
+        // Enable multiple selection
+        testTableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        // Load data into the table
+        loadTestsFromDB();
+        testTableView.setItems(availableTests);
     }
+
+    @FXML
+    public void AddTests(ActionEvent actionEvent) throws IOException {
+        if(!testExist){
+            ShowAlert("Patient Not Found","The patient You are looking For Does not exist, Try to add it");
+        }
+        else{
+            //Save the changes to the patient test table
+        }
+    }
+
     @FXML
     public void returne(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/admin-view.fxml"));
@@ -70,7 +125,7 @@ public class MedicalfileController {
             PreparedStatement stmt = connection.prepareStatement(sql2);
             stmt.setString(1, CIN.trim());
             ResultSet rs = stmt.executeQuery();
-            System.out.println("dkhelt "+rs.next());
+            System.out.println("dkhelt"+rs.next());
             ObservableList<Patient_test> ob = FXCollections.observableArrayList();
             while (rs.next()) {
                 String name = rs.getString("testName");
@@ -79,7 +134,7 @@ public class MedicalfileController {
                 System.out.println(date);
                 Patient_test te = new Patient_test(name,date);
                 ob.add(te);
-
+                testExist=true;
             }
             table.setItems(ob);
         }else{
@@ -176,5 +231,22 @@ public class MedicalfileController {
         String email=new PatientDaoImp().findemail(CINN.getText());
         emailSender.sendemail(email);
     }
+
+
+    public void loadTestsFromDB() {
+        try {
+            TestDaoImp testDao = new TestDaoImp(new DbConnection());
+            availableTests.clear();
+            List<TestLab> tests = testDao.findAll();
+            // Initialize all tests as unselected
+            tests.forEach(test -> test.setSelected(false));
+            availableTests.addAll(tests);
+            System.out.println("Loaded " + tests.size() + " tests from database");
+        } catch (Exception e) {
+            System.err.println("Error loading tests: " + e.getMessage());
+            ShowAlert("Database Error", "Failed to load tests from database");
+        }
+    }
+
 }
 

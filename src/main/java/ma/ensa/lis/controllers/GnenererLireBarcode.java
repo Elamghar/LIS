@@ -86,13 +86,11 @@ public class GnenererLireBarcode {
 
     @FXML
     private void handleLireCodeBarButtonClick(ActionEvent event) throws IOException {
-        // Charger la scène LireCodeBar
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/LirecodeBar.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 700, 600);
-
-
-        // Afficher la nouvelle scène
+        String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/ajoutpa_style.css")).toExternalForm();
+        scene.getStylesheets().add(css);
         stage.setTitle("Lire Code Bar");
         stage.setScene(scene);
         stage.show();
