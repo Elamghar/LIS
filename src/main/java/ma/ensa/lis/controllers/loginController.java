@@ -46,7 +46,7 @@ public class loginController {
     }
 
 
-    private boolean authenticateUser(String username, String password) {
+    boolean authenticateUser(String username, String password) {
         return (Objects.equals(username, "admin") && Objects.equals(password, "admin"));
     }
     void navigateToAdminView(ActionEvent actionEvent) throws IOException {

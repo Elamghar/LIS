@@ -150,7 +150,7 @@ public class AjoutPatientController implements Initializable {
         return true;
     }
 
-    private void createPatientFiles() throws IOException {
+    void createPatientFiles() throws IOException {
         // Create and write to patient info file
         createFile("infosurpatient.txt");
         writePatientInfo();
@@ -190,7 +190,7 @@ public class AjoutPatientController implements Initializable {
         }
     }
 
-    private void writePatientInfo() throws IOException {
+    void writePatientInfo() throws IOException {
         List<TestLab> selectedTests = getSelectedTests();
         try (FileWriter writer = new FileWriter("infosurpatient.txt")) {
             String patientInfo = String.join(",",

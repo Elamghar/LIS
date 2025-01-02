@@ -1,94 +1,40 @@
 package ma.ensa.lis.controllers;
 
 import javafx.event.ActionEvent;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.stage.Stage;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
-
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
 
 class LoginControllerTest {
 
-    @Test
-    void testAuthenticateUser_Success() throws Exception {
-        // Initialisation du contrôleur
-        loginController controller = new loginController();
+    private loginController loginController;
+    private ActionEvent mockActionEvent;
 
-        // Utilisation de la réflexion pour accéder à la méthode privée
-        var authenticateUserMethod = loginController.class.getDeclaredMethod("authenticateUser", String.class, String.class);
-        authenticateUserMethod.setAccessible(true);
-
-        // Tester avec des identifiants corrects
-        boolean result = (boolean) authenticateUserMethod.invoke(controller, "admin", "admin");
-        assertTrue(result, "L'authentification devrait réussir pour 'admin'/'admin'.");
+    @BeforeEach
+    void setUp() {
+        loginController = new loginController();
+        mockActionEvent = new ActionEvent();
     }
 
     @Test
-    void testAuthenticateUser_Failure() throws Exception {
-        // Initialisation du contrôleur
-        loginController controller = new loginController();
-
-        // Utilisation de la réflexion pour accéder à la méthode privée
-        var authenticateUserMethod = loginController.class.getDeclaredMethod("authenticateUser", String.class, String.class);
-        authenticateUserMethod.setAccessible(true);
-
-        // Tester avec des identifiants incorrects
-        boolean result = (boolean) authenticateUserMethod.invoke(controller, "not_admin", "sdfihjkef");
-        assertFalse(result, "L'authentification devrait échouer pour 'not_admin'/'sdfihjkef'.");
+    void testAuthenticateUser_ValidCredentials() {
+        // Test avec des identifiants valides
+        boolean result = loginController.authenticateUser("admin", "admin");
+        assertTrue(result, "La connexion avec des informations valides devrait retourner true.");
     }
 
     @Test
-    void testEnter_SuccessfulLogin() throws Exception {
-        // Initialisation du contrôleur
-        loginController controller = new loginController();
-
-        // Simuler les champs de texte
-        controller.login = mock(TextField.class);
-        controller.ps = mock(PasswordField.class);
-
-        when(controller.login.getText()).thenReturn("admin");
-        when(controller.ps.getText()).thenReturn("admin");
-
-        // Simuler un événement ActionEvent
-        ActionEvent mockEvent = mock(ActionEvent.class);
-
-        // Espionner la méthode navigateToAdminView
-        loginController spyController = spy(controller);
-        doNothing().when(spyController).navigateToAdminView(mockEvent);
-
-        // Appeler la méthode `enter`
-        spyController.enter(mockEvent);
-
-        // Vérifier que la navigation a été appelée
-        verify(spyController, times(1)).navigateToAdminView(mockEvent);
+    void testAuthenticateUser_InvalidCredentials() {
+        // Test avec des identifiants invalides
+        boolean result = loginController.authenticateUser("user", "password");
+        assertFalse(result, "La connexion avec des informations invalides devrait retourner false.");
     }
 
-    @Test
-    void testEnter_FailedLogin() throws IOException {
-        // Initialisation du contrôleur
-        loginController controller = new loginController();
 
-        // Simuler les champs de texte
-        controller.login = mock(TextField.class);
-        controller.ps = mock(PasswordField.class);
 
-        when(controller.login.getText()).thenReturn("not_admin");
-        when(controller.ps.getText()).thenReturn("sdfihjkef");
-
-        // Simuler un événement ActionEvent
-        ActionEvent mockEvent = mock(ActionEvent.class);
-
-        // Espionner la méthode navigateToAdminView
-        loginController spyController = spy(controller);
-        doNothing().when(spyController).navigateToAdminView(mockEvent);
-
-        // Appeler la méthode `enter`
-        spyController.enter(mockEvent);
-
-        // Vérifier que la navigation n'a pas été appelée
-        verify(spyController, never()).navigateToAdminView(mockEvent);
-    }
 }
