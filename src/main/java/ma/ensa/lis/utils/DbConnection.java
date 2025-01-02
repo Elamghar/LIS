@@ -1,5 +1,7 @@
 package ma.ensa.lis.utils;
 
+import lombok.Setter;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;

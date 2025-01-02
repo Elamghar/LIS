@@ -36,6 +36,13 @@ public class TestLab {
         this.description = description;
     }
 
+    public TestLab(String id, String name, String category, String description) {
+        this.id = id;
+        this.name = name;
+        this.category = category;
+        this.description = description;
+    }
+
     public TestLab(String s, String name, String category, String description, Object o) {
     }
 
