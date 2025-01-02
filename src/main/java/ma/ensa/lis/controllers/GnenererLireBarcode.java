@@ -107,7 +107,16 @@ public class GnenererLireBarcode {
         stage.setScene(scene);
         stage.show();
     }
-
+    String[] Lirelistinfotest() throws IOException {//lire info stocker sur foichier et supprimer ces info de fichier
+        BufferedReader br = new BufferedReader(new FileReader("selectedTests.txt"));
+        String line;
+        String[] valeurs = new String[0];
+        while ((line = br.readLine()) != null) {
+            valeurs = line.split(",");
+            return valeurs;
+        }
+        return null;
+    }
     String[] Lirelistinfo() throws IOException {//lire info stocker sur foichier et supprimer ces info de fichier
         BufferedReader br = new BufferedReader(new FileReader("infosurpatient.txt"));
         String line;
@@ -124,17 +133,27 @@ public class GnenererLireBarcode {
             } catch (IOException e) {
                 System.err.println("An error occurred while clearing the file: " + e.getMessage());
             }
+        try (FileWriter fileWriter = new FileWriter("selectedTests.txt")) {
+            System.out.println("File contents cleared successfully.");
+        } catch (IOException e) {
+            System.err.println("An error occurred while clearing the file: " + e.getMessage());
+        }
     }
     @FXML
     void onGenerateBarcodeClick(ActionEvent event) throws IOException {
         String[] val=Lirelistinfo();
+        String[] tests=Lirelistinfotest();
         String nom = val[0];
         String prenom = val[1];
         String age = val[2];
         System.out.println(nom+"nomm de patient");
         System.out.println(prenom);
         System.out.println(age);
-        String test = idtest.getText().trim();
+        int size =tests.length;
+        String test = null;
+        for (int i=0;i<size;i++) test=test+" "+tests[i];
+        System.out.println(test);
+//   = idtest.getText().trim();
 
         if (nom.isEmpty() || prenom.isEmpty() || age.isEmpty() || test.isEmpty()) {
             idresultat.setText("Veuillez remplir tous les champs !");
