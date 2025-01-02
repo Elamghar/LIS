@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ma.ensa.lis.controllers.GnenererLireBarcode">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ma.ensa.lis.controllers.GnenererLireBarcode">
    <children>
       <AnchorPane layoutX="128.0" layoutY="-9.0" prefHeight="62.0" prefWidth="366.0">
          <children>
@@ -22,6 +22,7 @@
       <ImageView fx:id="idimagechoisir" fitHeight="139.0" fitWidth="217.0" layoutX="191.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true" />
       <Button fx:id="idchoisirimage" layoutX="315.0" layoutY="130.0" mnemonicParsing="false" text="choisir le code bar " />
       <Label fx:id="idresultat" layoutX="253.0" layoutY="410.0" prefHeight="87.0" prefWidth="280.0" text="resultat" textFill="#fffefe" />
-      <Button fx:id="idretour" layoutX="351.0" layoutY="548.0" mnemonicParsing="false" onAction="#handleRetourClick" text="retour" />
+      <Button fx:id="idretour" layoutX="116.0" layoutY="548.0" mnemonicParsing="false" onAction="#handleRetourClick" prefHeight="25.0" prefWidth="136.0" text="retour" />
+      <Button layoutX="527.0" layoutY="548.0" mnemonicParsing="false" onAction="#connectEsp" prefHeight="25.0" prefWidth="143.0" text="receive data " />
    </children>
 </AnchorPane>
