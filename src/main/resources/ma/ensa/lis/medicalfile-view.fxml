@@ -15,7 +15,7 @@
    <children>
       <!-- TableView des Tests -->
       <Label layoutX="16.0" layoutY="317.0" styleClass="label" text="Add new Tests:" />
-      <TableView fx:id="testTableView" layoutX="53.0" layoutY="342.0" prefHeight="178.0" prefWidth="475.0" styleClass="table-view">
+      <TableView fx:id="testTableView" layoutX="22.0" layoutY="342.0" prefHeight="178.0" prefWidth="475.0" styleClass="table-view">
          <columns>
             <TableColumn fx:id="testIdCol" prefWidth="85.99997138977051" text="ID" />
             <TableColumn fx:id="testNomCol" prefWidth="96.66667938232422" text="Name" />
@@ -36,7 +36,7 @@
             <Font name="Castellar" size="14.0" />
          </font>
       </Text>
-      <TableView fx:id="table" layoutX="59.0" layoutY="136.0" prefHeight="155.0" prefWidth="401.0">
+      <TableView fx:id="table" layoutX="36.0" layoutY="136.0" prefHeight="155.0" prefWidth="401.0">
          <columns>
             <TableColumn fx:id="name" prefWidth="168.00000762939453" text="name" />
             <TableColumn fx:id="date" prefWidth="228.66668701171875" text="test date" />
@@ -55,7 +55,7 @@
       </Button>      <Button layoutX="309.0" layoutY="68.0" mnemonicParsing="false" onAction="#seee" prefHeight="25.0" prefWidth="80.0" text="see details" />
       <TextField fx:id="CINN" layoutX="56.0" layoutY="68.0" prefHeight="26.0" prefWidth="235.0" promptText="CIN..." />
       <Text layoutX="36.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter CIN of the patient" />
-      <Button layoutX="99.0" layoutY="527.0" mnemonicParsing="false" onAction="#AddTests" text="Add tests" />
+      <Button layoutX="36.0" layoutY="528.0" mnemonicParsing="false" onAction="#AddTests" text="Add tests" />
 
    </children>
 </AnchorPane>

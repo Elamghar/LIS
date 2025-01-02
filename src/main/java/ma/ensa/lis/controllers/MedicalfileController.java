@@ -97,6 +97,15 @@ public class MedicalfileController implements Initializable {
             ShowAlert("Patient Not Found","The patient You are looking For Does not exist, Try to add it");
         }
         else{
+            ShowAlert("Added","patient added succefully");
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/GenererBarcode.fxml"));
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            Scene scene = new Scene(fxmlLoader.load(), 700, 600);
+            String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/admin.css")).toExternalForm();
+            scene.getStylesheets().add(css);
+            stage.setTitle("LIS");
+            stage.setScene(scene);
+            stage.show();
             //Save the changes to the patient test table
         }
     }

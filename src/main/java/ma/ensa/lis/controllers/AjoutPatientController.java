@@ -125,9 +125,9 @@ public class AjoutPatientController implements Initializable {
             savePatient();
             ShowAlert("Success", "Patient added successfully");
             clearForm();
-        } catch (NumberFormatException e) {
+        } catch(NumberFormatException e) {
             ShowAlert("Invalid Input", "Please enter a valid age");
-        } catch (Exception e) {
+        } catch(Exception e) {
             System.err.println("Error adding patient: " + e.getMessage());
             ShowAlert("Error", "Failed to add patient");
         }
