@@ -12,8 +12,6 @@ import java.util.List;
 @ToString(callSuper = true)
 
 public class Patient  {
-
-    private String id;
     private String CIN;
     private String firstName;
     private String lastName;
@@ -46,7 +44,7 @@ public class Patient  {
     }
 
     public Patient(String id, String firstName, String prenom, String gender) {
-        this.id = id;
+        this.CIN=id;
         this.firstName = firstName;
         this.lastName = prenom;
         this.gender = gender;

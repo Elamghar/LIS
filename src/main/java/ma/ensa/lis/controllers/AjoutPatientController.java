@@ -116,7 +116,7 @@ public class AjoutPatientController implements Initializable {
         }
     }
     @FXML
-    public void ajouter(ActionEvent actionEvent) {
+    public void ajouter(ActionEvent actionEvent) throws IOException {
         try {
             if (!validateFields()){
                 return;
@@ -125,6 +125,7 @@ public class AjoutPatientController implements Initializable {
             savePatient();
             ShowAlert("Success", "Patient added successfully");
             clearForm();
+        } catch(NumberFormatException e) {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/GenererBarcode.fxml"));
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             Scene scene = new Scene(fxmlLoader.load(), 700, 600);
@@ -133,9 +134,7 @@ public class AjoutPatientController implements Initializable {
             stage.setTitle("LIS");
             stage.setScene(scene);
             stage.show();
-        } catch (NumberFormatException e) {
-            ShowAlert("Invalid Input", "Please enter a valid age");
-        } catch (Exception e) {
+        } catch(Exception e) {
             System.err.println("Error adding patient: " + e.getMessage());
             ShowAlert("Error", "Failed to add patient");
         }

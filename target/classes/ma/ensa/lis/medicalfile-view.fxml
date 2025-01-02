@@ -31,15 +31,15 @@
             <Font name="Cooper Black" size="26.0" />
          </font>
       </Text>
-      <Text layoutX="39.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TESTS" wrappingWidth="53.010528564453125">
+      <Text layoutX="5.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="History" wrappingWidth="80.0">
          <font>
-            <Font name="Castellar" size="15.0" />
+            <Font name="Castellar" size="14.0" />
          </font>
       </Text>
-      <TableView fx:id="table" layoutX="59.0" layoutY="136.0" prefHeight="155.0" prefWidth="401.0">
+      <TableView fx:id="table" layoutX="36.0" layoutY="136.0" prefHeight="155.0" prefWidth="401.0">
          <columns>
-            <TableColumn fx:id="name" prefWidth="285.0" text="name" />
-            <TableColumn fx:id="date" prefWidth="314.0" text="test date" />
+            <TableColumn fx:id="name" prefWidth="168.00000762939453" text="name" />
+            <TableColumn fx:id="date" prefWidth="228.66668701171875" text="test date" />
          </columns>
       </TableView>
       <Button layoutX="495.0" layoutY="201.0" mnemonicParsing="false" onAction="#sendPdf" prefHeight="26.0" prefWidth="97.0" text="send pdf" />
