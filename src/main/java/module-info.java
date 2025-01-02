@@ -32,5 +32,6 @@ module ma.ensa.lis {
 
     exports ma.ensa.lis;
     exports ma.ensa.lis.controllers;
+    exports ma.ensa.lis.utils;
 
 }

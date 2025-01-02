@@ -1,13 +1,13 @@
 package ma.ensa.lis.utils;
 
+import com.itextpdf.io.image.ImageData;
+import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.Paragraph;
-import com.itextpdf.io.image.ImageData;
-import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.properties.HorizontalAlignment;
 import com.itextpdf.layout.properties.TextAlignment;
@@ -16,7 +16,6 @@ import lombok.Getter;
 
 import java.io.FileNotFoundException;
 import java.net.MalformedURLException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class PDFGenerator {
@@ -54,25 +53,6 @@ public class PDFGenerator {
         } catch (FileNotFoundException | MalformedURLException e) {
             e.printStackTrace();
         }
-    }
-    public static void main(String[] args) {
-        String fileP="output.pdf";
-        List<String> list=new ArrayList<>();
-        list.add("hhhhhh");
-        list.add("hhhhhh");
-        list.add("hhhhhh");
-        list.add("hhhhhh");
-        list.add("hhhhhh");
-        list.add("hhhhhh");
-        list.add("hhhhhh");
-        list.add("hhhhhh");
-        list.add("hhhhhh");
-        String cont="LABORATORY INFORMATION SYSTEM.";
-        PDFGenerator pdfGenerator=new PDFGenerator(fileP,cont,list,"zakaria");
-        if (pdfGenerator.getPdfDocument()!=null) {
-            System.out.println("PDF généré avec succès !");
-        } else {
-            System.out.println("Une erreur est survenue lors de la génération du PDF.");
-        }
+
     }
 }

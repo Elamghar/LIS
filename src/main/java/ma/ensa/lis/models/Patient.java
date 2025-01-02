@@ -44,7 +44,7 @@ public class Patient  {
     }
 
     public Patient(String id, String firstName, String prenom, String gender) {
-        this.id = id;
+        this.CIN=id;
         this.firstName = firstName;
         this.lastName = prenom;
         this.gender = gender;
