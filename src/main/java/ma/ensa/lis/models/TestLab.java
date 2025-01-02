@@ -58,33 +58,10 @@ public class TestLab {
         return Objects.hashCode(getId());
     }
 
-    public String toJson() {
-        Gson gson = new GsonBuilder()
-                .setPrettyPrinting()
-                .excludeFieldsWithoutExposeAnnotation()
-                .create();
-        return gson.toJson(this);
-    }
-
-    public boolean compareTest(TestLab otherTest) {
-        return this.equals(otherTest);
-    }
-
-    public void getTestDetails() {
-        System.out.println(this); // Using toString
-    }
-
-
-    public ObservableValue<String> nomProperty() {
-        return null;
-}
-
-    public ObservableValue<String> categorieProperty() {
-        return null;
-    }
     public void setSelected(boolean selected) {
         this.selected.set(selected);
     }
+
     public boolean isSelected() {
         return selected.get();
     }

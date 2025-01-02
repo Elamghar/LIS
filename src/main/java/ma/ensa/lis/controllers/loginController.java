@@ -18,9 +18,9 @@ import static ma.ensa.lis.utils.useFullFunction.ShowAlert;
 public class loginController {
 
     @FXML
-    private TextField login;
+    TextField login;
     @FXML
-    private PasswordField ps;
+    PasswordField ps;
     @FXML
     private Label welcomeText;
 
@@ -49,7 +49,7 @@ public class loginController {
     private boolean authenticateUser(String username, String password) {
         return (Objects.equals(username, "admin") && Objects.equals(password, "admin"));
     }
-    private void navigateToAdminView(ActionEvent actionEvent) throws IOException {
+    void navigateToAdminView(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/admin-view.fxml"));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
 
