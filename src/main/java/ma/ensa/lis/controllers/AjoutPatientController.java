@@ -125,6 +125,14 @@ public class AjoutPatientController implements Initializable {
             savePatient();
             ShowAlert("Success", "Patient added successfully");
             clearForm();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/GenererBarcode.fxml"));
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            Scene scene = new Scene(fxmlLoader.load(), 700, 600);
+            String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/admin.css")).toExternalForm();
+            scene.getStylesheets().add(css);
+            stage.setTitle("LIS");
+            stage.setScene(scene);
+            stage.show();
         } catch (NumberFormatException e) {
             ShowAlert("Invalid Input", "Please enter a valid age");
         } catch (Exception e) {

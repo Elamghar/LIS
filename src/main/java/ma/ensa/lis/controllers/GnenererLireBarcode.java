@@ -27,6 +27,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import static com.itextpdf.io.font.cmap.CMapContentParser.toHex;
+
 public class GnenererLireBarcode {
     @FXML
     private TextField idage;
@@ -144,7 +146,7 @@ public class GnenererLireBarcode {
 //   = idtest.getText().trim();
 
         if (nom.isEmpty() || prenom.isEmpty() || age.isEmpty() || test.isEmpty()) {
-            idresultat.setText("Veuillez remplir tous les champs !");
+//            idresultat.setText("Veuillez remplir tous les champs !");
             return; // Ne pas continuer si les champs sont vides
         }
 
@@ -156,23 +158,30 @@ public class GnenererLireBarcode {
 
             saveBarcodeToFile(barcodeImage);
 
-            idresultat.setText("Code-barres généré avec succès!");
+//            idresultat.setText("Code-barres généré avec succès!");
 
         } catch (Exception e) {
             e.printStackTrace();
-            idresultat.setText("Erreur de génération du code-barres");
+//            idresultat.setText("Erreur de génération du code-barres");
         }
     }
 
-
+    public static String toHex(String input) {
+        StringBuilder hexString = new StringBuilder();
+        for (char c : input.toCharArray()) {
+            hexString.append(String.format("%02X", (int) c));
+        }
+        return hexString.toString();
+    }
     private Image generateBarcode(String data) throws Exception {
         int width = 300;
-        int height = 150;
+        int height = 250;
         Map<EncodeHintType, Object> hints = new HashMap<>();
         hints.put(EncodeHintType.MARGIN, 0); // Pas de marge
 
         MultiFormatWriter writer = new MultiFormatWriter();
-        BitMatrix bitMatrix = writer.encode(data, BarcodeFormat.CODE_128, width, height, hints);
+        String hexData = toHex(data);
+        BitMatrix bitMatrix =writer.encode(hexData, BarcodeFormat.CODE_128, width, height, hints);
 
         Image image = createImageFromMatrix(bitMatrix);
         return image;
@@ -208,10 +217,10 @@ public class GnenererLireBarcode {
             java.awt.image.BufferedImage bufferedImage = javafx.embed.swing.SwingFXUtils.fromFXImage(writableImage, null);
 
             ImageIO.write(bufferedImage, "PNG", outputFile);
-            idresultat.setText("Code-barres enregistré sous : " + outputFile.getAbsolutePath());
+//            idresultat.setText("Code-barres enregistré sous : " + outputFile.getAbsolutePath());
         } catch (IOException e) {
             e.printStackTrace();
-            idresultat.setText("Erreur lors de l'enregistrement du fichier.");
+//            idresultat.setText("Erreur lors de l'enregistrement du fichier.");
         }
     }
 
