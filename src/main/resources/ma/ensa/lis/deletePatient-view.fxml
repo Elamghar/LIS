@@ -6,14 +6,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ma.ensa.lis.controllers.deletePatient">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ma.ensa.lis.controllers.deletePatient">
 <!--   <ImageView fitHeight="622.0" fitWidth="754.0" pickOnBounds="true" preserveRatio="false" layoutX="0.0" layoutY="0.0">-->
 <!--      <image>-->
 <!--         <javafx.scene.image.Image url="@/img.jpg" />-->
 <!--      </image>-->
 <!--   </ImageView>-->
    <children>
-      <AnchorPane layoutX="-14.0" layoutY="-14.0" prefHeight="400.0" prefWidth="733.0">
+      <AnchorPane layoutX="-15.0" prefHeight="400.0" prefWidth="667.0">
          <children>
             <Text layoutX="280.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Delete Patient">
                <font>
@@ -25,8 +25,8 @@
                <font>
                   <Font name="Broadway" size="12.0" />
                </font></Text>
-            <Button layoutX="315.0" layoutY="280.0" mnemonicParsing="false" onAction="#deletePatient" text="delete" />
-            <Button layoutX="631.0" layoutY="23.0" mnemonicParsing="false" onAction="#Return" text="return" />
+            <Button layoutX="114.0" layoutY="264.0" mnemonicParsing="false" onAction="#deletePatient" text="delete" />
+            <Button layoutX="25.0" layoutY="23.0" mnemonicParsing="false" onAction="#Return" text="return" />
          </children>
       </AnchorPane>
    </children>
