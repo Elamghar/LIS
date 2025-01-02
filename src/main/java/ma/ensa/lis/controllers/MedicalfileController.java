@@ -97,6 +97,15 @@ public class MedicalfileController implements Initializable {
             ShowAlert("Patient Not Found","The patient You are looking For Does not exist, Try to add it");
         }
         else{
+            ShowAlert("Added","patient added succefully");
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/GenererBarcode.fxml"));
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            Scene scene = new Scene(fxmlLoader.load(), 700, 600);
+            String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/admin.css")).toExternalForm();
+            scene.getStylesheets().add(css);
+            stage.setTitle("LIS");
+            stage.setScene(scene);
+            stage.show();
             //Save the changes to the patient test table
         }
     }
@@ -143,9 +152,9 @@ public class MedicalfileController implements Initializable {
         }
     }
 
-    private void writeInFile(String name,String nomTest,String category,Date date,String testresult) throws IOException {
+    private void writeInFile(String name,String nomTest,Date date) throws IOException {
         FileWriter f = new FileWriter("infosurpatient.txt");
-        String s = name +","+nomTest + "," + category + "," + date+","+testresult;
+        String s = name +","+nomTest + "," + date;
         f.write(s);
         f.close();
     }
@@ -168,7 +177,7 @@ public class MedicalfileController implements Initializable {
         if(CIN!=null) {
             DbConnection db = new DbConnection();
             Connection connection = db.getConn();
-            String sql2 = "SELECT * FROM Test WHERE CIN=?";
+            String sql2 = "SELECT * FROM patient_test WHERE CIN=?";
             PreparedStatement stmt = connection.prepareStatement(sql2);
             stmt.setString(1, CIN);
             ResultSet rs = stmt.executeQuery();
@@ -177,10 +186,8 @@ public class MedicalfileController implements Initializable {
             createFile();
             while (rs.next()) {
                 String namee = rs.getString("testName");
-                String diagg = rs.getString("category");
                 Date datee = rs.getDate("dateTest");
-                String resu = rs.getString("testResult");
-                writeInFile(patient.getFirstName(),namee,diagg,datee,resu);
+                writeInFile(patient.getFirstName(),namee,datee);
             }
         }
     }

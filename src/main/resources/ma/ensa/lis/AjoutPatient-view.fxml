@@ -14,10 +14,10 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="664.0" prefWidth="630.0" stylesheets="@ajoutpa_style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ma.ensa.lis.controllers.AjoutPatientController">
+<AnchorPane prefHeight="664.0" prefWidth="630.0" stylesheets="@ajoutpa_style.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ma.ensa.lis.controllers.AjoutPatientController">
    <children>
       <!-- Titre -->
-      <Text layoutX="135.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="AJOUTER UN PATIENT">
+      <Text layoutX="192.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="ADD A PATIENT">
          <font>
             <Font name="Calisto MT" size="30.0" />
          </font>
@@ -42,23 +42,23 @@
       <TextField fx:id="adresse" layoutX="346.0" layoutY="219.0" prefHeight="26.0" prefWidth="268.0" styleClass="text-field" />
 
       <!-- Labels -->
-      <Label layoutX="17.0" layoutY="46.0" styleClass="label" text="Nom" />
-      <Label layoutX="319.0" layoutY="46.0" styleClass="label" text="Prénom" />
-      <Label layoutX="19.0" layoutY="100.0" styleClass="label" text="Âge" />
-      <Label layoutX="324.0" layoutY="100.0" styleClass="label" text="Genre" />
+      <Label layoutX="17.0" layoutY="46.0" styleClass="label" text="Firstname" />
+      <Label layoutX="319.0" layoutY="46.0" styleClass="label" text="Lastname" />
+      <Label layoutX="19.0" layoutY="100.0" styleClass="label" text="Age" />
+      <Label layoutX="324.0" layoutY="100.0" styleClass="label" text="Gender" />
       <Label layoutX="16.0" layoutY="152.0" styleClass="label" text="Email" />
-      <Label layoutX="15.0" layoutY="202.0" styleClass="label" text="Numéro de téléphone" />
-      <Label layoutX="335.0" layoutY="202.0" styleClass="label" text="Adresse" />
+      <Label layoutX="15.0" layoutY="202.0" styleClass="label" text="Phone number" />
+      <Label layoutX="335.0" layoutY="202.0" styleClass="label" text="Adress" />
 
       <!-- TableView des Tests -->
-      <Label layoutX="13.0" layoutY="279.0" styleClass="label" text="Sélectionnez les Tests :" />
+      <Label layoutX="13.0" layoutY="279.0" styleClass="label" text="Select tests" />
       <TableView fx:id="testTableView" layoutX="10.0" layoutY="308.0" prefHeight="214.0" prefWidth="572.0" styleClass="table-view">
          <columns>
             <TableColumn fx:id="testIdCol" prefWidth="92.00000286102295" text="ID" />
-            <TableColumn fx:id="testNomCol" prefWidth="108.66667938232422" text="Nom" />
-            <TableColumn fx:id="testCatCol" prefWidth="120.0" text="Catégorie" />
+            <TableColumn fx:id="testNomCol" prefWidth="108.66667938232422" text="Test name" />
+            <TableColumn fx:id="testCatCol" prefWidth="120.0" text="Category" />
             <TableColumn fx:id="testDescCol" prefWidth="130.66668701171875" text="Description" />
-            <TableColumn fx:id="testSelectCol" prefWidth="129.33328247070312" text="Sélectionner" />
+            <TableColumn fx:id="testSelectCol" prefWidth="129.33328247070312" text="Select" />
          </columns>
       </TableView>
 
@@ -72,8 +72,8 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutX="87.0" layoutY="545.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="26.0" prefWidth="141.0" styleClass="button" text="Ajouter Patient" />
-      <Button layoutX="377.0" layoutY="545.0" mnemonicParsing="false" onAction="#accederbarcode" prefHeight="26.0" prefWidth="137.0" styleClass="button" text="Voir Barcode" />
+      <Button layoutX="87.0" layoutY="545.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="26.0" prefWidth="141.0" styleClass="button" text="Add Patient" />
+      <Button layoutX="377.0" layoutY="545.0" mnemonicParsing="false" onAction="#accederbarcode" prefHeight="26.0" prefWidth="137.0" styleClass="button" text="See Barcode" />
       <TextField fx:id="CIN" layoutX="348.0" layoutY="169.0" prefHeight="25.0" prefWidth="268.0" />
       <Label layoutX="330.0" layoutY="152.0" styleClass="label" text="CIN" />
    </children>

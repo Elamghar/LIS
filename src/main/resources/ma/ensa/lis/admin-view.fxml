@@ -11,16 +11,16 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="622.0" prefWidth="754.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ma.ensa.lis.controllers.AdminController">
+<AnchorPane prefHeight="622.0" prefWidth="754.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ma.ensa.lis.controllers.AdminController">
 
     <children>
         <Label layoutX="46.0" layoutY="258.0" prefHeight="18.0" prefWidth="446.0" />
         <PointLight color="CHARTREUSE" layoutX="569.0" layoutY="39.0" lightOn="true" />
-        <TableView fx:id="table" layoutX="45.0" layoutY="90.0" prefHeight="240.0" prefWidth="553.0">
+        <TableView fx:id="table" layoutX="77.0" layoutY="90.0" prefHeight="240.0" prefWidth="553.0">
             <columns>
-                <TableColumn fx:id="id" prefWidth="152.66665649414062" text="id" />
-                <TableColumn fx:id="name" prefWidth="131.33331298828125" text="nom" />
-                <TableColumn fx:id="prenom" prefWidth="128.0" text="prenom" />
+                <TableColumn fx:id="id" prefWidth="152.66665649414062" text="CIN" />
+                <TableColumn fx:id="name" prefWidth="131.33331298828125" text="Last Name" />
+                <TableColumn fx:id="prenom" prefWidth="128.0" text="First Name" />
             <TableColumn fx:id="gender" prefWidth="138.0" text="gender" />
             </columns>
         </TableView>
@@ -65,10 +65,10 @@
                 </ImageView>
             </graphic>
         </Button>
-      <Label layoutX="407.0" layoutY="422.0" text="Ajouter un Patient" />
-      <Label layoutX="195.0" layoutY="430.0" text="Suivie médicale" />
-      <Label layoutX="221.0" layoutY="559.0" text="Quité" />
-      <Label layoutX="400.0" layoutY="559.0" text="Supprimer un patirnt" />
+      <Label layoutX="407.0" layoutY="422.0" text="Add a patient" />
+      <Label layoutX="195.0" layoutY="430.0" text="Go to medical file" />
+      <Label layoutX="221.0" layoutY="559.0" text="Logout" />
+      <Label layoutX="400.0" layoutY="559.0" text="Delete a patient" />
 
 
 

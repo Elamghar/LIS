@@ -37,7 +37,7 @@ public class AdminController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // Associer les colonnes aux propriétés de l'objet Patient
-        id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        id.setCellValueFactory(new PropertyValueFactory<>("CIN"));
         name.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         prenom.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
@@ -64,7 +64,7 @@ public class AdminController implements Initializable {
 
         // Parcours des résultats et ajout à la liste observable
         while (rs.next()) {
-            String CIN = rs.getString("CIN"); // ID est maintenant une String
+            String CIN = rs.getString("CIN");
             String firstName = rs.getString("firstName");
             String lastName = rs.getString("lastName");
             String gender = rs.getString("gender");
@@ -120,7 +120,7 @@ public class AdminController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ma/ensa/lis/medicalfile-view.fxml"));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 620, 600);
-        String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/admin.css")).toExternalForm();
+        String css = Objects.requireNonNull(this.getClass().getResource("/ma/ensa/lis/ajoutpa_style.css")).toExternalForm();
         scene.getStylesheets().add(css);
         stage.setTitle("LIS");
         stage.setScene(scene);

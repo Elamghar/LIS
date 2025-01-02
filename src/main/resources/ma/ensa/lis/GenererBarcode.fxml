@@ -14,19 +14,19 @@
                 <javafx.scene.image.Image url="@/img.jpg" />
             </image>
         </ImageView>
-        <AnchorPane layoutX="208.0" layoutY="29.0" prefHeight="76.0" prefWidth="354.0" style="-fx-background-color: #1ba1bf;">
+        <AnchorPane layoutX="208.0" layoutY="29.0" prefHeight="76.0" prefWidth="310.0" style="-fx-background-color: #1ba1bf;">
          <children>
-                <Label layoutX="55.0" layoutY="14.0" prefHeight="48.0" prefWidth="319.0" style="-fx-background-color: #1ba1bf;" text="Generer un Code Bar" textFill="WHITE" wrapText="true">
+                <Label layoutX="55.0" layoutY="14.0" prefHeight="48.0" prefWidth="281.0" style="-fx-background-color: #1ba1bf;" text="   Generate Barcode" textFill="WHITE" wrapText="true">
                     <font>
                         <Font size="24.0" />
                     </font>
                 </Label>
          </children>
         </AnchorPane>
-        <Button fx:id="idgenerer" layoutX="286.0" layoutY="462.0" mnemonicParsing="false" onAction="#onGenerateBarcodeClick" prefHeight="26.0" prefWidth="198.0" style="-fx-background-color: #1353ea;" text="Generer Barcode" textFill="WHITE" />
+        <Button fx:id="idgenerer" layoutX="286.0" layoutY="462.0" mnemonicParsing="false" onAction="#onGenerateBarcodeClick" prefHeight="26.0" prefWidth="198.0" style="-fx-background-color: #1353ea;" text="Generate" textFill="WHITE" />
         <ImageView fx:id="idimagegenerer" fitHeight="254.0" fitWidth="310.0" layoutX="240.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #1353ea;" />
-        <Button layoutX="136.0" layoutY="545.0" mnemonicParsing="false" onAction="#returnn" style="-fx-background-color: #1353ea;" text="return" textFill="WHITE" />
-        <Button layoutX="359.0" layoutY="545.0" mnemonicParsing="false" onAction="#logout" style="-fx-background-color: #1353ea;" text="logout" textFill="WHITE" />
-        <Button layoutX="591.0" layoutY="545.0" mnemonicParsing="false" onAction="#handleLireCodeBarButtonClick" style="-fx-background-color: #1353ea;" text="lire Code Bar" textFill="WHITE" />
+        <Button layoutX="89.0" layoutY="545.0" mnemonicParsing="false" onAction="#returnn" prefHeight="25.0" prefWidth="128.0" style="-fx-background-color: #1353ea;" text="return" textFill="WHITE" />
+        <Button layoutX="335.0" layoutY="545.0" mnemonicParsing="false" onAction="#logout" prefHeight="25.0" prefWidth="115.0" style="-fx-background-color: #1353ea;" text="logout" textFill="WHITE" />
+        <Button layoutX="591.0" layoutY="545.0" mnemonicParsing="false" onAction="#handleLireCodeBarButtonClick" style="-fx-background-color: #1353ea;" text="Read info from Barcode" textFill="WHITE" />
     </children>
 </AnchorPane>
