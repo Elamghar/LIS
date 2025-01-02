@@ -152,9 +152,9 @@ public class MedicalfileController implements Initializable {
         }
     }
 
-    private void writeInFile(String name,String nomTest,String category,Date date,String testresult) throws IOException {
+    private void writeInFile(String name,String nomTest,Date date) throws IOException {
         FileWriter f = new FileWriter("infosurpatient.txt");
-        String s = name +","+nomTest + "," + category + "," + date+","+testresult;
+        String s = name +","+nomTest + "," + date;
         f.write(s);
         f.close();
     }
@@ -177,7 +177,7 @@ public class MedicalfileController implements Initializable {
         if(CIN!=null) {
             DbConnection db = new DbConnection();
             Connection connection = db.getConn();
-            String sql2 = "SELECT * FROM Test WHERE CIN=?";
+            String sql2 = "SELECT * FROM patient_test WHERE CIN=?";
             PreparedStatement stmt = connection.prepareStatement(sql2);
             stmt.setString(1, CIN);
             ResultSet rs = stmt.executeQuery();
@@ -186,10 +186,8 @@ public class MedicalfileController implements Initializable {
             createFile();
             while (rs.next()) {
                 String namee = rs.getString("testName");
-                String diagg = rs.getString("category");
                 Date datee = rs.getDate("dateTest");
-                String resu = rs.getString("testResult");
-                writeInFile(patient.getFirstName(),namee,diagg,datee,resu);
+                writeInFile(patient.getFirstName(),namee,datee);
             }
         }
     }

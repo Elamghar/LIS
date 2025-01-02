@@ -65,10 +65,10 @@
                 </ImageView>
             </graphic>
         </Button>
-      <Label layoutX="407.0" layoutY="422.0" text="add a patient" />
-      <Label layoutX="195.0" layoutY="430.0" text="go to medical" />
-      <Label layoutX="221.0" layoutY="559.0" text="logout" />
-      <Label layoutX="400.0" layoutY="559.0" text="delete a patient" />
+      <Label layoutX="407.0" layoutY="422.0" text="Add a patient" />
+      <Label layoutX="195.0" layoutY="430.0" text="Go to medical file" />
+      <Label layoutX="221.0" layoutY="559.0" text="Logout" />
+      <Label layoutX="400.0" layoutY="559.0" text="Delete a patient" />
 
 
 
