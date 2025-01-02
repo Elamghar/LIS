@@ -212,7 +212,7 @@ public class AjoutPatientController implements Initializable {
     private void writeSelectedTests(List<TestLab> selectedTests) throws IOException {
         try (FileWriter writer = new FileWriter("selectedTests.txt")) {
             for (TestLab test : selectedTests) {
-                writer.write(test.getId() + System.lineSeparator());
+                writer.write(test.getName() + ",");
             }
         }
     }

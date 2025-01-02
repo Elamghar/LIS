@@ -33,19 +33,16 @@ public class MedicalfileController {
     private TableView<Patient_test> table;
     @FXML
     private TableColumn<Patient_test,String> name;
-    @FXML
-    private TableColumn<Patient_test,String> diag;
+
     @FXML
     private TableColumn<Patient_test, Date> date;
-    @FXML
-    private TableColumn<Patient_test,String> result;
+
     @FXML
     private TextField email;
     @FXML
     public void initialize () {
         name.setCellValueFactory(new PropertyValueFactory<>("testname"));
         date.setCellValueFactory(new PropertyValueFactory<>("dateTest"));
-        diag.setCellValueFactory(new PropertyValueFactory<>("CIN"));
     }
 
     @FXML
@@ -94,11 +91,9 @@ public class MedicalfileController {
             while (rs.next()) {
                 String name = rs.getString("testName");
                 System.out.println(name);
-                String cin = rs.getString("CIN");
-                System.out.println(cin);
                 Date date = rs.getDate("dateTEST");
                 System.out.println(date);
-                Patient_test te = new Patient_test(name,cin,date);
+                Patient_test te = new Patient_test(name,date);
                 ob.add(te);
 
             }
@@ -154,7 +149,7 @@ public class MedicalfileController {
             list = new ArrayList<>();
             DbConnection db = new DbConnection();
             Connection connection = db.getConn();
-            String sql2 = "SELECT * FROM Test WHERE CIN=?";
+            String sql2 = "SELECT * FROM patient_test WHERE CIN=?";
             PreparedStatement stmt = connection.prepareStatement(sql2);
             stmt.setString(1, CIN);
             ResultSet rs = stmt.executeQuery();
@@ -163,9 +158,8 @@ public class MedicalfileController {
             createFile();
             while (rs.next()) {
                 String namee = rs.getString("testName");
-                String diagg = rs.getString("category");
-                String resu = rs.getString("testResult");
-                list.add(namee);list.add(diagg);list.add(resu);
+                String  date = rs.getString("datetest");
+                list.add(namee);list.add(date);
             }
         }
         else{

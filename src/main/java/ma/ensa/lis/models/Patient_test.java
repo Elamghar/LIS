@@ -14,9 +14,8 @@ public class Patient_test {
     private Date dateTest;
     private String testname;
 
-    public Patient_test(String name, String cin, Date date) {
+    public Patient_test(String name, Date date) {
         this.testname=name;
-        this.CIN=cin;
         this.dateTest=date;
     }
     public String  getTestname(){

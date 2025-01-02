@@ -27,9 +27,8 @@
       </Text>
       <TableView fx:id="table" layoutX="52.0" layoutY="216.0" prefHeight="190.0" prefWidth="600.0">
          <columns>
-            <TableColumn fx:id="name" prefWidth="183.0" text="name" />
-            <TableColumn fx:id="diag" prefWidth="208.0" text="diagnostic" />
-            <TableColumn fx:id="date" prefWidth="208.0" text="test date" />
+            <TableColumn fx:id="name" prefWidth="285.0" text="name" />
+            <TableColumn fx:id="date" prefWidth="314.0" text="test date" />
          </columns>
       </TableView>
       <Button layoutX="100.0" layoutY="556.0" mnemonicParsing="false" onAction="#sendPdf" prefHeight="26.0" prefWidth="106.0" text="send pdf" />
