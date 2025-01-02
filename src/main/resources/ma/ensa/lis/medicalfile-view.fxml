@@ -1,61 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="622.0" prefWidth="754.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ma.ensa.lis.controllers.MedicalfileController">
+<AnchorPane prefHeight="622.0" prefWidth="754.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ma.ensa.lis.controllers.MedicalfileController">
+<!--   <ImageView fitHeight="700.0" fitWidth="800.0" preserveRatio="false" pickOnBounds="true">-->
+<!--      <image>-->
+<!--         <javafx.scene.image.Image url="@/img.jpg" />-->
+<!--      </image>-->
+<!--   </ImageView>-->
    <children>
-      <!-- TableView des Tests -->
-      <Label layoutX="16.0" layoutY="317.0" styleClass="label" text="Add new Tests:" />
-      <TableView fx:id="testTableView" layoutX="53.0" layoutY="342.0" prefHeight="178.0" prefWidth="475.0" styleClass="table-view">
-         <columns>
-            <TableColumn fx:id="testIdCol" prefWidth="85.99997138977051" text="ID" />
-            <TableColumn fx:id="testNomCol" prefWidth="96.66667938232422" text="Name" />
-            <TableColumn fx:id="testCatCol" prefWidth="104.66670227050781" text="Category" />
-            <TableColumn fx:id="testDescCol" prefWidth="106.6666259765625" text="Description" />
-            <TableColumn fx:id="testSelectCol" prefWidth="77.3333740234375" text="Selected" />
-         </columns>
-      </TableView>
-
-
-      <Text layoutX="260.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MEDICALE FILE" wrappingWidth="234.60040283203125">
+      <Text layoutX="258.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MEDICALE FILE" wrappingWidth="234.60040283203125">
          <font>
             <Font name="Cooper Black" size="26.0" />
          </font>
       </Text>
-      <Text layoutX="5.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="History" wrappingWidth="80.0">
+      <Text layoutX="39.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TESTS" wrappingWidth="53.010528564453125">
          <font>
-            <Font name="Castellar" size="14.0" />
+            <Font name="Castellar" size="15.0" />
          </font>
       </Text>
-      <TableView fx:id="table" layoutX="59.0" layoutY="136.0" prefHeight="155.0" prefWidth="401.0">
+      <TableView fx:id="table" layoutX="66.0" layoutY="216.0" prefHeight="190.0" prefWidth="534.0">
          <columns>
-            <TableColumn fx:id="name" prefWidth="168.00000762939453" text="name" />
-            <TableColumn fx:id="date" prefWidth="228.66668701171875" text="test date" />
+            <TableColumn fx:id="name" prefWidth="285.0" text="name" />
+            <TableColumn fx:id="date" prefWidth="314.0" text="test date" />
          </columns>
       </TableView>
-      <Button layoutX="495.0" layoutY="201.0" mnemonicParsing="false" onAction="#sendPdf" prefHeight="26.0" prefWidth="97.0" text="send pdf" />
-      <Button layoutX="495.0" layoutY="141.0" mnemonicParsing="false" onAction="#generateFile" prefHeight="26.0" prefWidth="97.0" text="generate file" />
-      <Button layoutX="5.0" layoutY="5.0" mnemonicParsing="false" onAction="#returne" prefHeight="27.0" prefWidth="20.0" styleClass=".icon-button">
-         <graphic>
-            <ImageView fitHeight="16.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@/return.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>      <Button layoutX="309.0" layoutY="68.0" mnemonicParsing="false" onAction="#seee" prefHeight="25.0" prefWidth="80.0" text="see details" />
-      <TextField fx:id="CINN" layoutX="56.0" layoutY="68.0" prefHeight="26.0" prefWidth="235.0" promptText="CIN..." />
-      <Text layoutX="36.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter CIN of the patient" />
-      <Button layoutX="99.0" layoutY="527.0" mnemonicParsing="false" onAction="#AddTests" text="Add tests" />
+      <Button layoutX="100.0" layoutY="556.0" mnemonicParsing="false" onAction="#sendPdf" prefHeight="30.0" prefWidth="106.0" text="send pdf" />
+      <Button layoutX="313.0" layoutY="556.0" mnemonicParsing="false" onAction="#generateFile" prefHeight="30.0" prefWidth="97.0" text="generate file" />
+      <Button layoutX="640.0" layoutY="29.0" mnemonicParsing="false" onAction="#returne" text="return" />
+      <Button layoutX="542.0" layoutY="554.0" mnemonicParsing="false" onAction="#seee" prefHeight="30.0" prefWidth="98.0" text="see details" />
+      <TextField fx:id="CINN" layoutX="39.0" layoutY="107.0" prefHeight="26.0" prefWidth="235.0" promptText="CIN..." />
+      <Text layoutX="41.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter CIN of the patient" />
 
    </children>
 </AnchorPane>
