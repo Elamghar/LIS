@@ -110,4 +110,6 @@ le diagramme use case simple représentatif:
 
 le diagramme séquence représentatif:
 ![Architecture Diagram](Images/sequence.png "diagramme de séquence")
+le diagramme entity-association:
+![Architecture Diagram](Images/entity-association.png "diagramme d'entité association")
 
