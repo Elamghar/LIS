@@ -1,7 +1,5 @@
 package ma.ensa.lis.utils;
 
-import lombok.Setter;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -40,8 +38,5 @@ public class DbConnection {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
-    public static void main(String[] args) {
-        DbConnection dbc = new DbConnection();
     }
 }
