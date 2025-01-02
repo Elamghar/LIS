@@ -22,7 +22,7 @@ public class deletePatient {
     @FXML
     public void deletePatient(ActionEvent actionEvent) {
         PatientDaoImp pa=new PatientDaoImp();
-        pa.delete(new Patient(firstname.getText(),CIN.getText()));
+        pa.delete(new Patient(CIN.getText(),2));
     }
 
     public void Return(ActionEvent actionEvent) throws IOException {

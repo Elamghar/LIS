@@ -36,8 +36,6 @@ import java.util.Map;
 import java.util.Objects;
 
 public class GnenererLireBarcode {
-
-
     @FXML
     private TextField idage;
 

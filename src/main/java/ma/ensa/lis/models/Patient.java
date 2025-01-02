@@ -56,9 +56,9 @@ public class Patient  {
         String[] tokens = email.split(" ");
     }
 
-    public Patient(String name,String text) {
-        this.firstName=name;
-        this.CIN=text;
+    public Patient(String CIN,int t) {
+        this.CIN=CIN;
+
     }
 }
 
