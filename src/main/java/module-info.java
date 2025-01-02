@@ -25,6 +25,7 @@ module ma.ensa.lis {
     requires io;
     requires java.mail;
     requires activation;
+    requires com.fazecast.jSerialComm;
     opens ma.ensa.lis.controllers to javafx.fxml;
     opens ma.ensa.lis to javafx.fxml;
     opens ma.ensa.lis.models to javafx.base;

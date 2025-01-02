@@ -18,6 +18,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import ma.ensa.lis.utils.SerialCommunicator;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -272,5 +273,19 @@ public class GnenererLireBarcode {
         stage.setTitle("LIS");
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void connectEsp(ActionEvent actionEvent) {
+        SerialCommunicator.listAvailablePorts();
+        SerialCommunicator communicator=new SerialCommunicator("COM3",115200);
+        if (communicator.start()){
+            communicator.sendMessage("Helloooooooooo!");
+            try {
+                Thread.sleep(30000);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+            communicator.stop();//w
+        }
     }
 }

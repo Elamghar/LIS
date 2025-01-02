@@ -37,7 +37,7 @@
       <Button layoutX="662.0" layoutY="28.0" mnemonicParsing="false" onAction="#returne" text="return" />
       <Button layoutX="542.0" layoutY="554.0" mnemonicParsing="false" onAction="#seee" prefHeight="30.0" prefWidth="98.0" text="see details" />
       <TextField fx:id="email" layoutX="39.0" layoutY="107.0" prefHeight="26.0" prefWidth="235.0" promptText="email..." />
-      <Text layoutX="41.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter email of the patient" />
+      <Text layoutX="41.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter CIN of the patient" />
 
    </children>
 </AnchorPane>
